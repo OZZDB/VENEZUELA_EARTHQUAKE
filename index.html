@@ -9,24 +9,9 @@
   <meta name="apple-mobile-web-app-title" content="Ayuda VE" />
   <meta name="description" content="Plataforma de emergencias para Venezuela. Reporta personas desaparecidas y daños estructurales." />
   <meta name="mobile-web-app-capable" content="yes" />
-
-  <!-- Security Config — NEVER hardcode secrets in JS. Set via meta tags or build env. -->
-  <meta name="api-url" content="/v1/reports" />
-  <meta name="emergency-token" content="" />
-
-  <!-- Content Security Policy — Restrict sources to prevent XSS -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: blob: https:;
-    font-src 'self' data:;
-    connect-src 'self' https://api.ayudavenezuela.org https://www.openstreetmap.org https://tile.openstreetmap.org;
-    frame-src https://www.openstreetmap.org;
-    form-action 'self';
-    base-uri 'self';
-    object-src 'none';
-  ">
+  <!-- Token de autenticación — reemplazar con valor real en Netlify env vars -->
+  <!-- En producción: generado en build via Netlify env, nunca hardcodeado -->
+  <meta name="emergency-token" content="REEMPLAZAR_CON_TOKEN_REAL" />
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
@@ -381,6 +366,7 @@
     }
 
     .status-pending  { background: rgba(244,162,97,0.15); color: var(--amber); }
+    .status-error    { background: rgba(230,57,70,0.12);  color: var(--red); }
     .status-sent     { background: rgba(45,198,83,0.12);  color: var(--green); }
 
     /* ============================================================
@@ -960,9 +946,8 @@
       <!-- Cédula + Edad -->
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label">Cédula / Pasaporte <span class="required">*</span></label>
-          <input class="field-input" type="text" id="p_cedula" placeholder="V-12345678 o P123456789" inputmode="text" maxlength="12" autocomplete="off" />
-          <div class="field-hint">Cédula: máximo 8 dígitos. Pasaporte: máximo 9 dígitos.</div>
+          <label class="field-label">Cédula <span class="required">*</span></label>
+          <input class="field-input" type="text" id="p_cedula" placeholder="V-12345678" inputmode="numeric" />
         </div>
         <div class="field-group">
           <label class="field-label">Edad</label>
@@ -987,7 +972,7 @@
       <div class="field-group">
         <label class="field-label">Coordenadas GPS</label>
         <div class="gps-field">
-          <input class="field-input" type="text" id="p_gps" placeholder="Lat, Lng" readonly inputmode="decimal" />
+          <input class="field-input" type="text" id="p_gps" placeholder="Lat, Lng" readonly />
           <button class="gps-btn" onclick="App.getGPS('p_gps')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
             GPS
@@ -1035,8 +1020,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
         Enviar Reporte
       </button>
-      <button class="submit-btn" style="background:var(--amber);color:#000;margin-top:8px;" onclick="App.openSmsFallback('person', App.collectPersonForm ? App.collectPersonForm() : {})">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <button onclick="App.sendBySMS('person')" style="width:100%;margin-top:8px;padding:10px;background:none;border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;touch-action:manipulation;">
         Enviar por SMS (Offline)
       </button>
     </div>
@@ -1092,7 +1076,7 @@
       <div class="field-group">
         <label class="field-label">Coordenadas GPS</label>
         <div class="gps-field">
-          <input class="field-input" type="text" id="d_gps" placeholder="Lat, Lng" readonly inputmode="decimal" />
+          <input class="field-input" type="text" id="d_gps" placeholder="Lat, Lng" readonly />
           <button class="gps-btn" onclick="App.getGPS('d_gps')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
             GPS
@@ -1159,8 +1143,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
         Enviar Reporte de Daño
       </button>
-      <button class="submit-btn" style="background:var(--amber);color:#000;margin-top:8px;" onclick="App.openSmsFallback('damage', App.collectDamageForm ? App.collectDamageForm() : {})">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <button onclick="App.sendBySMS('damage')" style="width:100%;margin-top:8px;padding:10px;background:none;border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;touch-action:manipulation;">
         Enviar por SMS (Offline)
       </button>
     </div>
