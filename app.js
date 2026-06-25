@@ -320,6 +320,9 @@ const App = (() => {
 
   // In-memory photo storage per form
   const _photos = { person: [], damage: [] };
+  let _gpsCache = null;
+  let _submitting = false;
+  let _mapLoaded = false;
 
   // ── Navigation ──────────────────────────────────────────────
   function navigate(screenId) {
@@ -333,13 +336,33 @@ const App = (() => {
 
   function setNav(btn) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    btn.classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function openScreen(screenId, navId) {
+    navigate(screenId);
+    if (navId) setNav(document.getElementById(navId));
+
+    if (screenId === 'screenMyReports') requestAnimationFrame(() => renderMyReports());
+    if (screenId === 'screenMap') requestAnimationFrame(() => renderIncidentMap());
+    if (screenId === 'screenPerson') requestAnimationFrame(() => focusFirstEmpty(['p_name', 'p_cedula', 'p_location']));
+    if (screenId === 'screenDamage') requestAnimationFrame(() => focusFirstEmpty(['d_address', 'd_reporter_phone']));
+  }
+
+  function focusFirstEmpty(ids) {
+    const el = ids.map(id => document.getElementById(id)).find(input => input && !input.value);
+    if (el && window.matchMedia('(pointer:fine)').matches) el.focus();
   }
 
   // ── GPS ──────────────────────────────────────────────────────
   function getGPS(fieldId) {
     if (!navigator.geolocation) {
       Toast.show('GPS no disponible en este dispositivo', 'error');
+      return;
+    }
+    if (_gpsCache && Date.now() - _gpsCache.time < 60_000) {
+      setGpsField(fieldId, _gpsCache.value);
+      Toast.show(`GPS: ${_gpsCache.value}`, 'success', 2500);
       return;
     }
     Toast.show('Obteniendo ubicación GPS…', 'info', 8000);
@@ -489,9 +512,25 @@ const App = (() => {
   }
 
   // ── Validation ────────────────────────────────────────────
+  function validateCitizenId(value) {
+    const raw = String(value || '').trim().toUpperCase();
+    const digits = raw.replace(/\D/g, '');
+    if (!digits) return 'La identificación es obligatoria';
+
+    const isPassport = raw.startsWith('P') || digits.length === 9;
+    const max = isPassport ? 9 : 8;
+    if (digits.length > max) {
+      return isPassport
+        ? 'El pasaporte debe contener máximo 9 dígitos'
+        : 'La cédula debe contener máximo 8 dígitos';
+    }
+    return null;
+  }
+
   function validatePerson(fields) {
     if (!fields.name)     return 'El nombre completo es obligatorio';
-    if (!fields.cedula)   return 'La cédula es obligatoria';
+    const idError = validateCitizenId(fields.cedula);
+    if (idError) return idError;
     if (!fields.location) return 'La última ubicación es obligatoria';
     return null;
   }
@@ -591,7 +630,7 @@ Enviado desde Ayuda VE (offline)`;
       Toast.show('Abriendo app de SMS con reporte pre-cargado…', 'info', 4000);
     } catch (e) {
       // Fallback: copy to clipboard
-      navigator.clipboard?.writeText(buildSmsBody(type, fields));
+      navigator.clipboard?.writeText(`${buildSmsBodyCompact(type, fields)}\n\n${buildSmsBodyReadable(type, fields)}`);
       Toast.show('Reporte copiado al portapápel. Pégalo en tu app de SMS.', 'warning', 5000);
     }
   }

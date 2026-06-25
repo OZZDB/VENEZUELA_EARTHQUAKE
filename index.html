@@ -11,7 +11,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
 
   <!-- Security Config — NEVER hardcode secrets in JS. Set via meta tags or build env. -->
-  <meta name="api-url" content="https://api.ayudavenezuela.org/v1/reports" />
+  <meta name="api-url" content="/v1/reports" />
   <meta name="emergency-token" content="" />
 
   <!-- Content Security Policy — Restrict sources to prevent XSS -->
@@ -960,8 +960,9 @@
       <!-- Cédula + Edad -->
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label">Cédula <span class="required">*</span></label>
-          <input class="field-input" type="text" id="p_cedula" placeholder="V-12345678" inputmode="numeric" />
+          <label class="field-label">Cédula / Pasaporte <span class="required">*</span></label>
+          <input class="field-input" type="text" id="p_cedula" placeholder="V-12345678 o P123456789" inputmode="text" maxlength="12" autocomplete="off" />
+          <div class="field-hint">Cédula: máximo 8 dígitos. Pasaporte: máximo 9 dígitos.</div>
         </div>
         <div class="field-group">
           <label class="field-label">Edad</label>

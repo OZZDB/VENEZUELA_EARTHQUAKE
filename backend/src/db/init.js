@@ -1,14 +1,16 @@
-import Database from 'better-sqlite3';
-import { resolve } from 'path';
-import { existsSync } from 'fs';
+import { DatabaseSync } from 'node:sqlite';
+import { dirname, resolve } from 'path';
+import { existsSync, mkdirSync } from 'fs';
+import { fileURLToPath } from 'url';
 import bcrypt from 'bcryptjs';
 
 const DB_PATH = resolve(process.cwd(), 'data', 'ayudave.db');
 
 export function initDatabase() {
-  const db = new Database(DB_PATH);
-  db.pragma('journal_mode = WAL');
-  db.pragma('foreign_keys = ON');
+  mkdirSync(dirname(DB_PATH), { recursive: true });
+  const db = new DatabaseSync(DB_PATH);
+  db.exec('PRAGMA journal_mode = WAL');
+  db.exec('PRAGMA foreign_keys = ON');
 
   // Tabla de reportes (sincronizada con la app PWA)
   db.exec(`
@@ -21,6 +23,7 @@ export function initDatabase() {
       source TEXT DEFAULT 'pwa', -- 'pwa' | 'whatsapp' | 'sms' | 'admin'
       wa_message_id TEXT UNIQUE, -- ID de mensaje de WhatsApp para dedup
       cedula_hash TEXT, -- Hash de cédula para detectar duplicados sin almacenar la real
+      case_id TEXT,
       created_at INTEGER DEFAULT (strftime('%s', 'now') * 1000),
       updated_at INTEGER DEFAULT (strftime('%s', 'now') * 1000),
       synced_at INTEGER,
@@ -36,7 +39,14 @@ export function initDatabase() {
     CREATE INDEX IF NOT EXISTS idx_reports_cedula_hash ON reports(cedula_hash);
     CREATE INDEX IF NOT EXISTS idx_reports_created ON reports(created_at DESC);
     CREATE INDEX IF NOT EXISTS idx_reports_wa_msg ON reports(wa_message_id);
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_reports_case_id ON reports(case_id);
   `);
+
+  const reportColumns = db.prepare('PRAGMA table_info(reports)').all().map(col => col.name);
+  if (!reportColumns.includes('case_id')) {
+    db.exec('ALTER TABLE reports ADD COLUMN case_id TEXT');
+    db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_reports_case_id ON reports(case_id)');
+  }
 
   // Tabla de usuarios admin
   db.exec(`
@@ -102,8 +112,12 @@ export function getDb() {
   if (!existsSync(DB_PATH)) {
     return initDatabase();
   }
-  const db = new Database(DB_PATH);
-  db.pragma('journal_mode = WAL');
-  db.pragma('foreign_keys = ON');
+  const db = new DatabaseSync(DB_PATH);
+  db.exec('PRAGMA journal_mode = WAL');
+  db.exec('PRAGMA foreign_keys = ON');
   return db;
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  initDatabase();
 }
