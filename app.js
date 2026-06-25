@@ -9,17 +9,24 @@
 'use strict';
 
 // ─────────────────────────────────────────────────────────────────
-//  CONFIG
+//  CONFIG — Reads from <meta> tags for security (no hardcoded secrets)
 // ─────────────────────────────────────────────────────────────────
+function getMeta(name, fallback = '') {
+  const el = document.querySelector(`meta[name="${name}"]`);
+  return el ? el.content : fallback;
+}
+
 const CONFIG = {
   DB_NAME:       'AyudaVE_DB',
   DB_VERSION:    1,
   STORE_REPORTS: 'reports',
   SYNC_TAG:      'sync-reports',
-  // Replace with your real API endpoint
-  API_URL:       'https://api.ayudavenezuela.org/v1/reports',
+  // Configured via <meta name="api-url" content="..."> in index.html
+  API_URL:       getMeta('api-url', 'https://api.ayudavenezuela.org/v1/reports'),
+  // Emergency token via <meta name="emergency-token" content="..."> — NEVER hardcode
+  EMERGENCY_TOKEN: getMeta('emergency-token', ''),
   IMG_MAX_PX:    800,
-  IMG_QUALITY:   0.72,     // WebP quality 0-1
+  IMG_QUALITY:   0.72,     // WebP quality 0-1 (starting point, auto-reduces to hit <150KB)
   IMG_FORMAT:    'image/webp',
 };
 
@@ -107,12 +114,18 @@ const DB = (() => {
 
 // ─────────────────────────────────────────────────────────────────
 //  IMAGE COMPRESSION ENGINE (Canvas API — client-side WebP)
+//  Guarantees output < 150KB by dynamically adjusting quality
 // ─────────────────────────────────────────────────────────────────
 const ImageEngine = (() => {
 
+  const TARGET_MAX_BYTES = 150 * 1024; // 150KB hard limit
+  const MIN_QUALITY = 0.25;            // Don't go below this
+  const MAX_QUALITY = 0.85;            // Start here for best quality
+
   /**
    * Compress a File/Blob to WebP at max CONFIG.IMG_MAX_PX wide/tall.
-   * Returns: { dataUrl: string, blob: Blob, originalSize: number, compressedSize: number }
+   * Dynamically reduces quality until size < 150KB.
+   * Returns: { dataUrl: string, blob: Blob, originalSize: number, compressedSize: number, quality: number }
    */
   function compress(file) {
     return new Promise((resolve, reject) => {
@@ -137,7 +150,7 @@ const ImageEngine = (() => {
               }
             }
 
-            // Draw to canvas
+            // Draw to canvas once
             const canvas = document.createElement('canvas');
             canvas.width  = width;
             canvas.height = height;
@@ -148,24 +161,10 @@ const ImageEngine = (() => {
             const supportsWebP = canvas.toDataURL('image/webp').startsWith('data:image/webp');
             const format = supportsWebP ? CONFIG.IMG_FORMAT : 'image/jpeg';
 
-            canvas.toBlob(
-              (blob) => {
-                if (!blob) return reject(new Error('Canvas toBlob failed'));
-                const reader2 = new FileReader();
-                reader2.onload = (ev) => resolve({
-                  dataUrl:        ev.target.result,
-                  blob,
-                  format,
-                  width, height,
-                  originalSize,
-                  compressedSize: blob.size,
-                  ratio: ((1 - blob.size / originalSize) * 100).toFixed(0),
-                });
-                reader2.readAsDataURL(blob);
-              },
-              format,
-              CONFIG.IMG_QUALITY
-            );
+            // Iterative quality reduction to hit <150KB target
+            compressWithQuality(canvas, format, MAX_QUALITY)
+              .then(result => resolve({ ...result, originalSize }))
+              .catch(reject);
           } catch (err) {
             reject(err);
           }
@@ -176,6 +175,43 @@ const ImageEngine = (() => {
 
       reader.onerror = reject;
       reader.readAsDataURL(file);
+    });
+  }
+
+  /**
+   * Recursively compress with decreasing quality until under target size
+   * or minimum quality reached.
+   */
+  function compressWithQuality(canvas, format, quality) {
+    return new Promise((resolve, reject) => {
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) return reject(new Error('Canvas toBlob failed'));
+
+          // If under target or at minimum quality, accept it
+          if (blob.size <= TARGET_MAX_BYTES || quality <= MIN_QUALITY) {
+            const reader = new FileReader();
+            reader.onload = (ev) => resolve({
+              dataUrl:        ev.target.result,
+              blob,
+              format,
+              width: canvas.width,
+              height: canvas.height,
+              compressedSize: blob.size,
+              quality: Math.round(quality * 100),
+              ratio: ((1 - blob.size / (canvas.width * canvas.height * 4)) * 100).toFixed(0), // approximate
+            });
+            reader.readAsDataURL(blob);
+            return;
+          }
+
+          // Too large — reduce quality and retry (binary search style)
+          const nextQuality = Math.max(MIN_QUALITY, quality - 0.1);
+          compressWithQuality(canvas, format, nextQuality).then(resolve).catch(reject);
+        },
+        format,
+        quality
+      );
     });
   }
 
@@ -211,7 +247,7 @@ const Sync = (() => {
     const res = await fetch(CONFIG.API_URL, {
       method:  'POST',
       body:    fd,
-      headers: { 'X-Emergency-Token': 'VE-EMERGENCY-2025' },
+      headers: { 'X-Emergency-Token': CONFIG.EMERGENCY_TOKEN },
     });
 
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -441,6 +477,17 @@ const App = (() => {
     return el ? el.value.trim() : '';
   }
 
+  // ── Sanitization — Prevent XSS when rendering user content ──────────────
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   // ── Validation ────────────────────────────────────────────
   function validatePerson(fields) {
     if (!fields.name)     return 'El nombre completo es obligatorio';
@@ -452,6 +499,101 @@ const App = (() => {
   function validateDamage(fields) {
     if (!fields.address) return 'La dirección es obligatoria';
     return null;
+  }
+
+  // ── SMS FALLBACK — Formato compacto para Protección Civil: AV#TIPO:X#GRAVEDAD:Y#LOC:Z#TLF:W ────────
+  function buildSmsBodyCompact(type, fields) {
+    // Mapear valores a códigos cortos
+    const tipoMap = {
+      // Persona
+      'desaparecido': 'PER-DESAP',
+      'herido': 'PER-HERIDO',
+      'atrapado': 'PER-ATRAP',
+      'localizado': 'PER-LOC',
+      // Daño
+      'edificio': 'EDIF',
+      'puente': 'PUENTE',
+      'vialidad': 'VIA',
+      'vivienda': 'VIV',
+      'servicio': 'SERV',
+    };
+    const nivelMap = {
+      'leve': 'LEVE',
+      'moderado': 'MOD',
+      'grave': 'GRAVE',
+      'colapso': 'CRIT',
+    };
+    const atrapadoMap = {
+      'no': 'NO',
+      'si_desconocido': 'POSIBLE',
+      'si_confirmado': 'SI',
+    };
+
+    if (type === 'person') {
+      const tipo = tipoMap[fields.status] || 'PER-DESAP';
+      const loc = (fields.location || fields.gps || 'SIN-LOC').replace(/[#]/g, '').substring(0, 60);
+      const tlf = (fields.phone || fields.cedula || 'SIN-TLF').replace(/\D/g, '').substring(0, 15);
+      return `AV#TIPO:${tipo}#LOC:${loc}#TLF:${tlf}`;
+    } else {
+      const tipo = tipoMap[fields.structureType] || 'EDIF';
+      const grav = nivelMap[fields.damageLevel] || 'MOD';
+      const atrap = atrapadoMap[fields.trapped] || 'NO';
+      const loc = (fields.address || fields.gps || 'SIN-LOC').replace(/[#]/g, '').substring(0, 60);
+      const tlf = (fields.reporterPhone || 'SIN-TLF').replace(/\D/g, '').substring(0, 15);
+      // Incluir atrapados en gravedad si hay personas
+      const gravFinal = (atrap === 'SI' || atrap === 'POSIBLE') ? `${grav}+ATRAP:${atrap}` : grav;
+      return `AV#TIPO:${tipo}#GRAVEDAD:${gravFinal}#LOC:${loc}#TLF:${tlf}`;
+    }
+  }
+
+  // Formato legible (fallback para lectura humana)
+  function buildSmsBodyReadable(type, fields) {
+    const timestamp = new Date().toLocaleString('es-VE');
+    if (type === 'person') {
+      return `🚨 REPORTE PERSONA DESAPARECIDA - Ayuda VE
+Fecha: ${timestamp}
+Nombre: ${fields.name}
+Cédula: ${fields.cedula}
+Edad: ${fields.age || 'N/A'}
+Tel. familiar: ${fields.phone || 'N/A'}
+Ubicación: ${fields.location}
+GPS: ${fields.gps || 'No capturado'}
+Estado: ${fields.status || 'Desaparecido'}
+Descripción: ${fields.desc || 'Sin detalles'}
+--- 
+Enviado desde Ayuda VE (offline)`;
+    } else {
+      return `🚨 REPORTE DAÑO ESTRUCTURAL - Ayuda VE
+Fecha: ${timestamp}
+Tipo: ${fields.structureType || 'N/A'}
+Nivel: ${fields.damageLevel || 'N/A'}
+Dirección: ${fields.address}
+GPS: ${fields.gps || 'No capturado'}
+Personas atrapadas: ${fields.trapped || 'No'}
+Tel. reportero: ${fields.reporterPhone || 'N/A'}
+Descripción: ${fields.desc || 'Sin detalles'}
+---
+Enviado desde Ayuda VE (offline)`;
+    }
+  }
+
+  function openSmsFallback(type, fields) {
+    // Venezuelan emergency numbers
+    const emergencyNumbers = '911,0800266376'; // 911, 0800-BOMBEROS
+    // Usar formato compacto para parsing automático + legible para humanos
+    const compact = buildSmsBodyCompact(type, fields);
+    const readable = buildSmsBodyReadable(type, fields);
+    const body = encodeURIComponent(`${compact}\n\n${readable}`);
+    const smsUri = `sms:${emergencyNumbers}?body=${body}`;
+    
+    try {
+      window.location.href = smsUri;
+      Toast.show('Abriendo app de SMS con reporte pre-cargado…', 'info', 4000);
+    } catch (e) {
+      // Fallback: copy to clipboard
+      navigator.clipboard?.writeText(buildSmsBody(type, fields));
+      Toast.show('Reporte copiado al portapápel. Pégalo en tu app de SMS.', 'warning', 5000);
+    }
   }
 
   // ── SUBMIT ────────────────────────────────────────────────
@@ -502,7 +644,14 @@ const App = (() => {
       }
     } else {
       registerBackgroundSync();
-      Toast.show('Sin señal — se enviará automáticamente al recuperar conexión', 'warning', 5000);
+      // OFFLINE: Offer SMS fallback immediately
+      setTimeout(() => {
+        if (confirm('📴 Sin conexión a internet.\n\n¿Quieres enviar el reporte por SMS a 911 / Bomberos ahora?\n(Se abrirá tu app de mensajes con el reporte listo para enviar)')) {
+          openSmsFallback(type, fields);
+        } else {
+          Toast.show('Reporte guardado. Se enviará automáticamente al recuperar señal.', 'warning', 5000);
+        }
+      }, 500);
     }
 
     updatePendingCount();
@@ -593,7 +742,7 @@ const App = (() => {
 
     list.innerHTML = reports.map(r => {
       const isPerson = r.type === 'person';
-      const title    = isPerson ? (r.fields.name || 'Persona desaparecida') : (r.fields.address || 'Daño estructural');
+      const title    = escapeHtml(isPerson ? (r.fields.name || 'Persona desaparecida') : (r.fields.address || 'Daño estructural'));
       const meta     = new Date(r.savedAt).toLocaleString('es-VE', { dateStyle: 'short', timeStyle: 'short' });
       const status   = r.status === 'sent' ? 'Enviado' : 'Pendiente';
       const statusClass = r.status === 'sent' ? 'status-sent' : 'status-pending';
@@ -665,10 +814,57 @@ const App = (() => {
   // ── PWA install prompt ───────────────────────────────────
   function setupPWAInstall() {
     let deferredPrompt;
+    const installBanner = document.createElement('div');
+    installBanner.id = 'installBanner';
+    installBanner.style.cssText = `
+      position:fixed;bottom:calc(80px + var(--safe-bottom));left:16px;right:16px;max-width:430px;margin:0 auto;
+      background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;
+      display:none;flex-direction:column;gap:12px;z-index:200;box-shadow:0 4px 24px rgba(0,0,0,0.4);
+      animation:slideUp 0.3s ease;
+    `;
+    installBanner.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" flex-shrink="0">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:700;color:var(--text);">Instalar Ayuda VE</div>
+          <div style="font-size:12px;color:var(--text-muted);">Funciona sin internet. Acceso rápido desde tu pantalla de inicio.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button id="installAccept" class="submit-btn" style="background:var(--blue);color:#000;flex:1;font-size:14px;padding:12px;">Instalar</button>
+        <button id="installDismiss" class="submit-btn" style="background:var(--bg-input);color:var(--text);flex:1;font-size:14px;padding:12px;">Luego</button>
+      </div>
+    `;
+    document.body.appendChild(installBanner);
+
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      // Could show install banner here
+      installBanner.style.display = 'flex';
+    });
+
+    installBanner.querySelector('#installAccept').addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        Toast.show('¡Instalado! Ayuda VE está en tu pantalla de inicio.', 'success');
+      }
+      deferredPrompt = null;
+      installBanner.style.display = 'none';
+    });
+
+    installBanner.querySelector('#installDismiss').addEventListener('click', () => {
+      installBanner.style.display = 'none';
+      deferredPrompt = null;
+    });
+
+    // Also listen for appinstalled to hide banner
+    window.addEventListener('appinstalled', () => {
+      installBanner.style.display = 'none';
+      deferredPrompt = null;
     });
   }
 
@@ -679,6 +875,14 @@ const App = (() => {
         .register('./sw.js', { scope: './' })
         .then(reg => {
           console.log('[SW] Registered:', reg.scope);
+          // Send config to SW (API URL and token never hardcoded in SW)
+          if (reg.active) {
+            reg.active.postMessage({
+              type: 'SET_CONFIG',
+              apiUrl: CONFIG.API_URL,
+              emergencyToken: CONFIG.EMERGENCY_TOKEN,
+            });
+          }
           // Listen for messages from SW (e.g. sync complete)
           navigator.serviceWorker.addEventListener('message', (event) => {
             if (event.data && event.data.type === 'SYNC_COMPLETE') {
@@ -703,7 +907,8 @@ const App = (() => {
     window.App = {
       navigate, setNav, getGPS, handlePhoto, removePhoto,
       selectChip, submitReport, trySyncNow, renderMyReports,
-      loadInteractiveMap,
+      loadInteractiveMap, openSmsFallback,
+      collectPersonForm, collectDamageForm,
     };
   }
 

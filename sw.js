@@ -25,13 +25,16 @@
 'use strict';
 
 // ─────────────────────────────────────────────────────────────────
-//  CONSTANTS
+//  CONSTANTS — Configurable via postMessage from app (no hardcoded secrets)
 // ─────────────────────────────────────────────────────────────────
 const SW_VERSION    = 'v1.0.0';
 const CACHE_SHELL   = `ayudave-shell-${SW_VERSION}`;
 const CACHE_DYNAMIC = `ayudave-dynamic-${SW_VERSION}`;
 const SYNC_TAG      = 'sync-reports';
-const API_URL       = 'https://api.ayudavenezuela.org/v1/reports';
+
+// Default fallback — will be overridden by app via postMessage on registration
+let API_URL         = 'https://api.ayudavenezuela.org/v1/reports';
+let EMERGENCY_TOKEN = '';
 
 // Core shell files — cached on install for 100% offline availability
 const SHELL_ASSETS = [
@@ -40,6 +43,9 @@ const SHELL_ASSETS = [
   './app.js',
   './manifest.json',
   './offline.html',
+  './icon-192.png',
+  './icon-512.png',
+  './icon-512-maskable.png',
 ];
 
 // ─────────────────────────────────────────────────────────────────
@@ -318,7 +324,7 @@ async function sendReportToAPI(report) {
   const res = await fetch(API_URL, {
     method:  'POST',
     body:    fd,
-    headers: { 'X-Emergency-Token': 'VE-EMERGENCY-2025' },
+    headers: { 'X-Emergency-Token': EMERGENCY_TOKEN },
   });
 
   if (!res.ok) throw new Error(`API responded ${res.status}`);
@@ -382,6 +388,16 @@ self.addEventListener('notificationclick', (event) => {
       self.clients.openWindow(event.notification.data?.url || './')
     );
   }
+});
+
+// ─────────────────────────────────────────────────────────────────
+//  CONFIG RECEIVER — Accept API URL and token from app via postMessage
+// ─────────────────────────────────────────────────────────────────
+self.addEventListener('message', (event) => {
+  if (!event.data || event.data.type !== 'SET_CONFIG') return;
+  if (event.data.apiUrl) API_URL = event.data.apiUrl;
+  if (event.data.emergencyToken) EMERGENCY_TOKEN = event.data.emergencyToken;
+  console.log('[SW] Config updated:', { apiUrl: API_URL, hasToken: !!EMERGENCY_TOKEN });
 });
 
 console.log(`[SW] AyudaVenezuela Service Worker ${SW_VERSION} loaded`);

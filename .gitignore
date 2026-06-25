@@ -1,1 +1,26 @@
-"node_modules/\n.DS_Store\n.env" 
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+*.log
+.DS_Store
+
+# Local env files (never commit real secrets)
+.env
+.env.local
+.env.*.local
+
+# Supabase
+supabase/.temp/
+supabase/functions/**/node_modules/
+
+# Generated icons (optional - commit if you want them in repo)
+# icon-*.png
+# icon-*.svg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

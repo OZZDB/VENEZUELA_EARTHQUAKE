@@ -10,6 +10,24 @@
   <meta name="description" content="Plataforma de emergencias para Venezuela. Reporta personas desaparecidas y daños estructurales." />
   <meta name="mobile-web-app-capable" content="yes" />
 
+  <!-- Security Config — NEVER hardcode secrets in JS. Set via meta tags or build env. -->
+  <meta name="api-url" content="https://api.ayudavenezuela.org/v1/reports" />
+  <meta name="emergency-token" content="" />
+
+  <!-- Content Security Policy — Restrict sources to prevent XSS -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: blob: https:;
+    font-src 'self' data:;
+    connect-src 'self' https://api.ayudavenezuela.org https://www.openstreetmap.org https://tile.openstreetmap.org;
+    frame-src https://www.openstreetmap.org;
+    form-action 'self';
+    base-uri 'self';
+    object-src 'none';
+  ">
+
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
 
@@ -968,7 +986,7 @@
       <div class="field-group">
         <label class="field-label">Coordenadas GPS</label>
         <div class="gps-field">
-          <input class="field-input" type="text" id="p_gps" placeholder="Lat, Lng" readonly />
+          <input class="field-input" type="text" id="p_gps" placeholder="Lat, Lng" readonly inputmode="decimal" />
           <button class="gps-btn" onclick="App.getGPS('p_gps')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
             GPS
@@ -1015,6 +1033,10 @@
       <button class="submit-btn red-btn" onclick="App.submitReport('person')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
         Enviar Reporte
+      </button>
+      <button class="submit-btn" style="background:var(--amber);color:#000;margin-top:8px;" onclick="App.openSmsFallback('person', App.collectPersonForm ? App.collectPersonForm() : {})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Enviar por SMS (Offline)
       </button>
     </div>
 
@@ -1069,7 +1091,7 @@
       <div class="field-group">
         <label class="field-label">Coordenadas GPS</label>
         <div class="gps-field">
-          <input class="field-input" type="text" id="d_gps" placeholder="Lat, Lng" readonly />
+          <input class="field-input" type="text" id="d_gps" placeholder="Lat, Lng" readonly inputmode="decimal" />
           <button class="gps-btn" onclick="App.getGPS('d_gps')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
             GPS
@@ -1135,6 +1157,10 @@
       <button class="submit-btn amber-btn" onclick="App.submitReport('damage')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
         Enviar Reporte de Daño
+      </button>
+      <button class="submit-btn" style="background:var(--amber);color:#000;margin-top:8px;" onclick="App.openSmsFallback('damage', App.collectDamageForm ? App.collectDamageForm() : {})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Enviar por SMS (Offline)
       </button>
     </div>
 
