@@ -27,7 +27,7 @@
 // ─────────────────────────────────────────────────────────────────
 //  CONSTANTS
 // ─────────────────────────────────────────────────────────────────
-const SW_VERSION    = 'v2.0.1';
+const SW_VERSION    = 'v2.0.0';
 const CACHE_SHELL   = `ayudave-shell-${SW_VERSION}`;
 const CACHE_DYNAMIC = `ayudave-dynamic-${SW_VERSION}`;
 const SYNC_TAG      = 'sync-reports';
@@ -39,6 +39,7 @@ const SHELL_ASSETS = [
   './',
   './index.html',
   './app.js',
+  './emergency-data.js',
   './manifest.json',
   './offline.html',
 ];
