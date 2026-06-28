@@ -357,6 +357,18 @@ function buildSMSBody(type, fields) {
       `Tel familiar: ${fields.phone || 'N/D'}\n` +
       `Reporte vía AyudaVE`
     );
+  } else if (type === 'offer') {
+    return encodeURIComponent(
+      `OFERTA DE AYUDA\n` +
+      `Tipo: ${fields.type}\n` +
+      `Recurso: ${fields.description}\n` +
+      `Cantidad: ${fields.quantity || 'N/D'}\n` +
+      `Ubicación: ${fields.location}\n` +
+      `Cobertura: ${fields.coverage}\n` +
+      `Contacto: ${fields.name} · ${fields.phone}\n` +
+      `Canal: ${fields.channel}\n` +
+      `Oferta vía AyudaVE`
+    );
   } else {
     return encodeURIComponent(
       `DAÑO ESTRUCTURAL\n` +
@@ -402,7 +414,7 @@ const Toast = (() => {
 // ─────────────────────────────────────────────────────────────────
 //  MAIN APP CONTROLLER
 // ─────────────────────────────────────────────────────────────────
-const AyudaAppCore = (() => {
+const App = (() => {
 
   const _photos = { person: [], damage: [] };
 
@@ -416,6 +428,29 @@ const AyudaAppCore = (() => {
   function setNav(btn) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     btn.classList.add('active');
+  }
+
+  // ── Go to Directorio and open specific region ───────────────
+  function goToRegion(slug) {
+    // Navigate to directorio screen
+    navigate('screenDirectorio');
+    // Activate nav tab
+    const navDir = document.getElementById('nav-directorio');
+    if (navDir) setNav(navDir);
+    // Render directorio then open the region
+    if (typeof renderDirectorio === 'function') {
+      renderDirectorio();
+      // Small delay to allow DOM to render
+      setTimeout(() => {
+        const regionEl = document.getElementById(`region-${slug}`);
+        if (regionEl && regionEl.style.display === 'none') {
+          if (typeof toggleRegion === 'function') toggleRegion(slug);
+        }
+        // Scroll to region
+        const header = document.getElementById(`chevron-${slug}`);
+        if (header) header.closest('[onclick]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    }
   }
 
   // ── GPS ──────────────────────────────────────────────────────
@@ -634,6 +669,56 @@ const AyudaAppCore = (() => {
     updatePendingCount();
   }
 
+  // ── SUBMIT OFFER ─────────────────────────────────────────────
+  async function submitOffer() {
+    const type        = getSelectedChip('o_type_chips')     || 'otro';
+    const description = val('o_description');
+    const quantity    = val('o_quantity');
+    const availability= val('o_availability');
+    const location    = val('o_location');
+    const coverage    = getSelectedChip('o_coverage_chips') || 'local';
+    const name        = val('o_name');
+    const phone       = val('o_phone');
+    const channel     = getSelectedChip('o_channel_chips')  || 'whatsapp';
+
+    if (!description) { Toast.show('Describe qué ofreces', 'error', 4000); return; }
+    if (!location)    { Toast.show('La ubicación del recurso es obligatoria', 'error', 4000); return; }
+    if (!name)        { Toast.show('Tu nombre es obligatorio', 'error', 4000); return; }
+    if (!phone)       { Toast.show('El teléfono de contacto es obligatorio', 'error', 4000); return; }
+
+    const fields = { type, description, quantity, availability, location, coverage, name, phone, channel };
+    const report = { type: 'offer', fields, photos: [] };
+
+    let savedId;
+    try {
+      savedId = await DB.saveReport(report);
+    } catch (err) {
+      Toast.show('Error guardando oferta localmente', 'error'); return;
+    }
+
+    // Reset form and go home
+    ['o_description','o_quantity','o_availability','o_location','o_name','o_phone'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.value = '';
+    });
+    navigate('screenHome');
+    Toast.show('Oferta guardada ✓', 'success', 2000);
+
+    if (navigator.onLine) {
+      try {
+        const result = await Sync.sendReport({ ...report, id: savedId });
+        await DB.markSent(savedId, result.reportId);
+        Toast.show(`Oferta enviada a coordinación ✓ (ID: ${result.reportId})`, 'success', 6000);
+      } catch {
+        registerBackgroundSync();
+        Toast.show('Se enviará automáticamente al recuperar señal', 'warning', 4000);
+      }
+    } else {
+      registerBackgroundSync();
+      Toast.show('Sin señal — se enviará automáticamente', 'warning', 4000);
+    }
+    updatePendingCount();
+  }
+
   function resetForm(type) {
     const pfx = type === 'person' ? 'p_' : 'd_';
     const ids  = type === 'person'
@@ -837,12 +922,13 @@ const AyudaAppCore = (() => {
 
     window.App = {
       navigate, setNav, getGPS, handlePhoto, removePhoto,
-      selectChip, submitReport, sendBySMS, trySyncNow,
-      renderMyReports, loadInteractiveMap,
+      selectChip, submitReport, submitOffer, sendBySMS,
+      trySyncNow, renderMyReports, loadInteractiveMap,
+      goToRegion,
     };
   }
 
   return { init };
 })();
 
-AyudaAppCore.init();
+App.init();
