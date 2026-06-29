@@ -1,9 +1,9 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
- * ║  AYUDA VENEZUELA — Emergency Data v3.1                        ║
+ * ║  AYUDA VENEZUELA — Emergency Data v3.2                        ║
  * ║  Datos fusionados: Contactos + Necesidades operacionales      ║
  * ║  Fuentes: FUNVISIS, Cruz Roja IFRC, Min. Salud, medios        ║
- * ║  Verificado: 2026-06-29T07:25:00-04:00                        ║
+ * ║  Verificado: 2026-06-29T18:00:00-04:00                        ║
  * ║  Sin base de datos — offline-first vía SW cache               ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
@@ -11,7 +11,7 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-06-29T07:25:00-04:00",
+  generated_at: "2026-06-29T18:00:00-04:00", // v3.2
   event:        "Terremoto Venezuela — 24 junio 2026",
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   disclaimer:   "Datos compilados desde fuentes públicas verificadas. Actualizar periódicamente.",
@@ -22,30 +22,53 @@ const EMERGENCY_DATA = {
   official_updates: [
     {
       source:  "FUNVISIS",
-      date:    "2026-06-18",
-      badge:   "⚠ Monitoreo activo",
-      title:   "25 eventos sísmicos en el occidente del país",
-      summary: "Se registraron 25 eventos entre M 1.9 y M 4.5 en Portuguesa, Trujillo y Lara. FUNVISIS mantiene monitoreo continuo y recomienda seguir canales oficiales.",
-      regions: ["portuguesa","trujillo","lara"],
+      date:    "2026-06-29",
+      badge:   "📡 Monitoreo activo",
+      title:   "Secuencia sísmica y réplicas — monitoreo continuo",
+      summary: "FUNVISIS mantiene vigilancia permanente de la secuencia sísmica y sus réplicas. Portal oficial actualizado con comunicados recientes. Se registraron 25 eventos entre M 1.9 y M 4.5 en Portuguesa, Trujillo y Lara.",
+      regions: ["portuguesa","trujillo","lara","yaracuy"],
       type:    "seismic",
+      source_url: "http://www.funvisis.gob.ve/noticias.php",
+    },
+    {
+      source:  "MPPS — Ministerio de Salud",
+      date:    "2026-06-29",
+      badge:   "🏥 Balance sanitario oficial",
+      title:   "3.150 heridos · 12.049 atendidos · 38 hospitales afectados",
+      summary: "Balance oficial MPPS: 3.150 personas heridas reportadas, 12.049 atendidas, 38 hospitales afectados con despliegue médico ampliado en todo el territorio nacional.",
+      regions: ["nacional"],
+      type:    "medical",
+      source_url: "https://mpps.gob.ve/balance-oficial-destaca-despliegue-sanitario-y-acciones-de-rescate-ante-contingencia-nacional/",
     },
     {
       source:  "Cruz Roja Venezolana / IFRC",
-      date:    "2026-06-26",
-      badge:   "🏥 Hospitales de campaña",
-      title:   "Despliegue de dos hospitales de campaña en La Guaira",
-      summary: "Cruz Roja Española y Cruz Roja Finlandesa desplegaron hospitales de campaña priorizando La Guaira. 41 filiales activadas. Llamamiento IFRC por CHF 50 millones.",
-      regions: ["la-guaira"],
+      date:    "2026-06-29",
+      badge:   "🏥 Red operativa",
+      title:   "Hospitales de campaña activos y ayuda internacional movilizada",
+      summary: "Cruz Roja Española y Finlandesa con hospitales de campaña en La Guaira. 41 filiales activas con equipos de rescate, evaluación y atención a víctimas. Llamamiento IFRC por CHF 50 millones.",
+      regions: ["la-guaira","nacional"],
       type:    "medical",
+      source_url: "https://www2.cruzroja.es/web/ahora/-/ayuda-a-las-personas-afectadas-por-los-devastadores-terremotos-de-venezuela",
+    },
+    {
+      source:  "Cáritas Venezuela",
+      date:    "2026-06-29",
+      badge:   "📦 Centro de acopio nacional",
+      title:   "Centro de acopio en Montalbán — agua, alimentos y medicinas",
+      summary: "Cáritas Venezuela activó centro de acopio nacional en la sede de la Conferencia Episcopal en Montalbán. Donaciones centralizadas: agua, alimentos y medicinas esenciales. Posibles centros diocesanos adicionales.",
+      regions: ["distrito-capital","nacional"],
+      type:    "civil",
+      source_url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/",
     },
     {
       source:  "Protección Civil Nacional",
-      date:    "2026-06-20",
+      date:    "2026-06-29",
       badge:   "📋 Coordinación activa",
-      title:   "Refuerzo de gestión de riesgo y coordinación institucional",
-      summary: "Protección Civil publica lineamientos de respuesta y mantiene coordinación activa con entes regionales en todo el territorio nacional.",
+      title:   "Lineamientos de gestión de riesgo y coordinación institucional",
+      summary: "Protección Civil mantiene coordinación activa con entes regionales y publica lineamientos de respuesta para todo el territorio nacional.",
       regions: ["nacional"],
       type:    "civil",
+      source_url: "https://www.pcivil.gob.ve/category/noticias-nacionales/",
     },
   ],
 
@@ -62,6 +85,7 @@ const EMERGENCY_DATA = {
     { org: "Cruz Roja — Caracas",  phone: "0212-571.24.11", type: "redcross"  },
     { org: "Gas Directo",          phone: "0212-708.13.14", type: "utility"   },
     { org: "TAP Telemedicina",     phone: "0212-822.12.62", type: "medical"   },
+    { org: "Cáritas Venezuela — Acopio Montalbán", phone: null, type: "civil", url: "https://caritasvenezuela.org" },
   ],
 
   // ── MAPAS COLABORATIVOS GLOBALES ─────────────────────────────
@@ -70,6 +94,7 @@ const EMERGENCY_DATA = {
     { name: "SOS Venezuela 2026",                url: "https://sosvenezuela2026.com",                      desc: "Mapa colaborativo ciudadano" },
     { name: "Ayuda Venezuela — Acopio",          url: "https://ayudavenezuela.app/acopio",                 desc: "Centros de acopio verificados" },
     { name: "Hero Venezuela",                    url: "https://herovenezuela.com/es/mapa-acopios.php",     desc: "Mapa de acopios y voluntarios" },
+    { name: "Cáritas Venezuela",                 url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/", desc: "Centro de acopio nacional — Montalbán" },
   ],
 
   // ── REGIONES ─────────────────────────────────────────────────
@@ -185,9 +210,13 @@ const EMERGENCY_DATA = {
         { org: "Protección Civil DC", phone: "0212-481.92.91" },
       ],
       maps: [
-        { name: "VE Response Hub",   url: "https://vzla-response-hub.vercel.app" },
-        { name: "Centros de acopio", url: "https://ayudavenezuela.app/acopio" },
-        { name: "Hero Venezuela",    url: "https://herovenezuela.com/es/mapa-acopios.php" },
+        { name: "VE Response Hub",        url: "https://vzla-response-hub.vercel.app" },
+        { name: "Centros de acopio",      url: "https://ayudavenezuela.app/acopio" },
+        { name: "Hero Venezuela",         url: "https://herovenezuela.com/es/mapa-acopios.php" },
+        { name: "Cáritas — Acopio Montalbán", url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/" },
+      ],
+      acopio_points: [
+        { name: "Cáritas Venezuela — Sede Nacional", address: "Conferencia Episcopal, Montalbán, Caracas", items: ["Agua", "Alimentos no perecederos", "Medicinas esenciales"] },
       ],
       machinery: [
         { item: "Generadores eléctricos para hospitales",  quantity: "varios" },
@@ -618,16 +647,22 @@ function renderDirectorio() {
     <!-- Números nacionales -->
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px;">Números Nacionales</div>
     <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px;">
-      ${EMERGENCY_DATA.national.map(c => `
-        <a href="tel:${c.phone.replace(/[^0-9+]/g,'')}" style="display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);touch-action:manipulation;">
-          <span style="color:${c.type==='emergency'||c.type==='redcross'?'#e63946':c.type==='seismic'?'#4cc9f0':c.type==='medical'?'#2dc653':'#f4a261'};">${getContactIcon(c.type)}</span>
-          <div style="flex:1;min-width:0;">
-            <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.org}</div>
-            <div style="font-size:12px;color:var(--text-muted);font-family:monospace;">${c.phone}</div>
-          </div>
-          ${chevronR}
-        </a>
-      `).join('')}
+      ${EMERGENCY_DATA.national.map(c => {
+        const href   = c.phone ? `tel:${c.phone.replace(/[^0-9+]/g,'')}` : (c.url || '#');
+        const target = c.phone ? '' : 'target="_blank" rel="noopener noreferrer"';
+        const sub    = c.phone ? `<div style="font-size:12px;color:var(--text-muted);font-family:monospace;">${c.phone}</div>`
+                                : `<div style="font-size:11px;color:#4cc9f0;">Ver sitio web →</div>`;
+        const accent = c.type==='emergency'||c.type==='redcross'?'#e63946':c.type==='seismic'?'#4cc9f0':c.type==='medical'?'#2dc653':'#f4a261';
+        return `
+          <a href="${href}" ${target} style="display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);touch-action:manipulation;">
+            <span style="color:${accent};">${getContactIcon(c.type)}</span>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.org}</div>
+              ${sub}
+            </div>
+            ${chevronR}
+          </a>`;
+      }).join('')}
     </div>
 
     <!-- Directorio por región -->
@@ -676,6 +711,20 @@ function renderDirectorio() {
                   ${chevronR}
                 </a>
               `).join('') : `<p style="padding:14px 13px;font-size:12px;color:var(--text-muted);">Sin contactos locales registrados. Usa los números nacionales.</p>`}
+
+              <!-- Puntos de acopio si existen -->
+              ${r.acopio_points && r.acopio_points.length ? `
+                <div style="padding:10px 13px 0;">
+                  <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:7px;">Centros de acopio verificados</div>
+                  ${r.acopio_points.map(a => `
+                    <div style="background:rgba(45,198,83,0.07);border:1px solid rgba(45,198,83,0.2);border-radius:7px;padding:9px 11px;margin-bottom:5px;">
+                      <div style="font-size:12px;font-weight:700;color:#2dc653;">📦 ${a.name}</div>
+                      <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${a.address}</div>
+                      <div style="font-size:11px;color:var(--text);margin-top:4px;">${a.items.join(' · ')}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
 
               <!-- Mapas colaborativos siempre en tab contactos -->
               <div style="padding:10px 13px;">
@@ -783,8 +832,8 @@ function renderDirectorio() {
     </div>
 
     <div style="font-size:10px;color:var(--text-muted);text-align:center;padding-bottom:4px;line-height:1.6;">
-      Fuentes: FUNVISIS · Cruz Roja IFRC · Ministerio de Salud · medios verificados<br>
-      Prot. Civil Nacional · El Diario · Infobae Venezuela<br>
+      Fuentes: FUNVISIS · MPPS · Cruz Roja IFRC · Protección Civil · Cáritas Venezuela<br>
+      El Diario · Infobae Venezuela · CNN · medios verificados<br>
       Última actualización: ${new Date(EMERGENCY_DATA.generated_at).toLocaleString('es-VE')}
     </div>
   `;
