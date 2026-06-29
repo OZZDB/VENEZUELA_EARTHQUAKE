@@ -1,9 +1,9 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
- * ║  AYUDA VENEZUELA — Emergency Data v3.0                        ║
+ * ║  AYUDA VENEZUELA — Emergency Data v3.1                        ║
  * ║  Datos fusionados: Contactos + Necesidades operacionales      ║
  * ║  Fuentes: FUNVISIS, Cruz Roja IFRC, Min. Salud, medios        ║
- * ║  Verificado: 2026-06-27T10:30:00-04:00                        ║
+ * ║  Verificado: 2026-06-29T07:25:00-04:00                        ║
  * ║  Sin base de datos — offline-first vía SW cache               ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
@@ -11,10 +11,43 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-06-27T10:30:00-04:00",
+  generated_at: "2026-06-29T07:25:00-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   disclaimer:   "Datos compilados desde fuentes públicas verificadas. Actualizar periódicamente.",
+
+  // ── ACTUALIZACIONES OFICIALES ─────────────────────────────────
+  // Comunicados recientes de organismos verificados
+  // Renderizados como banner en la pantalla Directorio
+  official_updates: [
+    {
+      source:  "FUNVISIS",
+      date:    "2026-06-18",
+      badge:   "⚠ Monitoreo activo",
+      title:   "25 eventos sísmicos en el occidente del país",
+      summary: "Se registraron 25 eventos entre M 1.9 y M 4.5 en Portuguesa, Trujillo y Lara. FUNVISIS mantiene monitoreo continuo y recomienda seguir canales oficiales.",
+      regions: ["portuguesa","trujillo","lara"],
+      type:    "seismic",
+    },
+    {
+      source:  "Cruz Roja Venezolana / IFRC",
+      date:    "2026-06-26",
+      badge:   "🏥 Hospitales de campaña",
+      title:   "Despliegue de dos hospitales de campaña en La Guaira",
+      summary: "Cruz Roja Española y Cruz Roja Finlandesa desplegaron hospitales de campaña priorizando La Guaira. 41 filiales activadas. Llamamiento IFRC por CHF 50 millones.",
+      regions: ["la-guaira"],
+      type:    "medical",
+    },
+    {
+      source:  "Protección Civil Nacional",
+      date:    "2026-06-20",
+      badge:   "📋 Coordinación activa",
+      title:   "Refuerzo de gestión de riesgo y coordinación institucional",
+      summary: "Protección Civil publica lineamientos de respuesta y mantiene coordinación activa con entes regionales en todo el territorio nacional.",
+      regions: ["nacional"],
+      type:    "civil",
+    },
+  ],
 
   // ── CONTACTOS NACIONALES ──────────────────────────────────────
   national: [
@@ -95,7 +128,7 @@ const EMERGENCY_DATA = {
       slug:     "la-guaira",
       name:     "La Guaira",
       subname:  "Macuto, Catia La Mar, Maiquetía",
-      priority: "muy-alta",
+      priority: "critica",
       contacts: [
         { org: "Protección Civil La Guaira", phone: "0212-331.16.11" },
         { org: "Protección Civil La Guaira", phone: "0424-207.53.35" },
@@ -119,7 +152,12 @@ const EMERGENCY_DATA = {
         { type: "Especialistas en estructuras colapsadas",      priority: "alta" },
         { type: "Equipos de estabilización y apuntalamiento",   priority: "alta" },
       ],
+      hospitals_campaign: [
+        { org: "Cruz Roja Española",   status: "Desplegado", location: "La Guaira",  date: "2026-06-26" },
+        { org: "Cruz Roja Finlandesa", status: "Desplegado", location: "La Guaira",  date: "2026-06-26" },
+      ],
       medical: [
+        "✅ Hospitales de campaña activos — Cruz Roja Española y Finlandesa",
         "Kits de trauma (vendajes, torniquetes)",
         "Analgesia (opioides / alternativas)",
         "Suturas y material de cierre",
@@ -131,6 +169,7 @@ const EMERGENCY_DATA = {
       sources: [
         { title: "IFRC / Cruz Roja — envíos humanitarios",    url: "https://www.infobae.com/venezuela/2026/06/26/la-cruz-roja-internacional-inicio-el-envio-de-toneladas-de-ayuda-humanitaria-a-venezuela/" },
         { title: "Cruz Roja España — acciones y prioridades", url: "https://www2.cruzroja.es/-/ayuda-terremoto-venezuela-2026" },
+        { title: "El Diario — hospitales de campaña",         url: "https://eldiario.com/2026/06/26/cruz-roja-hospitales-venezuela/" },
         { title: "SOS Venezuela — mapa y datos sismo",        url: "https://sosvenezuela2026.com" },
       ],
     },
@@ -334,6 +373,78 @@ const EMERGENCY_DATA = {
       sar:      [],
       medical:  [],
       sources:  [],
+    },
+
+    // ── PORTUGUESA — NUEVA (corredor sísmico occidental) ─────────
+    {
+      slug:     "portuguesa",
+      name:     "Portuguesa",
+      subname:  "Corredor sísmico occidental — Monitoreo FUNVISIS",
+      priority: "alta",
+      contacts: [],
+      maps: [
+        { name: "VE Response Hub",   url: "https://vzla-response-hub.vercel.app" },
+        { name: "Centros de acopio", url: "https://ayudavenezuela.app/acopio" },
+      ],
+      machinery: [
+        { item: "Equipos de inspección estructural", quantity: "según evaluación" },
+        { item: "Generadores de respaldo",            quantity: "varios" },
+      ],
+      sar: [
+        { type: "Equipos SAR preventivos en standby",        priority: "media" },
+        { type: "Técnicos en evaluación estructural rápida", priority: "alta" },
+      ],
+      medical: [
+        "Kits de primeros auxilios en centros de salud",
+        "Medicamentos para población con condiciones crónicas",
+      ],
+      seismic_alert: {
+        active:    true,
+        events:    25,
+        range:     "M 1.9 – M 4.5",
+        source:    "FUNVISIS",
+        source_url:"http://www.funvisis.gob.ve/noticia.php?id=2913",
+        note:      "Secuencia sísmica activa. Mantener alerta. Seguir canales oficiales FUNVISIS.",
+      },
+      sources: [
+        { title: "FUNVISIS — eventos sísmicos occidente", url: "http://www.funvisis.gob.ve/noticia.php?id=2913" },
+      ],
+    },
+
+    // ── LARA — NUEVA (corredor sísmico occidental) ────────────────
+    {
+      slug:     "lara",
+      name:     "Lara",
+      subname:  "Corredor sísmico occidental — Monitoreo FUNVISIS",
+      priority: "alta",
+      contacts: [],
+      maps: [
+        { name: "VE Response Hub",   url: "https://vzla-response-hub.vercel.app" },
+        { name: "Centros de acopio", url: "https://ayudavenezuela.app/acopio" },
+      ],
+      machinery: [
+        { item: "Equipos de inspección estructural", quantity: "según evaluación" },
+        { item: "Generadores de respaldo",            quantity: "varios" },
+      ],
+      sar: [
+        { type: "Equipos SAR preventivos en standby",        priority: "media" },
+        { type: "Técnicos en evaluación estructural rápida", priority: "alta" },
+      ],
+      medical: [
+        "Kits de primeros auxilios en centros de salud",
+        "Medicamentos para población con condiciones crónicas",
+      ],
+      seismic_alert: {
+        active:    true,
+        events:    25,
+        range:     "M 1.9 – M 4.5",
+        source:    "FUNVISIS",
+        source_url:"http://www.funvisis.gob.ve/noticia.php?id=2913",
+        note:      "Secuencia sísmica activa. Mantener alerta. Seguir canales oficiales FUNVISIS.",
+      },
+      sources: [
+        { title: "FUNVISIS — eventos sísmicos occidente", url: "http://www.funvisis.gob.ve/noticia.php?id=2913" },
+      ],
     },
 
     // ── FALCÓN — NUEVA ────────────────────────────────────────
@@ -579,6 +690,36 @@ function renderDirectorio() {
                   `).join('')}
                 </div>
               </div>
+
+              <!-- Alerta sísmica si existe -->
+              ${r.seismic_alert ? `
+                <div style="margin:0 13px 10px;background:rgba(76,201,240,0.08);border:1px solid rgba(76,201,240,0.25);border-left:3px solid #4cc9f0;border-radius:7px;padding:10px 12px;">
+                  <div style="font-size:11px;font-weight:700;color:#4cc9f0;margin-bottom:3px;">
+                    📡 ALERTA SÍSMICA ACTIVA — ${r.seismic_alert.source}
+                  </div>
+                  <div style="font-size:11px;color:var(--text);line-height:1.5;">
+                    ${r.seismic_alert.events} eventos · ${r.seismic_alert.range}
+                  </div>
+                  <div style="font-size:10px;color:var(--text-muted);margin-top:3px;line-height:1.4;">
+                    ${r.seismic_alert.note}
+                  </div>
+                </div>
+              ` : ''}
+
+              <!-- Hospitales de campaña si existen -->
+              ${r.hospitals_campaign ? `
+                <div style="margin:0 13px 10px;background:rgba(45,198,83,0.08);border:1px solid rgba(45,198,83,0.25);border-left:3px solid #2dc653;border-radius:7px;padding:10px 12px;">
+                  <div style="font-size:11px;font-weight:700;color:#2dc653;margin-bottom:6px;">
+                    🏥 HOSPITALES DE CAMPAÑA ACTIVOS
+                  </div>
+                  ${r.hospitals_campaign.map(h => `
+                    <div style="font-size:11px;color:var(--text);line-height:1.6;">
+                      ✅ <strong>${h.org}</strong> — ${h.location} (desde ${h.date})
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+
             </div>
 
             <!-- Tab: Maquinaria -->
@@ -643,6 +784,7 @@ function renderDirectorio() {
 
     <div style="font-size:10px;color:var(--text-muted);text-align:center;padding-bottom:4px;line-height:1.6;">
       Fuentes: FUNVISIS · Cruz Roja IFRC · Ministerio de Salud · medios verificados<br>
+      Prot. Civil Nacional · El Diario · Infobae Venezuela<br>
       Última actualización: ${new Date(EMERGENCY_DATA.generated_at).toLocaleString('es-VE')}
     </div>
   `;
