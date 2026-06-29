@@ -414,7 +414,7 @@ const Toast = (() => {
 // ─────────────────────────────────────────────────────────────────
 //  MAIN APP CONTROLLER
 // ─────────────────────────────────────────────────────────────────
-const App = (() => {
+const AyudaVeApp = (() => {
 
   const _photos = { person: [], damage: [] };
 
@@ -931,4 +931,4 @@ const App = (() => {
   return { init };
 })();
 
-App.init();
+AyudaVeApp.init();
