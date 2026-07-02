@@ -1,6 +1,6 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
- * ║  AYUDA VENEZUELA — Emergency Data v4.0                        ║
+ * ║  AYUDA VENEZUELA — Emergency Data v5.0 — 2 jul 2026           ║
  * ║  7 días después del terremoto — 30 junio 2026                 ║
  * ║  Fuentes: FUNVISIS · MPPS · Cruz Roja · Cáritas · SOUTHCOM   ║
  * ╚══════════════════════════════════════════════════════════════╝
@@ -8,9 +8,9 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-06-30T21:20:00-04:00",
+  generated_at: "2026-07-02T11:08:00-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
-  days_elapsed: 7,
+  days_elapsed: 8,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   status: {
     sismicity:                   "active_monitoring",
@@ -22,15 +22,28 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    injured:           3150,
-    attended:          12049,
-    hospitals_affected: 38,
-    filiales_cruz_roja: 41,
+    deaths:              2295,
+    injured:             11267,
+    rescued:             6461,
+    volunteers:          17832,
+    countries_supporting: 24,
+    humanitarian_tons:   521,
+    k9_units:            86,
+    rescue_personnel:    2741,
+    aftershocks_total:   780,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
-    ifrc_appeal_chf:     50000000,
-    source:   "MPPS / Cruz Roja IFRC / SOUTHCOM — 27–30 jun 2026",
+    casualties_status:   "en actualización — rescates en curso",
+    source:   "Univision / Reuters / Europa Press / SOUTHCOM — balance al 02 jul 2026",
   },
+
+  // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
+  recent_replicas: [
+    { date: "2026-07-02T00:49:00-04:00", magnitude: 3.2, depth_km: 5.5,  source: "FUNVISIS" },
+    { date: "2026-06-29T00:00:00-04:00", magnitude: 4.6, depth_km: null, source: "Seguimiento regional" },
+    { date: "2026-06-26T22:16:00-04:00", magnitude: 4.9, depth_km: null, source: "Seguimiento de réplicas" },
+    { date: "2026-06-25T00:00:00-04:00", magnitude: null, depth_km: null, source: "FUNVISIS — réplicas 2.1–3.6" },
+  ],
 
   // ── CONTACTOS NACIONALES ─────────────────────────────────────
   national: [
@@ -49,52 +62,52 @@ const EMERGENCY_DATA = {
       url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/" },
   ],
 
-  // ── COMUNICADOS OFICIALES (5 fuentes) ───────────────────────
+  // ── COMUNICADOS OFICIALES — actualizado 2 jul 2026 ──────────
   official_updates: [
     {
-      source:  "FUNVISIS",
-      date:    "2026-06-29",
-      badge:   "📡 Monitoreo activo",
-      title:   "Secuencia sísmica activa — réplicas en occidente",
-      summary: "25 eventos M 1.9–4.5 en Portuguesa, Trujillo y Lara. Monitoreo permanente. Consultar canales oficiales FUNVISIS.",
-      type:    "seismic",
-      source_url: "http://www.funvisis.gob.ve/noticias.php",
+      source:  "Balance oficial — 2 jul 2026",
+      date:    "2026-07-02",
+      badge:   "🔴 Cifras oficiales actualizadas",
+      title:   "2.295 fallecidos · 11.267 heridos · 6.461 rescatados",
+      summary: "Balance al día 9 de la emergencia. 17.832 voluntarios desplegados. Búsqueda bajo escombros continúa con más de 780 réplicas registradas desde el evento principal.",
+      type:    "critical",
+      source_url: "https://www.univision.com/noticias/terremotos-en-venezuela-suman-2-295-muertos-a-una-semana-de-los-devastadores-sismos-video",
     },
     {
-      source:  "MPPS",
-      date:    "2026-06-27",
-      badge:   "🏥 Balance sanitario oficial",
-      title:   "3.150 heridos · 12.049 atendidos · 38 hospitales afectados",
-      summary: "Despliegue sanitario ampliado en todo el territorio nacional. Red hospitalaria reforzada.",
-      type:    "medical",
-      source_url: "https://mpps.gob.ve/balance-oficial-destaca-despliegue-sanitario-y-acciones-de-rescate-ante-contingencia-nacional/",
+      source:  "FUNVISIS — 2 jul 2026",
+      date:    "2026-07-02",
+      badge:   "📡 Réplica Mw 3.2 registrada hoy",
+      title:   "780+ réplicas desde el doblete principal — monitoreo activo",
+      summary: "Última réplica registrada: Mw 3.2 a las 00:49 VET (2 jul), profundidad 5.5 km. Actividad sísmica residual continúa. Riesgo elevado en estructuras comprometidas.",
+      type:    "seismic",
+      source_url: "http://www.funvisis.gob.ve/monitor.html",
+    },
+    {
+      source:  "Reuters / Europa Press — 1–2 jul 2026",
+      date:    "2026-07-02",
+      badge:   "🌍 24 países · 521 ton · 86 equipos K9",
+      title:   "Respuesta multinacional activa — 2.741 rescatistas internacionales",
+      summary: "EE.UU. con 900 efectivos dentro de Venezuela + 800 en hubs del Caribe. 24 países con 521 toneladas de insumos humanitarios. 86 unidades caninas de búsqueda activas.",
+      type:    "international",
+      source_url: "https://www.reuters.com/world/americas/us-military-deploys-over-900-personnel-venezuela-earthquake-response-2026-07-01/",
     },
     {
       source:  "Cruz Roja / IFRC",
-      date:    "2026-06-30",
-      badge:   "🏥 Respuesta extendida 24 meses",
-      title:   "Hospitales campaña + llamamiento CHF 50M + 41 filiales",
-      summary: "Cruz Roja Española y Finlandesa con hospitales de campaña en La Guaira. Respuesta planificada por 24 meses. IFRC moviliza CHF 50 millones.",
+      date:    "2026-07-02",
+      badge:   "🏥 Hospitales de campaña + respuesta 24 meses",
+      title:   "Cruz Roja Española y Finlandesa activas en La Guaira · CHF 50M",
+      summary: "Hospitales de campaña operativos en La Guaira. 41 filiales venezolanas activas. Respuesta planificada a 24 meses. Llamamiento IFRC por CHF 50 millones.",
       type:    "medical",
       source_url: "https://cruzroja.ve/informate/",
     },
     {
       source:  "Cáritas Venezuela",
-      date:    "2026-06-27",
-      badge:   "📦 Acopio nacional activo",
-      title:   "Centro de acopio en Montalbán — agua, alimentos, medicinas",
-      summary: "Sede Conferencia Episcopal, Montalbán. Donaciones centralizadas. Posibles centros diocesanos adicionales.",
+      date:    "2026-07-02",
+      badge:   "📦 Acopio nacional — Montalbán, Caracas",
+      title:   "Centro nacional de acopio activo — agua, alimentos, medicinas",
+      summary: "Sede Conferencia Episcopal, Montalbán. Donaciones centralizadas. Activación de centros diocesanos en otras regiones en proceso.",
       type:    "civil",
       source_url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/",
-    },
-    {
-      source:  "SOUTHCOM / EE.UU.",
-      date:    "2026-06-30",
-      badge:   "🛡 Apoyo militar-humanitario",
-      title:   "900 efectivos desplegados + C-17, C-130, USS Fort Lauderdale",
-      summary: "Operación de alivio no permanente: SAR, logística aérea, reapertura aeropuerto, drones MQ-9 para evaluación de daños. ~800 adicionales en Puerto Rico y Curazao.",
-      type:    "international",
-      source_url: "https://www.southcom.mil/Media/Special-Coverage/US-Military-Support-to-Venezuela-Earthquake-Relief/",
     },
   ],
 
@@ -368,9 +381,9 @@ function renderDirectorio() {
   const chevronR  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>`;
   const extIcon   = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 
-  const typeColors = { seismic:'rgba(76,201,240,0.12)', medical:'rgba(45,198,83,0.10)', civil:'rgba(244,162,97,0.10)', international:'rgba(230,57,70,0.08)' };
-  const typeBorders= { seismic:'rgba(76,201,240,0.3)',  medical:'rgba(45,198,83,0.25)', civil:'rgba(244,162,97,0.25)', international:'rgba(230,57,70,0.25)' };
-  const typeAccents= { seismic:'#4cc9f0', medical:'#2dc653', civil:'#f4a261', international:'#e63946' };
+  const typeColors = { seismic:'rgba(76,201,240,0.12)', medical:'rgba(45,198,83,0.10)', civil:'rgba(244,162,97,0.10)', international:'rgba(230,57,70,0.08)', critical:'rgba(230,57,70,0.18)' };
+  const typeBorders= { seismic:'rgba(76,201,240,0.3)',  medical:'rgba(45,198,83,0.25)', civil:'rgba(244,162,97,0.25)', international:'rgba(230,57,70,0.25)', critical:'rgba(230,57,70,0.5)' };
+  const typeAccents= { seismic:'#4cc9f0', medical:'#2dc653', civil:'#f4a261', international:'#e63946', critical:'#e63946' };
 
   const updatesHTML = EMERGENCY_DATA.official_updates.map(u=>`
     <div style="background:${typeColors[u.type]||'rgba(255,255,255,0.04)'};border:1px solid ${typeBorders[u.type]||'rgba(255,255,255,0.1)'};border-radius:8px;padding:11px 13px;">
