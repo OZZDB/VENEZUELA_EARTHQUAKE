@@ -226,7 +226,7 @@
 
     <!-- Day 7 banner -->
     <div class="day7-banner">
-      <div class="day7-label">⚠ Día 8 — Emergencia activa · 24 junio 2026</div>
+      <div class="day7-label">⚠ Día 9 — Emergencia activa · 24 junio 2026</div>
       <div class="day7-title">Terremoto Venezuela<br>M 7.2 y M 7.5 — Yaracuy<br><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);">780+ réplicas · búsqueda activa</span></div>
       <div class="day7-stats">
         <div class="stat-chip"><div class="stat-num">2.295</div><div class="stat-lbl">fallecidos<br>oficiales</div></div>
@@ -275,6 +275,20 @@
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         <span class="btn-title">Mis Reportes</span>
         <span class="btn-sub">Historial offline</span>
+      </button>
+    </div>
+
+    <!-- Historias de Sobrevivientes — acceso destacado -->
+    <div style="padding:14px 16px 0;">
+      <button onclick="App.navigate('screenHistorias');renderHistorias()" style="width:100%;display:flex;align-items:center;gap:12px;padding:15px;background:linear-gradient(135deg, rgba(244,162,97,0.16) 0%, rgba(180,120,30,0.05) 100%);border:1px solid rgba(244,162,97,0.35);border-radius:var(--radius);cursor:pointer;touch-action:manipulation;text-align:left;">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(244,162,97,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:800;color:var(--text);">Historias de Sobrevivientes</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:1px;">Rescates verificados · Vida y resiliencia</div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
 
@@ -577,6 +591,19 @@
     <div style="padding:14px;">
       <div id="directorioContent">
         <p style="color:var(--text-muted);font-size:13px;text-align:center;padding:32px 0;">Cargando directorio…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SCREEN: HISTORIAS ═══════════════════════ -->
+  <section class="screen" id="screenHistorias">
+    <div class="form-header">
+      <button class="back-btn" onclick="App.navigate('screenHome')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <span class="form-title">Historias de Sobrevivientes</span>
+    </div>
+    <div style="padding:14px;">
+      <div id="historiasContent">
+        <p style="color:var(--text-muted);font-size:13px;text-align:center;padding:32px 0;">Cargando historias…</p>
       </div>
     </div>
   </section>

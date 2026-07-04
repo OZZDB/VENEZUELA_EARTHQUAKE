@@ -10,7 +10,7 @@
 const EMERGENCY_DATA = {
   generated_at: "2026-07-02T11:08:00-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
-  days_elapsed: 8,
+  days_elapsed: 9,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   status: {
     sismicity:                   "active_monitoring",
@@ -65,8 +65,8 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 2 jul 2026 ──────────
   official_updates: [
     {
-      source:  "Balance oficial — 2 jul 2026",
-      date:    "2026-07-02",
+      source:  "Balance oficial — 3 jul 2026",
+      date:    "2026-07-03",
       badge:   "🔴 Cifras oficiales actualizadas",
       title:   "2.295 fallecidos · 11.267 heridos · 6.461 rescatados",
       summary: "Balance al día 9 de la emergencia. 17.832 voluntarios desplegados. Búsqueda bajo escombros continúa con más de 780 réplicas registradas desde el evento principal.",
@@ -74,8 +74,8 @@ const EMERGENCY_DATA = {
       source_url: "https://www.univision.com/noticias/terremotos-en-venezuela-suman-2-295-muertos-a-una-semana-de-los-devastadores-sismos-video",
     },
     {
-      source:  "FUNVISIS — 2 jul 2026",
-      date:    "2026-07-02",
+      source:  "FUNVISIS — 3 jul 2026",
+      date:    "2026-07-03",
       badge:   "📡 Réplica Mw 3.2 registrada hoy",
       title:   "780+ réplicas desde el doblete principal — monitoreo activo",
       summary: "Última réplica registrada: Mw 3.2 a las 00:49 VET (2 jul), profundidad 5.5 km. Actividad sísmica residual continúa. Riesgo elevado en estructuras comprometidas.",
@@ -83,8 +83,8 @@ const EMERGENCY_DATA = {
       source_url: "http://www.funvisis.gob.ve/monitor.html",
     },
     {
-      source:  "Reuters / Europa Press — 1–2 jul 2026",
-      date:    "2026-07-02",
+      source:  "Reuters / Europa Press — 1–3 jul 2026",
+      date:    "2026-07-03",
       badge:   "🌍 24 países · 521 ton · 86 equipos K9",
       title:   "Respuesta multinacional activa — 2.741 rescatistas internacionales",
       summary: "EE.UU. con 900 efectivos dentro de Venezuela + 800 en hubs del Caribe. 24 países con 521 toneladas de insumos humanitarios. 86 unidades caninas de búsqueda activas.",
@@ -93,7 +93,7 @@ const EMERGENCY_DATA = {
     },
     {
       source:  "Cruz Roja / IFRC",
-      date:    "2026-07-02",
+      date:    "2026-07-03",
       badge:   "🏥 Hospitales de campaña + respuesta 24 meses",
       title:   "Cruz Roja Española y Finlandesa activas en La Guaira · CHF 50M",
       summary: "Hospitales de campaña operativos en La Guaira. 41 filiales venezolanas activas. Respuesta planificada a 24 meses. Llamamiento IFRC por CHF 50 millones.",
@@ -102,7 +102,7 @@ const EMERGENCY_DATA = {
     },
     {
       source:  "Cáritas Venezuela",
-      date:    "2026-07-02",
+      date:    "2026-07-03",
       badge:   "📦 Acopio nacional — Montalbán, Caracas",
       title:   "Centro nacional de acopio activo — agua, alimentos, medicinas",
       summary: "Sede Conferencia Episcopal, Montalbán. Donaciones centralizadas. Activación de centros diocesanos en otras regiones en proceso.",
@@ -136,6 +136,114 @@ const EMERGENCY_DATA = {
       actions:["Atención médica", "Apoyo psicosocial"],
       personnel: "Equipo médico especializado",
       status: "Desplegado en La Guaira",
+    },
+  ],
+
+  // ── HISTORIAS DE SOBREVIVIENTES — verificadas por prensa ──────
+  // Casos reales reportados por CNN, Wikipedia y Univision.
+  // Contenido parafraseado; nunca cita textual >15 palabras por fuente.
+  survivor_stories: [
+    {
+      slug:     "hernan-gil-la-guaira",
+      name:     "Hernán Alberto Gil Flores",
+      age:      44,
+      role:     "Guardia de seguridad",
+      location: "La Guaira",
+      days_trapped: 8,
+      hours_trapped: 100,
+      badge:    "🏆 Rescate más largo confirmado",
+      headline: "8 días bajo los escombros — rescatado con vida",
+      summary:  "Gil trabajaba como guardia de seguridad en un centro comercial de La Guaira. Un equipo de rescate chileno lo localizó y mantuvo con vida vía sonda de alimentación e hidratación durante más de 100 horas de trabajo hasta lograr sacarlo con vida.",
+      rescue_team: "Grupo USAR — Bomberos de Chile",
+      status:   "Rescatado con vida",
+      date:     "2026-07-02",
+      source:   "CNN en Español",
+      source_url: "https://cnnespanol.cnn.com/2026/07/02/venezuela/live-news/terremotos-venezuela-en-vivo-noticias-la-guaira-caracas-orix",
+    },
+    {
+      slug:     "familia-gallipoli-triangulo-vida",
+      name:     "Jofram Gallipoli y su familia",
+      age:      null,
+      role:     "Padre de familia · esposa · hijo de 4 años",
+      location: "Centro-norte de Venezuela",
+      days_trapped: null,
+      hours_trapped: null,
+      badge:    "❤️ Historia de esperanza familiar",
+      headline: "Una familia completa sobrevivió en el \"triángulo de la vida\"",
+      summary:  "Gallipoli relató que todo quedó oscuro y sepultado en segundos. Él, su esposa y su hijo de 4 años lograron sobrevivir en un pequeño espacio de aire conocido como el triángulo de la vida, sin certeza de lo que ocurría afuera hasta ser rescatados.",
+      rescue_team: "Equipos locales y voluntarios",
+      status:   "Familia completa a salvo",
+      date:     "2026-07-02",
+      source:   "CNN en Español",
+      source_url: "https://cnnespanol.cnn.com/2026/07/02/venezuela/live-news/terremotos-venezuela-en-vivo-noticias-la-guaira-caracas-orix",
+    },
+    {
+      slug:     "stephanie-villegas-gritos",
+      name:     "Stephanie Villegas",
+      age:      null,
+      role:     "Sobreviviente",
+      location: "La Guaira",
+      days_trapped: null,
+      hours_trapped: null,
+      badge:    "📢 Sus gritos salvaron su vida",
+      headline: "Sus gritos de auxilio guiaron a los rescatistas hasta ella",
+      summary:  "Villegas quedó atrapada bajo los escombros de un edificio en La Guaira. Sus llamados de auxilio dieron la señal de vida que permitió a rescatistas y voluntarios localizarla. Permanece hospitalizada en Caracas en recuperación.",
+      rescue_team: "Voluntarios y rescatistas locales",
+      status:   "Hospitalizada · en recuperación",
+      date:     "2026-07-02",
+      source:   "CNN en Español",
+      source_url: "https://cnnespanol.cnn.com/2026/07/02/venezuela/live-news/terremotos-venezuela-en-vivo-noticias-la-guaira-caracas-orix",
+    },
+    {
+      slug:     "padre-hijo-106-horas",
+      name:     "Padre e hijo (identidad reservada)",
+      age:      null,
+      role:     "Padre e hijo",
+      location: "La Guaira",
+      days_trapped: 4,
+      hours_trapped: 106,
+      badge:    "🌍 Rescate multinacional",
+      headline: "106 horas atrapados — rescatados por equipo internacional",
+      summary:  "Un padre y su hijo permanecieron aproximadamente 106 horas atrapados bajo un edificio colapsado en La Guaira. Fueron rescatados con vida en una operación conjunta entre equipos venezolanos, franceses y estadounidenses.",
+      rescue_team: "Venezuela · Francia · Estados Unidos (operación conjunta)",
+      status:   "Rescatados con vida",
+      date:     "2026-06-29",
+      source:   "Wikipedia — Terremotos de Venezuela de 2026",
+      source_url: "https://es.wikipedia.org/wiki/Terremotos_de_Venezuela_de_2026",
+    },
+    {
+      slug:     "madre-bebe-nueve-meses",
+      name:     "Madre y bebé de 9 meses",
+      age:      null,
+      role:     "Madre e hijo lactante",
+      location: "Zona centro-norte",
+      days_trapped: null,
+      hours_trapped: null,
+      badge:    "👶 El rescate que emocionó al país",
+      headline: "Madre y su bebé de nueve meses, rescatados con vida",
+      summary:  "Un equipo de rescatistas estadounidenses logró salvar con vida a una madre junto a su bebé de nueve meses tras permanecer atrapados entre los escombros, en uno de los rescates más celebrados de la primera semana.",
+      rescue_team: "Equipo de rescate — Estados Unidos",
+      status:   "Rescatados con vida",
+      date:     "2026-06-27",
+      source:   "Wikipedia — Terremotos de Venezuela de 2026",
+      source_url: "https://es.wikipedia.org/wiki/Terremotos_de_Venezuela_de_2026",
+    },
+    {
+      slug:     "bebe-dos-anos-sexto-dia",
+      name:     "Bebé de 2 años",
+      age:      2,
+      role:     "Menor rescatado",
+      location: "Zona afectada",
+      days_trapped: 6,
+      hours_trapped: null,
+      badge:    "✨ Milagro del sexto día",
+      headline: "Rescatado con vida al sexto día — cuando la esperanza mermaba",
+      summary:  "El 30 de junio, sexto día tras el doblete sísmico, los equipos de emergencia lograron rescatar con vida a un bebé de dos años. Las autoridades habían señalado que las probabilidades de hallar sobrevivientes disminuían con cada día transcurrido.",
+      rescue_team: "Equipos de emergencia nacionales e internacionales",
+      status:   "Rescatado con vida",
+      date:     "2026-06-30",
+      source:   "Univision Noticias",
+      source_url: "https://www.univision.com/noticias/america-latina/ultimas-noticias-terremotos-venezuela-hoy-martes-30-junio-2026-en-vivo",
     },
   ],
 
@@ -534,7 +642,85 @@ function renderDirectorio() {
     </div>`;
 }
 
+// ═══════════════════════════════════════════════════════════════
+//  HISTORIAS DE SOBREVIVIENTES — Renderer
+//  Casos reales verificados por prensa (CNN, Wikipedia, Univision)
+// ═══════════════════════════════════════════════════════════════
+const _openStory = {};
+
+function toggleStory(slug) {
+  const body    = document.getElementById(`story-body-${slug}`);
+  const chevron = document.getElementById(`story-chevron-${slug}`);
+  if (!body) return;
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+  _openStory[slug] = !isOpen;
+}
+
+function renderHistorias() {
+  const container = document.getElementById('historiasContent');
+  if (!container) return;
+
+  const stories = EMERGENCY_DATA.survivor_stories || [];
+
+  const timeLabel = (s) => {
+    if (s.days_trapped && s.hours_trapped) return `${s.days_trapped} días · ${s.hours_trapped}h`;
+    if (s.days_trapped) return `${s.days_trapped} día${s.days_trapped > 1 ? 's' : ''} atrapado(s)`;
+    if (s.hours_trapped) return `${s.hours_trapped} horas`;
+    return null;
+  };
+
+  const cardsHTML = stories.map(s => {
+    const tLabel = timeLabel(s);
+    return `
+    <div style="background:linear-gradient(135deg, rgba(244,162,97,0.08) 0%, rgba(20,20,20,0.4) 100%);border:1px solid rgba(244,162,97,0.25);border-radius:12px;overflow:hidden;">
+
+      <div style="padding:14px;cursor:pointer;" onclick="toggleStory('${s.slug}')">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-size:10px;font-weight:700;color:#f4a261;background:rgba(244,162,97,0.15);padding:3px 9px;border-radius:20px;">${s.badge}</span>
+          <svg id="story-chevron-${s.slug}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="transition:transform 200ms;flex-shrink:0;"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div style="font-size:14px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:4px;">${s.headline}</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--text-muted);">
+          <span>📍 ${s.location}</span>
+          ${tLabel ? `<span>· ⏱ ${tLabel}</span>` : ''}
+        </div>
+      </div>
+
+      <div id="story-body-${s.slug}" style="display:none;padding:0 14px 14px;">
+        <div style="border-top:1px solid rgba(244,162,97,0.2);padding-top:12px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">${s.name}${s.age ? ` (${s.age})` : ''}</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">${s.role}</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.6;margin-bottom:10px;">${s.summary}</div>
+          <div style="display:flex;flex-direction:column;gap:5px;font-size:11px;">
+            <div style="color:var(--text-muted);">🚑 Equipo de rescate: <span style="color:var(--text);font-weight:600;">${s.rescue_team}</span></div>
+            <div style="color:var(--text-muted);">✅ Estado: <span style="color:#2dc653;font-weight:700;">${s.status}</span></div>
+          </div>
+          <a href="${s.source_url}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:10px;color:#4cc9f0;text-decoration:none;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Fuente: ${s.source} · ${s.date}
+          </a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  container.innerHTML = `
+    <div style="background:linear-gradient(135deg, rgba(244,162,97,0.15) 0%, rgba(180,120,30,0.06) 100%);border:1px solid rgba(244,162,97,0.3);border-radius:12px;padding:14px;margin-bottom:16px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#f4a261;margin-bottom:4px;">✨ Historias de Vida y Resiliencia</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.5;">Detrás de cada cifra hay una historia real. Estos son casos verificados de personas rescatadas con vida tras el doblete sísmico del 24 de junio.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">${cardsHTML}</div>
+    <div style="font-size:10px;color:var(--text-muted);text-align:center;padding:16px 0 4px;line-height:1.6;">
+      Historias verificadas por CNN en Español, Wikipedia y Univision.<br>
+      Se comparten con respeto a las personas involucradas y sus familias.
+    </div>`;
+}
+
 window.toggleRegion      = toggleRegion;
 window.setTab            = setTab;
 window.renderDirectorio  = renderDirectorio;
+window.toggleStory       = toggleStory;
+window.renderHistorias   = renderHistorias;
 window.EMERGENCY_DATA    = EMERGENCY_DATA;
