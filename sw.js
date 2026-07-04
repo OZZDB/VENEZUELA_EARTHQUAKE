@@ -8,7 +8,7 @@
 
 'use strict';
 
-const SW_VERSION = 'v3.3.0';
+const SW_VERSION = 'v3.4.0';
 const CACHE_SHELL = `ayudave-shell-${SW_VERSION}`;
 const CACHE_DYNAMIC = `ayudave-dynamic-${SW_VERSION}`;
 const SYNC_TAG = 'sync-reports';

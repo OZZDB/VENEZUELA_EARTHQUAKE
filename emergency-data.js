@@ -8,9 +8,9 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-07-02T11:08:00-04:00",
+  generated_at: "2026-07-04T09:00:00-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
-  days_elapsed: 9,
+  days_elapsed: 11,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   status: {
     sismicity:                   "active_monitoring",
@@ -22,8 +22,8 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              2295,
-    injured:             11267,
+    deaths:              2645,
+    injured:             12400,
     rescued:             6461,
     volunteers:          17832,
     countries_supporting: 24,
@@ -34,7 +34,7 @@ const EMERGENCY_DATA = {
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Univision / Reuters / Europa Press / SOUTHCOM — balance al 02 jul 2026",
+    source:   "Balance oficial del Gobierno (Delcy Rodríguez) / El Tiempo Colombia — 04 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
@@ -62,21 +62,30 @@ const EMERGENCY_DATA = {
       url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/" },
   ],
 
-  // ── COMUNICADOS OFICIALES — actualizado 2 jul 2026 ──────────
+  // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
-      source:  "Balance oficial — 3 jul 2026",
-      date:    "2026-07-03",
+      source:  "Balance oficial — 4 jul 2026",
+      date:    "2026-07-04",
       badge:   "🔴 Cifras oficiales actualizadas",
-      title:   "2.295 fallecidos · 11.267 heridos · 6.461 rescatados",
-      summary: "Balance al día 9 de la emergencia. 17.832 voluntarios desplegados. Búsqueda bajo escombros continúa con más de 780 réplicas registradas desde el evento principal.",
+      title:   "2.645 fallecidos · 12.400 heridos · 6.461 rescatados",
+      summary: "Balance al día 11 de la emergencia, según El Tiempo (Colombia) citando fuentes oficiales venezolanas. La cifra de fallecidos subió de 2.595 (2 jul) a 2.645. Búsqueda bajo escombros continúa activa.",
       type:    "critical",
-      source_url: "https://www.univision.com/noticias/terremotos-en-venezuela-suman-2-295-muertos-a-una-semana-de-los-devastadores-sismos-video",
+      source_url: "https://www.eltiempo.com/mundo/latinoamerica/venezuela-hoy-4-de-julio-tras-los-dos-fuertes-terremotos-la-emergencia-deja-al-menos-2-645-muertos-suben-a-34-los-espanoles-fallecidos",
+    },
+    {
+      source:  "El Tiempo (Colombia) — 4 jul 2026",
+      date:    "2026-07-04",
+      badge:   "🌍 34 ciudadanos españoles entre los fallecidos",
+      title:   "Impacto internacional confirmado — víctimas extranjeras en aumento",
+      summary: "Entre las víctimas mortales confirmadas se cuentan 34 ciudadanos españoles, según el último recuento. Refleja la magnitud del turismo y la comunidad extranjera afectada en la zona del litoral central.",
+      type:    "international",
+      source_url: "https://www.eltiempo.com/mundo/latinoamerica/venezuela-hoy-4-de-julio-tras-los-dos-fuertes-terremotos-la-emergencia-deja-al-menos-2-645-muertos-suben-a-34-los-espanoles-fallecidos",
     },
     {
       source:  "FUNVISIS — 3 jul 2026",
       date:    "2026-07-03",
-      badge:   "📡 Réplica Mw 3.2 registrada hoy",
+      badge:   "📡 Réplica Mw 3.2 registrada",
       title:   "780+ réplicas desde el doblete principal — monitoreo activo",
       summary: "Última réplica registrada: Mw 3.2 a las 00:49 VET (2 jul), profundidad 5.5 km. Actividad sísmica residual continúa. Riesgo elevado en estructuras comprometidas.",
       type:    "seismic",
