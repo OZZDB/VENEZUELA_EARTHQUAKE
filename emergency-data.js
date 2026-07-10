@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Balance oficial — 8 jul 2026",
+      date:    "2026-07-10",
+      badge:   "🔴 Balance actualizado — 16 días",
+      title:   "3.811 fallecidos · 16.740 heridos · 17.907 sin vivienda",
+      summary: "Balance oficial del 8 de julio, presentado por el presidente del Parlamento Jorge Rodríguez. La cifra de rescatados se mantiene en 6.462 desde el jueves anterior. Se han atendido 86.794 familias en total.",
+      type:    "critical",
+      source_url: "https://www.elnacional.com/2026/07/balance-oficial-3-811-muertos-y-mas-de-16-700-heridos-por-los-terremotos-en-venezuela/",
+    },
+    {
       source:  "Balance oficial — 4 jul 2026",
       date:    "2026-07-04",
       badge:   "🔴 Cifras oficiales actualizadas",
