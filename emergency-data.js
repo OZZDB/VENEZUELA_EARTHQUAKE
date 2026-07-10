@@ -136,6 +136,15 @@ const EMERGENCY_DATA = {
       type:    "civil",
       source_url: "https://caritasvenezuela.org/caritas-venezuela-con-los-afectados-por-el-sismo-el-abrazo-de-la-iglesia/",
     },
+    {
+      source:  "AFP / Univision — 3 jul 2026",
+      date:    "2026-07-03",
+      badge:   "⚠️ Cambio de fase operativa",
+      title:   "Equipos internacionales dan por cerrada la fase de búsqueda activa",
+      summary: "Tras el noveno día sin hallar señales de vida adicionales, los equipos de rescate transicionan de labores de búsqueda a labores de recuperación y reconstrucción. La probabilidad de hallar sobrevivientes disminuye drásticamente tras las primeras 72 horas.",
+      type:    "civil",
+      source_url: "https://www.univision.com/noticias/america-latina/ultimas-noticias-en-vivo-terremoto-venezuela-nueve-dias-tragedia-muertos-y-heridos-viernes-3-julio-2026",
+    },
   ],
 
   // ── APOYO INTERNACIONAL ──────────────────────────────────────
