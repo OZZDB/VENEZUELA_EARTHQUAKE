@@ -22,9 +22,9 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              2645,
-    injured:             12400,
-    rescued:             6461,
+    deaths:              3811,
+    injured:             16740,
+    rescued:             6462,
     volunteers:          17832,
     countries_supporting: 24,
     humanitarian_tons:   521,
@@ -34,7 +34,7 @@ const EMERGENCY_DATA = {
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Balance oficial del Gobierno (Delcy Rodríguez) / El Tiempo Colombia — 04 jul 2026",
+    source:   "Balance oficial — Jorge Rodríguez / Delcy Rodríguez, El Nacional, 8 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
