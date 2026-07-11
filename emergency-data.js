@@ -22,19 +22,19 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              3811,
+    deaths:              3889,
     injured:             16740,
     rescued:             6462,
-    volunteers:          17832,
+    volunteers:          29344,
     countries_supporting: 24,
-    humanitarian_tons:   521,
+    humanitarian_tons:   9603,
     k9_units:            86,
-    rescue_personnel:    2741,
+    rescue_personnel:    3931,
     aftershocks_total:   780,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Balance oficial — Jorge Rodríguez / Delcy Rodríguez, El Nacional, 8 jul 2026",
+    source:   "Balance oficial — Jorge Rodríguez (AN), vía El Nacional / Infobae (AFP), 9 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
