@@ -22,7 +22,7 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              3889,
+    deaths:              4118,
     injured:             16740,
     rescued:             6462,
     volunteers:          29344,
@@ -34,7 +34,7 @@ const EMERGENCY_DATA = {
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Balance oficial — Jorge Rodríguez (AN), vía El Nacional / Infobae (AFP), 9 jul 2026",
+    source:   "Balance oficial — Jorge Rodríguez (AN), vía Times of Israel, ~10 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
