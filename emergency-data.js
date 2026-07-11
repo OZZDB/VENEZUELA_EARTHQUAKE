@@ -65,15 +65,6 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
-      source:  "AFP / Univision — 3 jul 2026",
-      date:    "2026-07-10",
-      badge:   "⚠️ Cambio de fase operativa",
-      title:   "Equipos internacionales dan por cerrada la fase de búsqueda activa",
-      summary: "Tras el noveno día sin hallar señales de vida adicionales, los equipos de rescate transicionan de labores de búsqueda a labores de recuperación y reconstrucción. La probabilidad de hallar sobrevivientes disminuye drásticamente tras las primeras 72 horas.",
-      type:    "civil",
-      source_url: "https://www.univision.com/noticias/america-latina/ultimas-noticias-en-vivo-terremoto-venezuela-nueve-dias-tragedia-muertos-y-heridos-viernes-3-julio-2026",
-    },
-    {
       source:  "Balance oficial — 8 jul 2026",
       date:    "2026-07-10",
       badge:   "🔴 Balance actualizado — 16 días",
