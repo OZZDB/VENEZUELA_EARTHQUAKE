@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.elnacional.com/2026/07/balance-oficial-3-811-muertos-y-mas-de-16-700-heridos-por-los-terremotos-en-venezuela/",
     },
     {
+      source:  "Balance oficial — Jorge Rodríguez (AN) — 9 jul 2026",
+      date:    "2026-07-09",
+      badge:   "🔴 Balance actualizado — 16 días",
+      title:   "3.889 fallecidos · 16.740 heridos · 89 campamentos transitorios",
+      summary: "Incremento de 78 fallecidos respecto al balance anterior. Se mantienen 6.462 rescatados y 17.907 personas sin vivienda. El Estado ha atendido 86.794 familias y desplegado cerca de 30.000 efectivos junto a 3.931 rescatistas internacionales.",
+      type:    "critical",
+      source_url: "https://www.elnacional.com/2026/07/sube-a-3-889-el-numero-de-fallecidos-por-los-terremotos-en-venezuela-la-cifra-de-heridos-se-mantiene-en-16-740/",
+    },
+    {
       source:  "Balance oficial — 4 jul 2026",
       date:    "2026-07-04",
       badge:   "🔴 Cifras oficiales actualizadas",
