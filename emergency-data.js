@@ -83,6 +83,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.elnacional.com/2026/07/sube-a-3-889-el-numero-de-fallecidos-por-los-terremotos-en-venezuela-la-cifra-de-heridos-se-mantiene-en-16-740/",
     },
     {
+      source:  "Gobierno de Venezuela — 7 jul 2026",
+      date:    "2026-07-07",
+      badge:   "🏗️ Plan de reconstrucción activado",
+      title:   "Arranca el plan \"Venezuela Renace\" para viviendas colapsadas",
+      summary: "El gobierno puso en marcha el plan de recuperación de viviendas colapsadas y afectadas, consolidando la transición de la fase de búsqueda hacia la reconstrucción de infraestructura habitacional.",
+      type:    "civil",
+      source_url: "https://www.mdzol.com/mundo/aumento-3889-el-numero-fallecidos-terremotos-venezuela-n1550989",
+    },
+    {
       source:  "Balance oficial — 4 jul 2026",
       date:    "2026-07-04",
       badge:   "🔴 Cifras oficiales actualizadas",
