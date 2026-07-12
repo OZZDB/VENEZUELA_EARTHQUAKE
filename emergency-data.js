@@ -22,7 +22,7 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              4118,
+    deaths:              4333,
     injured:             16740,
     rescued:             6462,
     volunteers:          29344,
@@ -30,11 +30,11 @@ const EMERGENCY_DATA = {
     humanitarian_tons:   9603,
     k9_units:            86,
     rescue_personnel:    3931,
-    aftershocks_total:   780,
+    aftershocks_total:   1171,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Balance oficial — Jorge Rodríguez (AN), vía Times of Israel, ~10 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN), conferencia de prensa — El Colombiano, 11 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
