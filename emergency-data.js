@@ -83,6 +83,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.elnacional.com/2026/07/balance-oficial-3-811-muertos-y-mas-de-16-700-heridos-por-los-terremotos-en-venezuela/",
     },
     {
+      source:  "Estimado de Naciones Unidas, vía Diario Las Américas / El Colombiano",
+      date:    "2026-07-10",
+      badge:   "⚠️ Sin cifra oficial de desaparecidos",
+      title:   "ONU estima hasta 50.000 desaparecidos — cifra que el gobierno evita confirmar",
+      summary: "Naciones Unidas estima que hasta 50.000 personas podrían haber desaparecido, lo que convertiría a este evento en uno de los peores terremotos de la historia de América Latina. El gobierno venezolano no ha publicado una cifra oficial de desaparecidos.",
+      type:    "critical",
+      source_url: "https://www.diariolasamericas.com/america-latina/ascienden-4118-los-fallecidos-terremotos-segun-gobierno-interino-venezuela-n5398653",
+    },
+    {
       source:  "Balance oficial — Jorge Rodríguez (AN) — 9 jul 2026",
       date:    "2026-07-09",
       badge:   "🔴 Balance actualizado — 16 días",
