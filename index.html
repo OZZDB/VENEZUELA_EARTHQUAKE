@@ -190,7 +190,7 @@
 
     /* ── BOTTOM NAV ─────────────────────────────────────────── */
     .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; background: var(--bg-card); border-top: 1px solid var(--border); display: flex; padding-bottom: var(--safe-bottom); z-index: 90; height: calc(var(--nav-h) + var(--safe-bottom)); }
-    .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 4px; gap: 3px; border: none; background: none; cursor: pointer; color: var(--text-muted); font-size: 9px; font-family: var(--font); touch-action: manipulation; transition: color 120ms; }
+    .nav-item { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 4px; gap: 3px; border: none; background: none; cursor: pointer; color: var(--text-muted); font-size: 9px; font-family: var(--font); touch-action: manipulation; transition: color 120ms; }
     .nav-item svg { width: 22px; height: 22px; }
     .nav-item span { font-weight: 600; letter-spacing: 0.2px; }
     .nav-item.active { color: var(--red); }
@@ -201,6 +201,38 @@
     .app-credits a { color: var(--blue); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
     .app-credits a:hover { text-decoration: underline; }
     .app-credits .div { color: var(--border); }
+
+    /* ── COMUNICADOS HOME WIDGET ────────────────────────────── */
+    .com-widget { padding: 14px 16px 4px; }
+    .com-widget-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+    .com-widget-title { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:0.4px; }
+    .com-live-dot { width:7px; height:7px; border-radius:50%; background:#e63946; box-shadow:0 0 0 rgba(230,57,70,0.6); animation: com-pulse 1.8s infinite; }
+    @keyframes com-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(230,57,70,0.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(230,57,70,0); }
+      100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
+    }
+    .com-freshness { font-size:10px; color:var(--text-muted); }
+    .com-chips { display:flex; gap:6px; overflow-x:auto; padding-bottom:8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .com-chips::-webkit-scrollbar { display:none; }
+    .com-chip { flex-shrink:0; font-size:11px; font-weight:700; padding:6px 12px; border-radius:20px; border:1px solid var(--border); background:rgba(255,255,255,0.03); color:var(--text-muted); cursor:pointer; touch-action:manipulation; white-space:nowrap; }
+    .com-chip.active { background:rgba(76,201,240,0.15); border-color:rgba(76,201,240,0.4); color:#4cc9f0; }
+    .com-card { display:block; text-align:left; width:100%; border-radius:10px; padding:12px 13px; margin-bottom:8px; cursor:pointer; touch-action:manipulation; border-width:1px; border-style:solid; background:none; }
+    .com-card-top { display:flex; justify-content:space-between; gap:8px; margin-bottom:4px; }
+    .com-card-src { font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+    .com-card-date { font-size:10px; color:var(--text-muted); flex-shrink:0; }
+    .com-card-title { font-size:12.5px; font-weight:800; color:var(--text); margin-bottom:3px; line-height:1.35; }
+    .com-card-summary { font-size:11px; color:var(--text-muted); line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .com-view-all { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:11px; margin-top:2px; border-radius:10px; border:1px dashed var(--border); background:rgba(255,255,255,0.02); color:#4cc9f0; font-size:12px; font-weight:700; cursor:pointer; touch-action:manipulation; }
+
+    /* ── NAV "NUEVO" BADGE ──────────────────────────────────── */
+    .nav-new-dot { position:absolute; top:2px; right:22%; width:8px; height:8px; border-radius:50%; background:#e63946; border:1.5px solid var(--bg-card); }
+
+    /* ── REPORTAR EMERGENCIA — GRID COMPACTO ────────────────── */
+    .action-grid-compact { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 16px; }
+    .action-btn-sm { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); cursor:pointer; touch-action:manipulation; text-align:left; }
+    .action-btn-sm .btn-icon-sm { width:16px; height:16px; }
+    .action-btn-sm .btn-title-sm { font-size:11.5px; font-weight:700; color:var(--text); }
   </style>
 </head>
 <body>
@@ -246,6 +278,11 @@
       <div class="intl-strip-text"><strong>24 países apoyando:</strong> EE.UU. 900 efectivos + C-17/C-130/MQ-9 · 86 equipos K9 · 521 ton insumos · Cruz Roja Española y Finlandesa · Hospitales de campaña La Guaira · 780+ réplicas activas</div>
     </div>
 
+    <!-- Comunicados Oficiales — widget dinámico Home -->
+    <div class="com-widget" id="comunicadosHomeWidget">
+      <p style="color:var(--text-muted);font-size:12px;text-align:center;padding:16px 0;">Cargando comunicados…</p>
+    </div>
+
     <!-- Historias de Sobrevivientes — acceso destacado -->
     <div style="padding:14px 16px 0;">
       <button onclick="App.navigate('screenHistorias');renderHistorias()" style="width:100%;display:flex;align-items:center;gap:12px;padding:15px;background:linear-gradient(135deg, rgba(244,162,97,0.16) 0%, rgba(180,120,30,0.05) 100%);border:1px solid rgba(244,162,97,0.35);border-radius:var(--radius);cursor:pointer;touch-action:manipulation;text-align:left;">
@@ -269,26 +306,22 @@
 
     <!-- Acciones principales -->
     <div class="section-label">Reportar emergencia</div>
-    <div class="action-grid">
-      <button class="action-btn btn-red btn-full" onclick="App.navigate('screenPerson')">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span class="btn-title">Reportar Persona Desaparecida</span>
-        <span class="btn-sub">Familiares, víctimas, rescatados</span>
+    <div class="action-grid-compact">
+      <button class="action-btn-sm" onclick="App.navigate('screenPerson')">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span class="btn-title-sm">Persona Desaparecida</span>
       </button>
-      <button class="action-btn btn-amber" onclick="App.navigate('screenDamage')">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
-        <span class="btn-title">Reportar Daño Estructural</span>
-        <span class="btn-sub">Edificios, puentes, vías</span>
+      <button class="action-btn-sm" onclick="App.navigate('screenDamage')">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        <span class="btn-title-sm">Daño Estructural</span>
       </button>
-      <button class="action-btn btn-green" onclick="App.navigate('screenOfrecer')">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        <span class="btn-title">Ofrecer Ayuda</span>
-        <span class="btn-sub">Maquinaria · SAR · Médico</span>
+      <button class="action-btn-sm" onclick="App.navigate('screenOfrecer')">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="#2dc653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span class="btn-title-sm">Ofrecer Ayuda</span>
       </button>
-      <button class="action-btn btn-dark" onclick="App.navigate('screenMyReports');App.renderMyReports()">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span class="btn-title">Mis Reportes</span>
-        <span class="btn-sub">Historial offline</span>
+      <button class="action-btn-sm" onclick="App.navigate('screenMyReports');App.renderMyReports()">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="btn-title-sm">Mis Reportes</span>
       </button>
     </div>
 
@@ -612,7 +645,7 @@
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
-  <button class="nav-item active" id="nav-home" onclick="App.navigate('screenHome');App.setNav(this)">
+  <button class="nav-item active" id="nav-home" onclick="App.navigate('screenHome');App.setNav(this);renderComunicadosHome()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
     <span>Inicio</span>
   </button>
@@ -624,7 +657,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
     <span>Daños</span>
   </button>
-  <button class="nav-item" id="nav-directorio" onclick="App.navigate('screenDirectorio');App.setNav(this);renderDirectorio()">
+  <button class="nav-item" id="nav-directorio" onclick="App.navigate('screenDirectorio');App.setNav(this);renderDirectorio();markComunicadosSeen()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
     <span>Directorio</span>
   </button>

@@ -920,6 +920,11 @@ const AyudaVeApp = (() => {
     // Cargar stats reales al iniciar
     loadAndShowStats();
 
+    // Pintar el widget de Comunicados Oficiales en Home
+    if (typeof renderComunicadosHome === 'function') {
+      renderComunicadosHome();
+    }
+
     window.App = {
       navigate, setNav, getGPS, handlePhoto, removePhoto,
       selectChip, submitReport, submitOffer, sendBySMS,

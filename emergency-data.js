@@ -519,6 +519,86 @@ function toggleRegion(slug) {
 }
 
 // ═══════════════════════════════════════════════════════════════
+//  COMUNICADOS OFICIALES — WIDGET DINÁMICO EN HOME
+// ═══════════════════════════════════════════════════════════════
+let comFilterActive = 'todos';
+
+function renderComunicadosHome() {
+  const container = document.getElementById('comunicadosHomeWidget');
+  if (!container) return;
+
+  const typeAccents = { seismic:'#4cc9f0', medical:'#2dc653', civil:'#f4a261', international:'#e63946', critical:'#e63946' };
+  const typeBg      = { seismic:'rgba(76,201,240,0.08)', medical:'rgba(45,198,83,0.08)', civil:'rgba(244,162,97,0.08)', international:'rgba(230,57,70,0.06)', critical:'rgba(230,57,70,0.14)' };
+  const typeBorder  = { seismic:'rgba(76,201,240,0.3)', medical:'rgba(45,198,83,0.25)', civil:'rgba(244,162,97,0.25)', international:'rgba(230,57,70,0.25)', critical:'rgba(230,57,70,0.45)' };
+  const typeLabels  = { todos:'Todos', critical:'🔴 Crítico', international:'🌍 Internacional', civil:'🏗️ Civil', medical:'🏥 Médico', seismic:'📡 Sísmico' };
+
+  const updates = [...(EMERGENCY_DATA.official_updates || [])].sort((a,b) => new Date(b.date) - new Date(a.date));
+  const filtered = comFilterActive === 'todos' ? updates : updates.filter(u => u.type === comFilterActive);
+  const preview = filtered.slice(0, 3);
+
+  const mostRecent = updates[0];
+  const daysAgo = mostRecent ? Math.floor((Date.now() - new Date(mostRecent.date)) / 86400000) : null;
+  const freshLabel = daysAgo === null ? '' : daysAgo <= 0 ? 'Actualizado hoy' : daysAgo === 1 ? 'Actualizado ayer' : `Actualizado hace ${daysAgo} días`;
+
+  const typesPresent = [...new Set(updates.map(u => u.type))];
+  const chips = ['todos', ...typesPresent];
+
+  container.innerHTML = `
+    <div class="com-widget-head">
+      <div class="com-widget-title"><span class="com-live-dot"></span> Comunicados Oficiales</div>
+      <span class="com-freshness">${freshLabel}</span>
+    </div>
+    <div class="com-chips">
+      ${chips.map(t => `<button class="com-chip ${comFilterActive===t?'active':''}" onclick="comSetFilter('${t}')">${typeLabels[t]||t}</button>`).join('')}
+    </div>
+    ${preview.map(u => `
+      <button class="com-card" style="background:${typeBg[u.type]||'rgba(255,255,255,0.03)'};border-color:${typeBorder[u.type]||'var(--border)'};" onclick="App.navigate('screenDirectorio');App.setNav(document.getElementById('nav-directorio'));renderDirectorio();markComunicadosSeen();">
+        <div class="com-card-top">
+          <span class="com-card-src" style="color:${typeAccents[u.type]||'#888'};">${u.source}</span>
+          <span class="com-card-date">${u.date}</span>
+        </div>
+        <div class="com-card-title">${u.badge} ${u.title}</div>
+        <div class="com-card-summary">${u.summary}</div>
+      </button>`).join('') || `<p style="font-size:12px;color:var(--text-muted);text-align:center;padding:16px 0;">Sin comunicados en esta categoría.</p>`}
+    <button class="com-view-all" onclick="App.navigate('screenDirectorio');App.setNav(document.getElementById('nav-directorio'));renderDirectorio();markComunicadosSeen();">
+      Ver los ${updates.length} comunicados completos →
+    </button>
+  `;
+
+  updateNavBadge(mostRecent);
+}
+
+function comSetFilter(type) {
+  comFilterActive = type;
+  renderComunicadosHome();
+}
+
+function updateNavBadge(mostRecent) {
+  const navBtn = document.getElementById('nav-directorio');
+  if (!navBtn || !mostRecent) return;
+  const lastSeen = localStorage.getItem('lastSeenComunicadoDate');
+  const existingDot = navBtn.querySelector('.nav-new-dot');
+  if (!lastSeen || new Date(mostRecent.date) > new Date(lastSeen)) {
+    if (!existingDot) {
+      const dot = document.createElement('span');
+      dot.className = 'nav-new-dot';
+      navBtn.appendChild(dot);
+    }
+  } else if (existingDot) {
+    existingDot.remove();
+  }
+}
+
+function markComunicadosSeen() {
+  const updates = EMERGENCY_DATA.official_updates || [];
+  if (!updates.length) return;
+  const mostRecentDate = updates.reduce((max, u) => new Date(u.date) > new Date(max) ? u.date : max, updates[0].date);
+  localStorage.setItem('lastSeenComunicadoDate', mostRecentDate);
+  const navBtn = document.getElementById('nav-directorio');
+  navBtn?.querySelector('.nav-new-dot')?.remove();
+}
+
+// ═══════════════════════════════════════════════════════════════
 //  RENDERER
 // ═══════════════════════════════════════════════════════════════
 function renderDirectorio() {
