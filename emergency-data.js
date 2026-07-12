@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
+      date:    "2026-07-11",
+      badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
+      title:   "Impacto internacional confirmado — víctimas extranjeras en aumento",
+      summary: "El Ministerio de Exteriores de España confirmó 40 ciudadanos españoles entre las víctimas mortales, cifra en aumento respecto al recuento anterior de 34.",
+      type:    "international",
+      source_url: "https://www.elespanol.com/mundo/america/20260711/venezuela-suma-muertos-doble-terremoto-elevando-fallecidos-espanoles/1003744318126_0.html",
+    },
+    {
       source:  "Balance oficial — 8 jul 2026",
       date:    "2026-07-10",
       badge:   "🔴 Balance actualizado — 16 días",
