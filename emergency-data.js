@@ -101,15 +101,6 @@ const EMERGENCY_DATA = {
       source_url: "https://www.eltiempo.com/mundo/latinoamerica/venezuela-hoy-4-de-julio-tras-los-dos-fuertes-terremotos-la-emergencia-deja-al-menos-2-645-muertos-suben-a-34-los-espanoles-fallecidos",
     },
     {
-      source:  "El Tiempo (Colombia) — 4 jul 2026",
-      date:    "2026-07-04",
-      badge:   "🌍 34 ciudadanos españoles entre los fallecidos",
-      title:   "Impacto internacional confirmado — víctimas extranjeras en aumento",
-      summary: "Entre las víctimas mortales confirmadas se cuentan 34 ciudadanos españoles, según el último recuento. Refleja la magnitud del turismo y la comunidad extranjera afectada en la zona del litoral central.",
-      type:    "international",
-      source_url: "https://www.eltiempo.com/mundo/latinoamerica/venezuela-hoy-4-de-julio-tras-los-dos-fuertes-terremotos-la-emergencia-deja-al-menos-2-645-muertos-suben-a-34-los-espanoles-fallecidos",
-    },
-    {
       source:  "FUNVISIS — 3 jul 2026",
       date:    "2026-07-03",
       badge:   "📡 Réplica Mw 3.2 registrada",
