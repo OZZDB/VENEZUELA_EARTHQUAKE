@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae / Europa Press",
+      date:    "2026-07-12",
+      badge:   "🔴 Balance actualizado — 18 días",
+      title:   "4.490 fallecidos · 108 campamentos activos · 19.583 albergados",
+      summary: "El balance oficial sube a 4.490 fallecidos, 157 más que el reporte anterior. Se mantienen sin cambios los heridos (16.740), rescatados (6.462) y personas sin vivienda (17.907). Los campamentos transitorios pasaron de 94 a 108, albergando a 19.583 personas, mientras 120.794 familias han recibido asistencia desde el inicio de la emergencia.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
+    },
+    {
       source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
       date:    "2026-07-11",
       badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
