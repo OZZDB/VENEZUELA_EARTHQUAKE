@@ -128,6 +128,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.pulzo.com/economia/terremotos-en-venezuela-cuantas-viviendas-se-necesitan-y-como-impactan-los-recursos-retenidos-PP5243612A",
     },
     {
+      source:  "Delcy Rodríguez (Presidenta encargada) / Noticias Caracol — vía Pulzo, 11 jul 2026",
+      date:    "2026-07-11",
+      badge:   "🌍 Gestión diplomática por recursos congelados",
+      title:   "Venezuela pide liberar activos y oro retenidos en el exterior para la reconstrucción",
+      summary: "La presidenta encargada Delcy Rodríguez gestiona ante Estados Unidos, Brasil, el FMI y el Banco Mundial la liberación de activos venezolanos retenidos en el exterior, y envió una carta al rey Carlos III solicitando la devolución de oro venezolano depositado en el Banco de Inglaterra, como parte del financiamiento para la reconstrucción tras los terremotos.",
+      type:    "international",
+      source_url: "https://www.pulzo.com/economia/terremotos-en-venezuela-cuantas-viviendas-se-necesitan-y-como-impactan-los-recursos-retenidos-PP5243612A",
+    },
+    {
       source:  "Balance oficial — 8 jul 2026",
       date:    "2026-07-10",
       badge:   "🔴 Balance actualizado — 16 días",
