@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
     },
     {
+      source:  "Europa Press vía Proceso, 12 jul 2026",
+      date:    "2026-07-12",
+      badge:   "✈️ Retiro escalonado de equipos internacionales",
+      title:   "Comienza el retiro escalonado de equipos de rescate internacionales",
+      summary: "Los rescatistas internacionales desplegados bajaron a 2.422, casi mil menos que el viernes anterior, en línea con el cierre de la fase de búsqueda activa. El total de efectivos movilizados en el país (incluyendo personal local) se ubica en 32.401, según el más reciente parte oficial.",
+      type:    "international",
+      source_url: "https://www.proceso.com.mx/internacional/2026/7/12/ya-son-casi-4-mil-500-los-muertos-por-el-doble-terremoto-en-venezuela-375960.html",
+    },
+    {
       source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
       date:    "2026-07-11",
       badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
