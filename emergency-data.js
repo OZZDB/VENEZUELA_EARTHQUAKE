@@ -119,6 +119,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.elespanol.com/mundo/america/20260711/venezuela-suma-muertos-doble-terremoto-elevando-fallecidos-espanoles/1003744318126_0.html",
     },
     {
+      source:  "Jorge Rodríguez (Presidente AN) / Noticias Caracol — vía Pulzo, 11 jul 2026",
+      date:    "2026-07-11",
+      badge:   "🏘️ Plan habitacional en marcha",
+      title:   "Gobierno estima 25.000 viviendas necesarias — primeras 200 unidades esta semana",
+      summary: "El gobierno estima que se necesitarán 25.000 viviendas nuevas para las familias que perdieron su hogar. Ya se identificaron 40 terrenos en La Guaira (584.000 m² en total) para construcciones bajas y antisísmicas, y se prevé la entrega de las primeras 200 viviendas en los próximos días. En paralelo avanza un censo biométrico en los campamentos de Caracas, Miranda y La Guaira para precisar el número exacto de familias afectadas.",
+      type:    "civil",
+      source_url: "https://www.pulzo.com/economia/terremotos-en-venezuela-cuantas-viviendas-se-necesitan-y-como-impactan-los-recursos-retenidos-PP5243612A",
+    },
+    {
       source:  "Balance oficial — 8 jul 2026",
       date:    "2026-07-10",
       badge:   "🔴 Balance actualizado — 16 días",
