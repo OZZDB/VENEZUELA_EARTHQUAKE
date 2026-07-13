@@ -83,6 +83,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.proceso.com.mx/internacional/2026/7/12/ya-son-casi-4-mil-500-los-muertos-por-el-doble-terremoto-en-venezuela-375960.html",
     },
     {
+      source:  "NASA / Sentinel-1 (satélite europeo), análisis de Ohio State University — vía Infobae",
+      date:    "2026-07-12",
+      badge:   "🛰️ Análisis satelital independiente",
+      title:   "Estimado satelital eleva a ~59.000 las estructuras dañadas a nivel nacional",
+      summary: "Un análisis independiente de imágenes satelitales, procesado por la NASA y la Universidad Estatal de Ohio, estima en cerca de 59.000 el número de estructuras dañadas en todo el país — muy por encima del conteo oficial de 190 edificios con colapso total. La mitad de las edificaciones en zonas como Caraballeda, Macuto y Naiguatá muestran una probabilidad de daño superior al 75%.",
+      type:    "civil",
+      source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
+    },
+    {
       source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
       date:    "2026-07-11",
       badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
