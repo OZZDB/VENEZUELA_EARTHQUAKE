@@ -101,6 +101,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
     },
     {
+      source:  "PNUD / PMA / ONU — vía Infobae, 12 jul 2026",
+      date:    "2026-07-12",
+      badge:   "💰 Daños estimados en USD 6.700 millones",
+      title:   "PNUD calcula daños equivalentes al 6% del PIB venezolano",
+      summary: "El Programa de las Naciones Unidas para el Desarrollo estimó los daños materiales en aproximadamente 6.700 millones de dólares. El Programa Mundial de Alimentos lanzó un llamamiento de 50 millones de dólares para alimentar a medio millón de personas durante tres meses. Venezuela mantiene conversaciones avanzadas con EE.UU., Brasil, el FMI y el Banco Mundial para la recuperación.",
+      type:    "international",
+      source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
+    },
+    {
       source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
       date:    "2026-07-11",
       badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
