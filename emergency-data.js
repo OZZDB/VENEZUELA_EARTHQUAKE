@@ -92,6 +92,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
     },
     {
+      source:  "Jorge Rodríguez (AN) / Infobae — 12 jul 2026",
+      date:    "2026-07-12",
+      badge:   "🔴 El terremoto más mortífero en la historia sísmica moderna del país",
+      title:   "4.490 fallecidos — el terremoto más mortífero de la historia moderna del país",
+      summary: "Con 157 nuevos cuerpos hallados, la cifra de fallecidos alcanzó 4.490, convirtiendo a este evento en el terremoto más mortífero registrado en la historia moderna de Venezuela. La Guaira concentra 158 de los 190 edificios con colapso total confirmado (83% del total nacional).",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/12/ascendio-a-4490-el-numero-de-muertos-por-los-devastadores-terremotos-en-venezuela/",
+    },
+    {
       source:  "Ministerio de Asuntos Exteriores de España, vía El Español",
       date:    "2026-07-11",
       badge:   "🌍 40 ciudadanos españoles confirmados fallecidos",
