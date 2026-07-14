@@ -164,6 +164,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.diariolasamericas.com/america-latina/ascienden-4118-los-fallecidos-terremotos-segun-gobierno-interino-venezuela-n5398653",
     },
     {
+      source:  "FUNVISIS — vía El Nacional / The Objective, 14 jul 2026",
+      date:    "2026-07-10",
+      badge:   "📡 Réplica significativa — pánico y evacuaciones",
+      title:   "Réplica de magnitud 3,9 cerca de Naiguatá genera evacuaciones preventivas",
+      summary: "Una réplica de magnitud 3,9 sacudió el pasado viernes una zona a 10 km al noreste de Naiguatá, en el estado La Guaira — la entidad más golpeada por el doble terremoto original. El movimiento provocó pánico en la población y evacuaciones preventivas de edificios. Desde el 24 de junio se han registrado 1.275 réplicas en total.",
+      type:    "seismic",
+      source_url: "https://www.elnacional.com/2026/07/asciende-a-4-734-el-numero-de-fallecidos-por-los-terremotos-en-venezuela/",
+    },
+    {
       source:  "Balance oficial — Jorge Rodríguez (AN) — 9 jul 2026",
       date:    "2026-07-09",
       badge:   "🔴 Balance actualizado — 16 días",
