@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — El Nacional / La Patilla",
+      date:    "2026-07-14",
+      badge:   "🔴 Balance actualizado — 21 días",
+      title:   "4.734 fallecidos · 20.903 personas en 107 campamentos transitorios",
+      summary: "El balance oficial sube a 4.734 fallecidos, 173 más que el reporte anterior. Heridos (16.740), rescatados (6.462) y personas sin vivienda (17.907) se mantienen sin cambios. Los 107 campamentos transitorios ahora albergan a 20.903 personas, mientras 128.324 familias han recibido asistencia y 33.652 pacientes fueron atendidos médicamente desde el inicio de la emergencia.",
+      type:    "critical",
+      source_url: "https://www.elnacional.com/2026/07/asciende-a-4-734-el-numero-de-fallecidos-por-los-terremotos-en-venezuela/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae / Europa Press",
       date:    "2026-07-12",
       badge:   "🔴 Balance actualizado — 18 días",
