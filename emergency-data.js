@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Transparencia Venezuela — vía Infobae, 16 jul 2026",
+      date:    "2026-07-16",
+      badge:   "📋 Informe independiente cuestiona velocidad de respuesta",
+      title:   "ONG Transparencia Venezuela: la respuesta oficial fue más lenta que en Chile, Japón o Haití",
+      summary: "Un análisis de la ONG Transparencia Venezuela concluye que el despliegue gubernamental fue lento frente a catástrofes similares: el país alcanzó solo 12,6% de su pico de personal desplegado a las 24 horas y 59,7% al octavo día, mientras Chile (2010) y Japón (2011) llegaron a 71% y 46% en solo 48 horas. La cifra máxima de funcionarios (31.837) no se reportó hasta 18 días después del sismo. El informe también estima que cerca del 83% de los sobrevivientes se autoevacuaron o fueron ayudados por vecinos, no por equipos de rescate, y señala fuertes discrepancias entre el conteo oficial de edificios dañados (856) y estimaciones independientes que van de 1.054 (Copernicus/UE) a 58.870 (radar NASA).",
+      type:    "civil",
+      source_url: "https://www.infobae.com/venezuela/2026/07/16/informe-revela-que-gobierno-de-venezuela-no-atendio-con-rapidez-la-emergencia-de-los-terremotos/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — AP/Proceso, CiberCuba",
       date:    "2026-07-15",
       badge:   "🔴 Balance actualizado — 23 días",
