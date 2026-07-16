@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — AP/Proceso, CiberCuba",
+      date:    "2026-07-15",
+      badge:   "🔴 Balance actualizado — 23 días",
+      title:   "4.829 fallecidos · 20.857 personas en 106 campamentos",
+      summary: "El balance oficial sube a 4.829 fallecidos, 95 más que el reporte anterior. Heridos (16.740), rescatados (6.462) y personas sin vivienda (17.907) se mantienen sin cambios. Los campamentos bajaron de 107 a 106, aunque siguen albergando a 20.857 personas. Se han distribuido 10.063 toneladas de alimentos y más de 24,2 millones de litros de agua, con 34.872 pacientes atendidos médicamente en total.",
+      type:    "critical",
+      source_url: "https://www.cibercuba.com/noticias/2026-07-16-u1-e135253-s27061-nid335232-terremotos-venezuela-dejan-casi-5-mil-muertos-20-mil",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — El Nacional / La Patilla",
       date:    "2026-07-14",
       badge:   "🔴 Balance actualizado — 21 días",
