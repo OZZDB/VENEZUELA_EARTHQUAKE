@@ -22,19 +22,19 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              4734,
+    deaths:              4829,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
     countries_supporting: 24,
-    humanitarian_tons:   9995,
+    humanitarian_tons:   10063,
     k9_units:            86,
-    rescue_personnel:    2471,
+    rescue_personnel:    2408,
     aftershocks_total:   1275,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — El Nacional / La Patilla / EFE, 14 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Proceso/AP, CiberCuba, Infobae, 15-16 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
