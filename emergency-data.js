@@ -280,6 +280,15 @@ const EMERGENCY_DATA = {
       type:    "civil",
       source_url: "https://wck.org/news/wck-opens-field-kitchen-to-expand-venezuela-earthquake-response-by-30000-meals/",
     },
+    {
+      source:  "Departamento de Estado de EE.UU. / SOUTHCOM — vía El Diario NY",
+      date:    "2026-06-26",
+      badge:   "🇺🇸 Despliegue militar y DART de EE.UU.",
+      title:   "EE.UU. despliega equipo DART, buques y aviones militares tras instrucción de Trump",
+      summary: "Tras instrucción del presidente Trump de responder con rapidez, el Departamento de Estado desplegó un equipo de Respuesta ante Desastres (DART) de más de 250 personas, incluyendo tres equipos de Búsqueda y Rescate Urbano de Virginia, Los Ángeles y Miami-Dade. El Comando Sur (SOUTHCOM) apoyó con aviones C-17, aeronaves MV-22 Osprey y los buques USS Fort Lauderdale y USS Billings posicionados frente a La Guaira para asistencia naval y logística.",
+      type:    "international",
+      source_url: "https://eldiariony.com/2026/06/25/ee-uu-se-moviliza-rapidamente-para-asistir-a-venezuela-por-los-terremotos-tras-pedido-de-trump/",
+    },
   ],
 
   // ── APOYO INTERNACIONAL ──────────────────────────────────────
