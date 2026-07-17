@@ -271,6 +271,15 @@ const EMERGENCY_DATA = {
       type:    "civil",
       source_url: "https://www.univision.com/noticias/america-latina/ultimas-noticias-en-vivo-terremoto-venezuela-nueve-dias-tragedia-muertos-y-heridos-viernes-3-julio-2026",
     },
+    {
+      source:  "World Central Kitchen (WCK)",
+      date:    "2026-07-02",
+      badge:   "🍲 30.000 comidas diarias",
+      title:   "World Central Kitchen abre cocina de campo con capacidad de 30.000 comidas diarias",
+      summary: "World Central Kitchen inauguró una cocina de campo de gran capacidad cerca de las zonas más golpeadas de La Guaira, con capacidad para producir hasta 30.000 comidas frescas diarias. La organización trabaja junto a 42 restaurantes locales aliados en Miranda (Caracas), La Guaira y Carabobo, llegando a las comunidades a través de 64 puntos de distribución de comida caliente, agua y hielo, incluyendo refugios, hospitales y la morgue de Caracas.",
+      type:    "civil",
+      source_url: "https://wck.org/news/wck-opens-field-kitchen-to-expand-venezuela-earthquake-response-by-30000-meals/",
+    },
   ],
 
   // ── APOYO INTERNACIONAL ──────────────────────────────────────
