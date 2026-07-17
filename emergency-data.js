@@ -22,7 +22,7 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              4829,
+    deaths:              4930,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
@@ -34,7 +34,7 @@ const EMERGENCY_DATA = {
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Proceso/AP, CiberCuba, Infobae, 15-16 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae, 17 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
