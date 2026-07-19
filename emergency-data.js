@@ -756,15 +756,20 @@ document.addEventListener('DOMContentLoaded', initLanguage);
 // ═══════════════════════════════════════════════════════════════
 function renderIntlStrip() {
   const el = document.getElementById('intl-strip-dynamic');
-  if (!el) return;
-  const d = EMERGENCY_DATA;
+  const d = EMERGENCY_DATA.official_stats;
   const fmt = n => (n ?? 0).toLocaleString('es-VE');
 
-  el.innerHTML = `<strong>${fmt(d.countries_supporting)}+ países apoyando:</strong> `
-    + `${fmt(d.rescue_personnel)} rescatistas internacionales · `
-    + `${fmt(d.k9_units)} equipos K9 · `
-    + `${fmt(d.humanitarian_tons)} ton de ayuda humanitaria · `
-    + `${fmt(d.aftershocks_total)}+ réplicas registradas`;
+  if (el) {
+    el.innerHTML = `<strong>${fmt(d.countries_supporting)}+ países apoyando:</strong> `
+      + `${fmt(d.rescue_personnel)} rescatistas internacionales · `
+      + `${fmt(d.k9_units)} equipos K9 · `
+      + `${fmt(d.humanitarian_tons)} ton de ayuda humanitaria · `
+      + `${fmt(d.aftershocks_total)}+ réplicas registradas`;
+  }
+
+  // Mismo dato, en el stat-chip del banner principal (antes hardcodeado)
+  const statCountries = document.getElementById('stat-countries');
+  if (statCountries) statCountries.textContent = fmt(d.countries_supporting);
 }
 
 document.addEventListener('DOMContentLoaded', renderIntlStrip);
