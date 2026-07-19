@@ -92,6 +92,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/16/informe-revela-que-gobierno-de-venezuela-no-atendio-con-rapidez-la-emergencia-de-los-terremotos/",
     },
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/EFE, 16 jul 2026",
+      date:    "2026-07-16",
+      badge:   "🔴 Balance actualizado — 23 días",
+      title:   "4.930 fallecidos — censo biométrico en marcha para plan de vivienda",
+      summary: "El balance oficial de este jueves subió a 4.930 fallecidos, 101 más que el reporte anterior. Heridos (16.740) y personas sin vivienda (17.907) se mantienen sin cambios. Los campamentos bajaron de 107 a 106, con 20.857 personas albergadas. El Parlamento aprobó un proyecto de reforma de ley para acelerar la construcción de viviendas en el país.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/17/la-cifra-de-muertos-por-el-doble-terremoto-en-venezuela-ascendio-a-4930/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — AP/Proceso, CiberCuba",
       date:    "2026-07-15",
       badge:   "🔴 Balance actualizado — 23 días",
