@@ -65,15 +65,6 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
-      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae, 17 jul 2026",
-      date:    "2026-07-17",
-      badge:   "🔴 Balance actualizado — 25 días",
-      title:   "4.930 fallecidos — censo biométrico en marcha para plan de vivienda",
-      summary: "El balance oficial sube a 4.930 fallecidos, 101 más que el día anterior. Heridos (16.740) y personas sin vivienda (17.907) se mantienen sin cambio. Ante la magnitud de la pérdida de viviendas (856 edificios dañados, 190 colapsados), el gobierno inició un censo biométrico para precisar cuántas de las aproximadamente 25.000 viviendas estimadas se necesitan, y confirmó que esta semana se entregarán las primeras 200 unidades a familias damnificadas.",
-      type:    "critical",
-      source_url: "https://www.infobae.com/venezuela/2026/07/17/la-cifra-de-muertos-por-el-doble-terremoto-en-venezuela-ascendio-a-4930/",
-    },
-    {
       source:  "Jorge Rodríguez (Presidente AN) — Infobae, 17 jul 2026",
       date:    "2026-07-17",
       badge:   "🔴 Balance actualizado — 25 días",
