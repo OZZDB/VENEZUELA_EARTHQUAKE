@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/17/la-cifra-de-muertos-por-el-doble-terremoto-en-venezuela-ascendio-a-4930/",
     },
     {
+      source:  "Jorge Rodríguez (Presidente AN) — Infobae, 17 jul 2026",
+      date:    "2026-07-17",
+      badge:   "🔴 Balance actualizado — 25 días",
+      title:   "5.069 fallecidos — Venezuela supera los 5.000 muertos por el doble terremoto",
+      summary: "La cifra oficial de fallecidos superó los 5.000, alcanzando 5.069 (139 más que el reporte anterior). Los heridos se mantienen en 16.740. Se registraron 1.331 réplicas desde el 24 de junio. El Gobierno y el PNUD calcularon que el volumen de escombros generado asciende a 2.106.000 toneladas (1.529.000 de materiales de construcción). El Gobierno no ha publicado un listado oficial de personas desaparecidas; sectores de oposición han estimado cerca de 30.000 personas sin localizar, cifra no confirmada oficialmente.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/17/venezuela-supero-los-5000-fallecidos-tras-el-doble-terremoto-hay-16000-heridos/",
+    },
+    {
       source:  "Transparencia Venezuela — vía Infobae, 16 jul 2026",
       date:    "2026-07-16",
       badge:   "📋 Informe independiente cuestiona velocidad de respuesta",
