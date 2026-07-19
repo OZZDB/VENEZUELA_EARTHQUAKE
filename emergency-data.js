@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — EFE/Infobae",
+      date:    "2026-07-18",
+      badge:   "🔴 Balance actualizado — 25 días",
+      title:   "5.119 fallecidos — Delcy Rodríguez condecora a 6.000 rescatistas",
+      summary: "El balance oficial subió a 5.119 fallecidos, 50 más que el reporte anterior. Heridos (16.740), rescatados (6.462) y personas sin vivienda (17.907) se mantienen sin cambios. Los 107 campamentos transitorios ahora albergan a 21.470 personas. La presidenta encargada Delcy Rodríguez condecoró este sábado a 6.000 rescatistas por su labor durante la emergencia. Este evento es considerado el terremoto más mortífero de la historia moderna de Venezuela y el mayor sismo registrado en el país desde 1900.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/18/aumentaron-a-5119-los-muertos-tras-el-doble-terremoto-en-venezuela/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) — Infobae, 17 jul 2026",
       date:    "2026-07-17",
       badge:   "🔴 Balance actualizado — 25 días",
