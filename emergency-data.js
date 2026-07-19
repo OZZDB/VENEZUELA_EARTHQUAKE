@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/18/aumentaron-a-5119-los-muertos-tras-el-doble-terremoto-en-venezuela/",
     },
     {
+      source:  "Global Empowerment Mission — vía Infobae, 18 jul 2026",
+      date:    "2026-07-18",
+      badge:   "🤝 Compromiso de 5 años en La Guaira",
+      title:   "Global Empowerment Mission anuncia operativo humanitario de 5 años en Venezuela",
+      summary: "La organización Global Empowerment Mission, con respaldo de la administración de Donald Trump y la Iglesia católica, desplegó un operativo humanitario que prevé mantenerse durante cinco años en Venezuela. En menos de un mes ya entregó donaciones en once comunidades de La Guaira, incluyendo alimentos, agua, carpas, generadores eléctricos y fórmula para bebés.",
+      type:    "civil",
+      source_url: "https://www.infobae.com/venezuela/2026/07/18/aumentaron-a-5119-los-muertos-tras-el-doble-terremoto-en-venezuela/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) — Infobae, 17 jul 2026",
       date:    "2026-07-17",
       badge:   "🔴 Balance actualizado — 25 días",
