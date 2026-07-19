@@ -83,6 +83,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.infobae.com/venezuela/2026/07/17/venezuela-supero-los-5000-fallecidos-tras-el-doble-terremoto-hay-16000-heridos/",
     },
     {
+      source:  "Delcy Rodríguez (Presidenta encargada) — Infobae/EFE/El Tiempo, 17 jul 2026",
+      date:    "2026-07-17",
+      badge:   "💵 FMI libera USD 346 millones",
+      title:   "Venezuela accede a USD 346 millones del FMI para la reconstrucción",
+      summary: "Venezuela accedió a 346 millones de dólares de sus propios recursos en el Fondo Monetario Internacional (FMI) para el proceso de recuperación y reconstrucción tras los terremotos del 24 de junio. La presidenta encargada, Delcy Rodríguez, explicó que los fondos se destinarán a vivienda, infraestructura y servicios públicos esenciales en las zonas afectadas. Este monto proviene del tramo de reserva del país en el organismo y es independiente de los Derechos Especiales de Giro (DEG) venezolanos retenidos, que suman unos 4.500 millones de dólares adicionales.",
+      type:    "international",
+      source_url: "https://www.infobae.com/america/agencias/2026/07/18/venezuela-accede-a-346-millones-de-dolares-del-fmi-para-la-recuperacion-tras-los-sismos/",
+    },
+    {
       source:  "Transparencia Venezuela — vía Infobae, 16 jul 2026",
       date:    "2026-07-16",
       badge:   "📋 Informe independiente cuestiona velocidad de respuesta",
