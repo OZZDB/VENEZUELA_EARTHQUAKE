@@ -612,6 +612,126 @@ const EMERGENCY_DATA = {
 };
 
 // ═══════════════════════════════════════════════════════════════
+//  FASE 2 · BLOQUE F — i18n ES/EN
+//  Claves adaptadas a la estructura real del sitio (post-rediseño):
+//  botones compactos sin subtítulo, nav de 4 ítems, trust badges, etc.
+// ═══════════════════════════════════════════════════════════════
+const TRANSLATIONS = {
+  es: {
+    'app.title': 'Ayuda <span>VE</span>',
+    'nav.home': 'Inicio',
+    'nav.person': 'Personas',
+    'nav.damage': 'Daños',
+    'nav.directorio': 'Directorio',
+    'status.online': 'En línea',
+    'status.offline': 'Sin señal',
+
+    'hero.eyebrow': 'Terremoto Venezuela · 24 junio 2026',
+    'hero.title': 'Cada reporte ayuda.<br>Cada dato salva tiempo.',
+    'hero.subtitle': 'Cifras oficiales verificadas, directorio de emergencias y cómo ayudar — todo en un solo lugar, actualizado en tiempo real.',
+    'hero.cta.primary': 'Ofrecer ayuda',
+    'hero.cta.secondary': 'Ver directorio',
+
+    'section.reportar': 'Reportar emergencia',
+    'action.person.title': 'Persona Desaparecida',
+    'action.damage.title': 'Daño Estructural',
+    'action.offer.title': 'Ofrecer Ayuda',
+    'action.reports.title': 'Mis Reportes',
+
+    'trust.title': 'Sobre esta plataforma',
+    'trust.badge1': 'Fuentes oficiales verificadas',
+    'trust.badge2': 'Datos de acceso público y trazable',
+    'trust.badge3': 'Operando en Venezuela',
+    'trust.badge4': 'Código abierto — sin fines de lucro',
+    'trust.badge5': 'Activa en la emergencia — actualización continua',
+    'trust.sources': 'Fuentes consultadas',
+
+    'ngo.title': 'Organizaciones internacionales de ayuda',
+    'ngo.wck.desc': 'Comidas de emergencia en zonas de desastre',
+    'ngo.directrelief.desc': 'Suministros médicos de emergencia',
+    'ngo.ifrc.desc': 'Rescate, hospitales de campaña, coordinación global',
+    'ngo.wfp.desc': 'Seguridad alimentaria — llamamiento activo',
+
+    'notice.spanish_only': 'Los comunicados oficiales se actualizan a diario y están disponibles solo en español para garantizar precisión.',
+  },
+
+  en: {
+    'app.title': 'Help <span>VE</span>',
+    'nav.home': 'Home',
+    'nav.person': 'People',
+    'nav.damage': 'Damage',
+    'nav.directorio': 'Directory',
+    'status.online': 'Online',
+    'status.offline': 'No signal',
+
+    'hero.eyebrow': 'Venezuela Earthquake · June 24, 2026',
+    'hero.title': 'Every report helps.<br>Every data point saves time.',
+    'hero.subtitle': 'Verified official figures, emergency directory, and how to help — all in one place, updated in real time.',
+    'hero.cta.primary': 'Offer help',
+    'hero.cta.secondary': 'View directory',
+
+    'section.reportar': 'Report emergency',
+    'action.person.title': 'Missing Person',
+    'action.damage.title': 'Structural Damage',
+    'action.offer.title': 'Offer Help',
+    'action.reports.title': 'My Reports',
+
+    'trust.title': 'About this platform',
+    'trust.badge1': 'Verified official sources',
+    'trust.badge2': 'Publicly accessible, traceable data',
+    'trust.badge3': 'Operating in Venezuela',
+    'trust.badge4': 'Open source — non-profit',
+    'trust.badge5': 'Active during the emergency — continuously updated',
+    'trust.sources': 'Sources consulted',
+
+    'ngo.title': 'International relief organizations',
+    'ngo.wck.desc': 'Emergency meals in disaster areas',
+    'ngo.directrelief.desc': 'Emergency medical supplies',
+    'ngo.ifrc.desc': 'Rescue, field hospitals, global coordination',
+    'ngo.wfp.desc': 'Food security — active appeal',
+
+    'notice.spanish_only': 'Official communications are updated daily and available in Spanish only, to ensure accuracy.',
+  },
+};
+
+function setLanguage(lang) {
+  if (!TRANSLATIONS[lang]) return;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (TRANSLATIONS[lang][key]) el.textContent = TRANSLATIONS[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (TRANSLATIONS[lang][key]) el.innerHTML = TRANSLATIONS[lang][key];
+  });
+
+  document.documentElement.setAttribute('lang', lang === 'es' ? 'es-VE' : 'en');
+  localStorage.setItem('ayudave_lang', lang);
+
+  const toggleLabel = document.getElementById('langToggleLabel');
+  if (toggleLabel) toggleLabel.textContent = lang === 'es' ? 'EN' : 'ES';
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('ayudave_lang') || 'es';
+  setLanguage(current === 'es' ? 'en' : 'es');
+}
+
+function initLanguage() {
+  const saved = localStorage.getItem('ayudave_lang');
+  if (saved) {
+    setLanguage(saved);
+    return;
+  }
+  const browserLang = (navigator.language || 'es').slice(0, 2);
+  setLanguage(browserLang === 'en' ? 'en' : 'es');
+}
+
+document.addEventListener('DOMContentLoaded', initLanguage);
+
+// ═══════════════════════════════════════════════════════════════
 //  HELPERS
 // ═══════════════════════════════════════════════════════════════
 function getPriorityColor(p) {
@@ -961,6 +1081,52 @@ function renderDirectorio() {
           ${chevronR}</a>`;
       }).join('')}
     </div>
+
+    <!-- ═══════ FASE 2 · BLOQUE E: ORGANIZACIONES INTERNACIONALES ═══════ -->
+    <div class="section-label" data-i18n="ngo.title" style="padding:0 0 10px;">Organizaciones internacionales de ayuda</div>
+    <div class="ngo-grid" style="padding:0 0 16px;">
+      <a href="https://www.wck.org" target="_blank" rel="noopener noreferrer" class="ngo-card">
+        <div class="ngo-card-icon" style="background:rgba(244,162,97,0.15);color:#f4a261;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="ngo-card-body">
+          <div class="ngo-card-name">World Central Kitchen</div>
+          <div class="ngo-card-desc" data-i18n="ngo.wck.desc">Comidas de emergencia en zonas de desastre</div>
+        </div>
+        <svg class="ngo-card-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <a href="https://www.directrelief.org" target="_blank" rel="noopener noreferrer" class="ngo-card">
+        <div class="ngo-card-icon" style="background:rgba(45,198,83,0.15);color:#2dc653;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="ngo-card-body">
+          <div class="ngo-card-name">Direct Relief</div>
+          <div class="ngo-card-desc" data-i18n="ngo.directrelief.desc">Suministros médicos de emergencia</div>
+        </div>
+        <svg class="ngo-card-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <a href="https://www.ifrc.org" target="_blank" rel="noopener noreferrer" class="ngo-card">
+        <div class="ngo-card-icon" style="background:rgba(230,57,70,0.15);color:#e63946;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+        </div>
+        <div class="ngo-card-body">
+          <div class="ngo-card-name">IFRC / Cruz Roja Internacional</div>
+          <div class="ngo-card-desc" data-i18n="ngo.ifrc.desc">Rescate, hospitales de campaña, coordinación global</div>
+        </div>
+        <svg class="ngo-card-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <a href="https://www.wfp.org" target="_blank" rel="noopener noreferrer" class="ngo-card">
+        <div class="ngo-card-icon" style="background:rgba(76,201,240,0.15);color:#4cc9f0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="ngo-card-body">
+          <div class="ngo-card-name">Programa Mundial de Alimentos (PMA)</div>
+          <div class="ngo-card-desc" data-i18n="ngo.wfp.desc">Seguridad alimentaria — llamamiento activo</div>
+        </div>
+        <svg class="ngo-card-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px;">Por estado / región</div>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">${regionsHTML}</div>
     <div style="font-size:10px;color:var(--text-muted);text-align:center;padding-bottom:4px;line-height:1.6;">
@@ -969,6 +1135,12 @@ function renderDirectorio() {
     </div>`;
 
   renderFreshness(EMERGENCY_DATA.generated_at);
+
+  // Reaplicar idioma activo — el HTML de arriba se regenera con el
+  // fallback en español; sin esto, cambiar a EN y navegar a Directorio
+  // resetearía visualmente el idioma hasta el próximo toggle.
+  const activeLang = localStorage.getItem('ayudave_lang');
+  if (activeLang) setLanguage(activeLang);
 }
 
 // ═══════════════════════════════════════════════════════════════
