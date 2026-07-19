@@ -233,7 +233,129 @@
     .action-btn-sm { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); cursor:pointer; touch-action:manipulation; text-align:left; }
     .action-btn-sm .btn-icon-sm { width:16px; height:16px; }
     .action-btn-sm .btn-title-sm { font-size:11.5px; font-weight:700; color:var(--text); }
+
+    /* ── FASE 1 · BLOQUE B: FRESHNESS BADGE ─────────────────── */
+    .freshness-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+    .freshness-badge.fresh   { color: var(--green); background: rgba(45,198,83,0.12); }
+    .freshness-badge.recent  { color: var(--blue);  background: rgba(76,201,240,0.12); }
+    .freshness-badge.stale   { color: var(--amber); background: rgba(244,162,97,0.12); }
+    .freshness-badge.old     { color: var(--red);   background: rgba(230,57,70,0.12); }
+    .freshness-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* ── FASE 1 · BLOQUE C: TRUST BADGES ────────────────────── */
+    .trust-section { padding: 16px; border-top: 1px solid var(--border); margin-top: 8px; }
+    .trust-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 10px; }
+    .trust-badges { display: flex; flex-direction: column; gap: 8px; }
+    .trust-badge { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--text); }
+    .trust-icon { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+    .sources-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sources-list a { font-size: 11px; color: var(--blue); text-decoration: none; padding: 5px 10px; border: 1px solid rgba(76,201,240,0.25); border-radius: 20px; background: rgba(76,201,240,0.06); }
+    .sources-list a:hover { background: rgba(76,201,240,0.14); }
   </style>
+
+  <!-- ═══════ FASE 1 · BLOQUE A: SEO + Open Graph + Twitter + Schema.org ═══════ -->
+  <meta name="keywords" content="Venezuela earthquake help, how to help Venezuela, Venezuela relief, Venezuela earthquake charities, ayudar Venezuela terremoto, terremoto Venezuela ayuda, donar Venezuela, Venezuela earthquake donations, La Guaira earthquake, Yaracuy earthquake" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://ayuda-venezuela-terremoto.netlify.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ayuda Venezuela" />
+  <meta property="og:title" content="Ayuda Venezuela — Terremoto 24 Junio 2026 | Cómo Ayudar" />
+  <meta property="og:description" content="Plataforma en tiempo real del terremoto en Venezuela: cifras oficiales verificadas, directorio de emergencias por región, cómo ayudar y reportar personas desaparecidas o daños." />
+  <meta property="og:url" content="https://ayuda-venezuela-terremoto.netlify.app/" />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:image" content="https://ayuda-venezuela-terremoto.netlify.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Ayuda Venezuela — Plataforma de respuesta al terremoto del 24 de junio de 2026" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ayuda Venezuela — Terremoto 24 Junio 2026" />
+  <meta name="twitter:description" content="Cifras oficiales verificadas, directorio de emergencias, y cómo ayudar. Actualizado en tiempo real." />
+  <meta name="twitter:image" content="https://ayuda-venezuela-terremoto.netlify.app/og-image.jpg" />
+  <meta name="twitter:site" content="@CosasQpasan" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://ayuda-venezuela-terremoto.netlify.app/#webpage",
+    "url": "https://ayuda-venezuela-terremoto.netlify.app/",
+    "name": "Ayuda Venezuela — Terremoto 24 Junio 2026",
+    "description": "Plataforma de emergencias para el terremoto en Venezuela del 24 de junio de 2026. Cifras oficiales, directorio de emergencias, cómo ayudar y reportar personas desaparecidas o daños.",
+    "inLanguage": "es-VE",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://ayuda-venezuela-terremoto.netlify.app/",
+      "name": "Ayuda Venezuela"
+    },
+    "about": {
+      "@type": "Event",
+      "name": "Terremoto de Venezuela de 2026",
+      "startDate": "2026-06-24",
+      "location": {
+        "@type": "Place",
+        "name": "Venezuela",
+        "address": { "@type": "PostalAddress", "addressCountry": "VE" }
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Ayuda Venezuela",
+    "url": "https://ayuda-venezuela-terremoto.netlify.app/",
+    "description": "Plataforma comunitaria de coordinación de emergencias para el terremoto de Venezuela del 24 de junio de 2026. Agrega cifras oficiales verificadas y facilita reportes ciudadanos.",
+    "areaServed": { "@type": "Country", "name": "Venezuela" },
+    "founder": { "@type": "Person", "name": "HRodriguez" },
+    "sameAs": ["https://x.com/CosasQpasan"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ayuda-venezuela-terremoto.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Directorio de Emergencias", "item": "https://ayuda-venezuela-terremoto.netlify.app/#screenDirectorio" },
+      { "@type": "ListItem", "position": 3, "name": "Historias de Sobrevivientes", "item": "https://ayuda-venezuela-terremoto.netlify.app/#screenHistorias" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo puedo ayudar a las víctimas del terremoto en Venezuela?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Puedes ofrecer maquinaria, equipos de búsqueda y rescate, suministros médicos, transporte o voluntariado directamente desde la sección 'Ofrecer Ayuda' de esta plataforma. También puedes consultar el Directorio de Emergencias para encontrar organizaciones activas por región." }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I help Venezuela earthquake victims?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can offer heavy machinery, search and rescue support, medical supplies, transportation, or volunteer time directly through the 'Offer Help' section of this platform. You can also check the Emergency Directory to find active organizations by region." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Esta plataforma es oficial del gobierno de Venezuela?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Ayuda Venezuela es una plataforma comunitaria e independiente que agrega y verifica cifras de fuentes oficiales (Protección Civil, FUNVISIS, MPPS, Cruz Roja, Naciones Unidas/OCHA) y medios de comunicación verificados, para facilitar el acceso a información confiable en un solo lugar." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con qué frecuencia se actualizan las cifras?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Las cifras se actualizan tan pronto como se confirma un nuevo balance oficial o comunicado verificado, generalmente varias veces por semana durante la fase activa de la emergencia." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -357,6 +479,45 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         <div><div class="call-num" style="color:var(--blue);font-size:11px;">FUNVISIS</div><div class="call-lbl">836.25.67</div></div>
       </a>
+    </div>
+
+    <!-- ═══════ FASE 1 · BLOQUE C: TRUST BADGES ═══════ -->
+    <div class="trust-section">
+      <div class="trust-title">Sobre esta plataforma</div>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Fuentes oficiales verificadas</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Datos de acceso público y trazable</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Operando en Venezuela</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Código abierto — sin fines de lucro</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Activa en la emergencia — actualización continua</span>
+        </div>
+      </div>
+
+      <div class="trust-title" style="margin-top:16px;">Fuentes consultadas</div>
+      <div class="sources-list">
+        <a href="https://earthquake.usgs.gov" target="_blank" rel="noopener noreferrer">USGS</a>
+        <a href="http://www.funvisis.gob.ve" target="_blank" rel="noopener noreferrer">FUNVISIS</a>
+        <a href="https://reliefweb.int/country/ven" target="_blank" rel="noopener noreferrer">ReliefWeb / OCHA</a>
+        <a href="https://www.unocha.org" target="_blank" rel="noopener noreferrer">UN OCHA</a>
+        <a href="https://www.icrc.org" target="_blank" rel="noopener noreferrer">Cruz Roja / IFRC</a>
+        <a href="https://www.reuters.com" target="_blank" rel="noopener noreferrer">Reuters</a>
+        <a href="https://www.infobae.com" target="_blank" rel="noopener noreferrer">Infobae</a>
+        <a href="https://apnews.com" target="_blank" rel="noopener noreferrer">AP</a>
+      </div>
     </div>
 
     <!-- Credits footer -->

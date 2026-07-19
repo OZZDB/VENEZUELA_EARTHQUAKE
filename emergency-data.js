@@ -8,7 +8,7 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-07-04T09:00:00-04:00",
+  generated_at: "2026-07-17T12:00:00-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
   days_elapsed: 23,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
@@ -725,6 +725,55 @@ function markComunicadosSeen() {
 }
 
 // ═══════════════════════════════════════════════════════════════
+//  FASE 1 · BLOQUE B — INDICADOR DE FRESCURA DINÁMICO
+// ═══════════════════════════════════════════════════════════════
+/**
+ * Calcula "hace cuánto tiempo" en español, con umbrales de color:
+ *   < 1 hora   → "Verificado hace X minutos"  (verde  — fresh)
+ *   < 24 horas → "Actualizado hace X horas"    (azul   — recent)
+ *   < 72 horas → "Actualizado hace X días"     (ámbar  — stale)
+ *   >= 72 horas→ "Sin actualizar hace X días"  (rojo   — old, alerta visual)
+ */
+function renderFreshness(isoDateString, elementId = 'freshness-indicator') {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  const then = new Date(isoDateString).getTime();
+  const now  = Date.now();
+  const diffMs = now - then;
+  const diffMin = Math.floor(diffMs / 60000);
+  const diffHr  = Math.floor(diffMs / 3600000);
+  const diffDay = Math.floor(diffMs / 86400000);
+
+  let text, cls;
+
+  if (diffMin < 60) {
+    text = diffMin <= 1 ? 'Verificado hace instantes' : `Verificado hace ${diffMin} min`;
+    cls = 'fresh';
+  } else if (diffHr < 24) {
+    text = `Actualizado hace ${diffHr} hora${diffHr !== 1 ? 's' : ''}`;
+    cls = 'recent';
+  } else if (diffDay < 3) {
+    text = `Actualizado hace ${diffDay} día${diffDay !== 1 ? 's' : ''}`;
+    cls = 'stale';
+  } else {
+    text = `⚠ Sin actualizar hace ${diffDay} días`;
+    cls = 'old';
+  }
+
+  el.textContent = text;
+  el.className = `freshness-badge ${cls}`;
+}
+
+function initFreshnessIndicator() {
+  if (!window.EMERGENCY_DATA?.generated_at) return;
+  renderFreshness(window.EMERGENCY_DATA.generated_at);
+  setInterval(() => renderFreshness(window.EMERGENCY_DATA.generated_at), 60000);
+}
+
+document.addEventListener('DOMContentLoaded', initFreshnessIndicator);
+
+// ═══════════════════════════════════════════════════════════════
 //  RENDERER
 // ═══════════════════════════════════════════════════════════════
 function renderDirectorio() {
@@ -877,7 +926,7 @@ function renderDirectorio() {
     <div style="background:rgba(230,57,70,0.12);border:1px solid rgba(230,57,70,0.3);border-left:4px solid #e63946;border-radius:8px;padding:12px 14px;margin-bottom:12px;">
       <div style="font-size:12px;font-weight:700;color:#e63946;margin-bottom:3px;">⚠ DÍA ${EMERGENCY_DATA.days_elapsed} — EMERGENCIA ACTIVA</div>
       <div style="font-size:13px;color:var(--text);line-height:1.4;">${EMERGENCY_DATA.event}</div>
-      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Actualizado: ${new Date(EMERGENCY_DATA.generated_at).toLocaleString('es-VE',{dateStyle:'short',timeStyle:'short'})}</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;"><span id="freshness-indicator" class="freshness-badge">Cargando...</span></div>
     </div>
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px;">Comunicados oficiales</div>
     <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px;">${updatesHTML}</div>
@@ -900,6 +949,8 @@ function renderDirectorio() {
       Fuentes: FUNVISIS · MPPS · Cruz Roja IFRC · Cáritas · Prot. Civil · SOUTHCOM<br>
       Última actualización: ${new Date(EMERGENCY_DATA.generated_at).toLocaleString('es-VE')}
     </div>`;
+
+  renderFreshness(EMERGENCY_DATA.generated_at);
 }
 
 // ═══════════════════════════════════════════════════════════════
