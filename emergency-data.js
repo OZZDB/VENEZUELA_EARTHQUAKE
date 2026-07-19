@@ -22,7 +22,7 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              4930,
+    deaths:              5069,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
@@ -30,11 +30,11 @@ const EMERGENCY_DATA = {
     humanitarian_tons:   10063,
     k9_units:            86,
     rescue_personnel:    2408,
-    aftershocks_total:   1275,
+    aftershocks_total:   1331,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae, 17 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) — Infobae/El Tiempo/teleSUR, 17 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
