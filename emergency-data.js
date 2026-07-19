@@ -26,7 +26,7 @@ const EMERGENCY_DATA = {
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
-    countries_supporting: 24,
+    countries_supporting: 31,
     humanitarian_tons:   10063,
     k9_units:            86,
     rescue_personnel:    2408,
@@ -730,6 +730,26 @@ function initLanguage() {
 }
 
 document.addEventListener('DOMContentLoaded', initLanguage);
+
+// ═══════════════════════════════════════════════════════════════
+//  FRANJA INTERNACIONAL — dinámica, leída de EMERGENCY_DATA
+//  (antes era texto fijo; ahora se sincroniza solo con sync_cifras,
+//  sin necesitar otro parche manual cada vez que cambian los datos)
+// ═══════════════════════════════════════════════════════════════
+function renderIntlStrip() {
+  const el = document.getElementById('intl-strip-dynamic');
+  if (!el) return;
+  const d = EMERGENCY_DATA;
+  const fmt = n => (n ?? 0).toLocaleString('es-VE');
+
+  el.innerHTML = `<strong>${fmt(d.countries_supporting)}+ países apoyando:</strong> `
+    + `${fmt(d.rescue_personnel)} rescatistas internacionales · `
+    + `${fmt(d.k9_units)} equipos K9 · `
+    + `${fmt(d.humanitarian_tons)} ton de ayuda humanitaria · `
+    + `${fmt(d.aftershocks_total)}+ réplicas registradas`;
+}
+
+document.addEventListener('DOMContentLoaded', renderIntlStrip);
 
 // ═══════════════════════════════════════════════════════════════
 //  HELPERS
