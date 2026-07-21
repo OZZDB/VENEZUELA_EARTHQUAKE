@@ -1,14 +1,21 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║  AYUDA VENEZUELA — Service Worker                           ║
- * ║  Strategy: Cache-First (shell) + Network-First (API)       ║
- * ║  Features: Background Sync, Offline Fallback               ║
+ * ║  Strategy: Network-First (shell + datos vivos) + Cache-First ║
+ * ║  (estáticos: iconos, manifest, offline.html)                 ║
+ * ║  Features: Background Sync, Offline Fallback                 ║
+ * ║                                                               ║
+ * ║  CAMBIO (día 27): index.html, app.js y emergency-data.js      ║
+ * ║  pasaron de Cache-First a Network-First. Antes, un visitante  ║
+ * ║  que ya había abierto el sitio una vez podía quedar viendo    ║
+ * ║  cifras/comunicados congelados indefinidamente, sin importar  ║
+ * ║  cuántas veces se sincronizara el dato en el servidor.        ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
 'use strict';
 
-const SW_VERSION = 'v3.4.0';
+const SW_VERSION = 'v4.0.0';
 const CACHE_SHELL = `ayudave-shell-${SW_VERSION}`;
 const CACHE_DYNAMIC = `ayudave-dynamic-${SW_VERSION}`;
 const SYNC_TAG = 'sync-reports';
@@ -55,16 +62,38 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (request.mode === 'navigate') {
-    event.respondWith(
-      caches.match('./index.html')
-        .then((cached) => cached || fetch('./index.html'))
-        .catch(() => caches.match('./offline.html'))
-    );
+    event.respondWith(navigateNetworkFirst(request));
+    return;
+  }
+
+  // Datos vivos — se sincronizan varias veces al día vía MCP.
+  // Network-First: prioriza la versión fresca cuando hay señal,
+  // y solo cae a caché si de verdad no hay conexión.
+  if (isLiveDataAsset(url.pathname)) {
+    event.respondWith(networkFirstStrategy(request));
     return;
   }
 
   event.respondWith(cacheFirstStrategy(request));
 });
+
+function isLiveDataAsset(pathname) {
+  return pathname.endsWith('/app.js') || pathname.endsWith('/emergency-data.js');
+}
+
+async function navigateNetworkFirst(request) {
+  try {
+    const response = await fetch(request);
+    if (response && response.ok) {
+      const cache = await caches.open(CACHE_SHELL);
+      await cache.put('./index.html', response.clone());
+    }
+    return response;
+  } catch {
+    const cached = await caches.match('./index.html');
+    return cached || caches.match('./offline.html');
+  }
+}
 
 async function cacheFirstStrategy(request) {
   const cached = await caches.match(request);
