@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (AN) / Delcy Rodríguez — EFE/Infobae, 20 jul 2026",
+      date:    "2026-07-20",
+      badge:   "🏘️ Primeras viviendas entregadas",
+      title:   "5.278 fallecidos — entregan las primeras viviendas a familias damnificadas",
+      summary: "El balance oficial subió a 5.278 fallecidos (70 más). Heridos (16.740) y personas sin vivienda (17.907) se mantienen sin cambios. 23.587 personas permanecen en 107 campamentos transitorios y 128.324 familias han sido atendidas. La presidenta encargada Delcy Rodríguez encabezó la entrega de las primeras viviendas del programa Gran Misión Vivienda Venezuela (construidas por la empresa china CITIC en Fuerte Tiuna) a más de 240 familias damnificadas, y anunció que las entregas continuarán mensualmente hasta alcanzar 4.000 viviendas para diciembre.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/21/el-gobierno-de-venezuela-ascendio-a-5278-muertos-el-balance-de-victimas-por-el-doble-terremoto/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — EFE/Infobae",
       date:    "2026-07-18",
       badge:   "🔴 Balance actualizado — 25 días",
