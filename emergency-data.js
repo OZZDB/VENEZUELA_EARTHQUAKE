@@ -719,7 +719,125 @@ const TRANSLATIONS = {
 
     'notice.spanish_only': 'Official communications are updated daily and available in Spanish only, to ensure accuracy.',
   },
+
+  fr: {
+    'app.title': 'Aide <span>VE</span>',
+    'nav.home': 'Accueil',
+    'nav.person': 'Personnes',
+    'nav.damage': 'Dégâts',
+    'nav.directorio': 'Répertoire',
+    'status.online': 'En ligne',
+    'status.offline': 'Hors ligne',
+
+    'hero.eyebrow': 'Séisme au Venezuela · 24 juin 2026',
+    'hero.title': 'Chaque signalement aide.<br>Chaque donnée fait gagner du temps.',
+    'hero.subtitle': "Chiffres officiels vérifiés, répertoire des urgences et comment aider — tout au même endroit, mis à jour en temps réel.",
+    'hero.cta.primary': "Proposer de l'aide",
+    'hero.cta.secondary': 'Voir le répertoire',
+
+    'section.reportar': 'Signaler une urgence',
+    'action.person.title': 'Personne disparue',
+    'action.damage.title': 'Dégâts structurels',
+    'action.offer.title': "Proposer de l'aide",
+    'action.reports.title': 'Mes signalements',
+
+    'trust.title': 'À propos de cette plateforme',
+    'trust.badge1': 'Sources officielles vérifiées',
+    'trust.badge2': 'Données accessibles au public et traçables',
+    'trust.badge3': 'Opérant au Venezuela',
+    'trust.badge4': 'Open source — à but non lucratif',
+    'trust.badge5': "Active pendant l'urgence — mise à jour continue",
+    'trust.sources': 'Sources consultées',
+
+    'ngo.title': "Organisations internationales d'aide",
+    'ngo.wck.desc': 'Repas d\'urgence dans les zones sinistrées',
+    'ngo.directrelief.desc': "Fournitures médicales d'urgence",
+    'ngo.ifrc.desc': 'Sauvetage, hôpitaux de campagne, coordination mondiale',
+    'ngo.wfp.desc': 'Sécurité alimentaire — appel actif',
+
+    'notice.spanish_only': "Les communiqués officiels sont mis à jour quotidiennement et disponibles uniquement en espagnol, afin de garantir leur exactitude.",
+  },
+
+  de: {
+    'app.title': 'Hilfe <span>VE</span>',
+    'nav.home': 'Start',
+    'nav.person': 'Personen',
+    'nav.damage': 'Schäden',
+    'nav.directorio': 'Verzeichnis',
+    'status.online': 'Online',
+    'status.offline': 'Kein Signal',
+
+    'hero.eyebrow': 'Erdbeben in Venezuela · 24. Juni 2026',
+    'hero.title': 'Jede Meldung hilft.<br>Jede Angabe spart Zeit.',
+    'hero.subtitle': 'Verifizierte offizielle Zahlen, Notfallverzeichnis und Hilfsmöglichkeiten — alles an einem Ort, in Echtzeit aktualisiert.',
+    'hero.cta.primary': 'Hilfe anbieten',
+    'hero.cta.secondary': 'Verzeichnis ansehen',
+
+    'section.reportar': 'Notfall melden',
+    'action.person.title': 'Vermisste Person',
+    'action.damage.title': 'Strukturschaden',
+    'action.offer.title': 'Hilfe anbieten',
+    'action.reports.title': 'Meine Meldungen',
+
+    'trust.title': 'Über diese Plattform',
+    'trust.badge1': 'Verifizierte offizielle Quellen',
+    'trust.badge2': 'Öffentlich zugängliche, nachvollziehbare Daten',
+    'trust.badge3': 'Tätig in Venezuela',
+    'trust.badge4': 'Open Source — gemeinnützig',
+    'trust.badge5': 'Aktiv während des Notfalls — laufend aktualisiert',
+    'trust.sources': 'Verwendete Quellen',
+
+    'ngo.title': 'Internationale Hilfsorganisationen',
+    'ngo.wck.desc': 'Notfallverpflegung in Katastrophengebieten',
+    'ngo.directrelief.desc': 'Medizinische Notfallversorgung',
+    'ngo.ifrc.desc': 'Rettung, Feldlazarette, globale Koordination',
+    'ngo.wfp.desc': 'Ernährungssicherheit — aktiver Spendenaufruf',
+
+    'notice.spanish_only': 'Offizielle Mitteilungen werden täglich aktualisiert und sind aus Genauigkeitsgründen nur auf Spanisch verfügbar.',
+  },
+
+  pt: {
+    'app.title': 'Ajuda <span>VE</span>',
+    'nav.home': 'Início',
+    'nav.person': 'Pessoas',
+    'nav.damage': 'Danos',
+    'nav.directorio': 'Diretório',
+    'status.online': 'On-line',
+    'status.offline': 'Sem sinal',
+
+    'hero.eyebrow': 'Terremoto na Venezuela · 24 de junho de 2026',
+    'hero.title': 'Cada relato ajuda.<br>Cada dado economiza tempo.',
+    'hero.subtitle': 'Números oficiais verificados, diretório de emergências e como ajudar — tudo em um só lugar, atualizado em tempo real.',
+    'hero.cta.primary': 'Oferecer ajuda',
+    'hero.cta.secondary': 'Ver diretório',
+
+    'section.reportar': 'Reportar emergência',
+    'action.person.title': 'Pessoa desaparecida',
+    'action.damage.title': 'Dano estrutural',
+    'action.offer.title': 'Oferecer ajuda',
+    'action.reports.title': 'Meus relatos',
+
+    'trust.title': 'Sobre esta plataforma',
+    'trust.badge1': 'Fontes oficiais verificadas',
+    'trust.badge2': 'Dados de acesso público e rastreáveis',
+    'trust.badge3': 'Atuando na Venezuela',
+    'trust.badge4': 'Código aberto — sem fins lucrativos',
+    'trust.badge5': 'Ativa durante a emergência — atualização contínua',
+    'trust.sources': 'Fontes consultadas',
+
+    'ngo.title': 'Organizações internacionais de ajuda',
+    'ngo.wck.desc': 'Refeições de emergência em áreas de desastre',
+    'ngo.directrelief.desc': 'Suprimentos médicos de emergência',
+    'ngo.ifrc.desc': 'Resgate, hospitais de campanha, coordenação global',
+    'ngo.wfp.desc': 'Segurança alimentar — apelo ativo',
+
+    'notice.spanish_only': 'Os comunicados oficiais são atualizados diariamente e estão disponíveis apenas em espanhol, para garantir a precisão.',
+  },
 };
+
+const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de', 'pt'];
+const LANG_ATTR = { es: 'es-VE', en: 'en', fr: 'fr', de: 'de', pt: 'pt' };
+const LANG_LABEL = { es: 'ES', en: 'EN', fr: 'FR', de: 'DE', pt: 'PT' };
 
 function setLanguage(lang) {
   if (!TRANSLATIONS[lang]) return;
@@ -734,26 +852,39 @@ function setLanguage(lang) {
     if (TRANSLATIONS[lang][key]) el.innerHTML = TRANSLATIONS[lang][key];
   });
 
-  document.documentElement.setAttribute('lang', lang === 'es' ? 'es-VE' : 'en');
+  document.documentElement.setAttribute('lang', LANG_ATTR[lang] || lang);
   localStorage.setItem('ayudave_lang', lang);
 
-  const toggleLabel = document.getElementById('langToggleLabel');
-  if (toggleLabel) toggleLabel.textContent = lang === 'es' ? 'EN' : 'ES';
+  const select = document.getElementById('langSelect');
+  if (select) select.value = lang;
 }
 
-function toggleLanguage() {
-  const current = localStorage.getItem('ayudave_lang') || 'es';
-  setLanguage(current === 'es' ? 'en' : 'es');
+function selectLanguage(lang) {
+  setLanguage(lang);
 }
 
+/**
+ * Orden de prioridad para decidir el idioma inicial:
+ *   1. ?lang= en la URL (para que hreflang/enlaces externos funcionen)
+ *   2. Idioma guardado en localStorage (elección manual previa)
+ *   3. Idioma del navegador, si es uno de los 5 soportados
+ *   4. Español, por defecto (audiencia principal: Venezuela)
+ */
 function initLanguage() {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang && SUPPORTED_LANGS.includes(urlLang)) {
+    setLanguage(urlLang);
+    return;
+  }
+
   const saved = localStorage.getItem('ayudave_lang');
-  if (saved) {
+  if (saved && SUPPORTED_LANGS.includes(saved)) {
     setLanguage(saved);
     return;
   }
+
   const browserLang = (navigator.language || 'es').slice(0, 2);
-  setLanguage(browserLang === 'en' ? 'en' : 'es');
+  setLanguage(SUPPORTED_LANGS.includes(browserLang) ? browserLang : 'es');
 }
 
 document.addEventListener('DOMContentLoaded', initLanguage);

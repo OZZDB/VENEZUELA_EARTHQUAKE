@@ -13,12 +13,14 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   
-  <!-- Hreflang para SEO multiidioma -->
+  <!-- Hreflang para SEO multiidioma — patrón ?lang=, una sola fuente de
+       verdad (index.html + emergency-data.js). Ver nota de limitación
+       de SEO client-side en el comentario junto al selector de idioma. -->
   <link rel="alternate" hreflang="es" href="https://ayuda-venezuela-terremoto.netlify.app/" />
-  <link rel="alternate" hreflang="en" href="https://ayuda-venezuela-terremoto.netlify.app/en/" />
-  <link rel="alternate" hreflang="pt" href="https://ayuda-venezuela-terremoto.netlify.app/pt/" />
-  <link rel="alternate" hreflang="fr" href="https://ayuda-venezuela-terremoto.netlify.app/fr/" />
-  <link rel="alternate" hreflang="de" href="https://ayuda-venezuela-terremoto.netlify.app/de/" />
+  <link rel="alternate" hreflang="en" href="https://ayuda-venezuela-terremoto.netlify.app/?lang=en" />
+  <link rel="alternate" hreflang="fr" href="https://ayuda-venezuela-terremoto.netlify.app/?lang=fr" />
+  <link rel="alternate" hreflang="de" href="https://ayuda-venezuela-terremoto.netlify.app/?lang=de" />
+  <link rel="alternate" hreflang="pt" href="https://ayuda-venezuela-terremoto.netlify.app/?lang=pt" />
   <link rel="alternate" hreflang="x-default" href="https://ayuda-venezuela-terremoto.netlify.app/" />
   <link rel="canonical" href="https://ayuda-venezuela-terremoto.netlify.app/" />
   
@@ -298,15 +300,21 @@
     .ngo-card-desc { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
     .ngo-card-ext { color: var(--text-muted); flex-shrink: 0; }
 
-    /* ── FASE 2 · BLOQUE F: LANG TOGGLE ──────────────────────── */
-    .lang-toggle { display: flex; align-items: center; justify-content: center; min-width: 34px; height: 26px; padding: 0 8px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-input); color: var(--text); font-size: 11px; font-weight: 700; font-family: var(--font); cursor: pointer; touch-action: manipulation; margin-left: 8px; }
-    .lang-toggle:active { transform: scale(0.95); }
+    /* ── FASE 2 · BLOQUE F: SELECTOR DE IDIOMA (5) ───────────── */
+    .lang-select {
+      min-width: 52px; height: 26px; padding: 0 6px; margin-left: 8px;
+      border-radius: 20px; border: 1px solid var(--border);
+      background: var(--bg-input); color: var(--text);
+      font-size: 11px; font-weight: 700; font-family: var(--font);
+      cursor: pointer; touch-action: manipulation;
+      appearance: none; -webkit-appearance: none; text-align: center; text-align-last: center;
+    }
+    .lang-select:active { transform: scale(0.95); }
   </style>
 
   <!-- ═══════ FASE 1 · BLOQUE A: SEO + Open Graph + Twitter + Schema.org ═══════ -->
   <meta name="keywords" content="Venezuela earthquake help, how to help Venezuela, Venezuela relief, Venezuela earthquake charities, ayudar Venezuela terremoto, terremoto Venezuela ayuda, donar Venezuela, Venezuela earthquake donations, La Guaira earthquake, Yaracuy earthquake" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="canonical" href="https://ayuda-venezuela-terremoto.netlify.app/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ayuda Venezuela" />
@@ -315,6 +323,9 @@
   <meta property="og:url" content="https://ayuda-venezuela-terremoto.netlify.app/" />
   <meta property="og:locale" content="es_VE" />
   <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta property="og:locale:alternate" content="pt_PT" />
   <meta property="og:image" content="https://ayuda-venezuela-terremoto.netlify.app/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -423,9 +434,13 @@
       <div class="status-dot"></div>
       <span id="statusText" data-i18n="status.online">En línea</span>
     </div>
-    <button id="langToggle" class="lang-toggle" onclick="toggleLanguage()">
-      <span id="langToggleLabel">EN</span>
-    </button>
+    <select id="langSelect" class="lang-select" onchange="selectLanguage(this.value)" aria-label="Idioma / Language">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="de">DE</option>
+      <option value="pt">PT</option>
+    </select>
   </header>
 
   <!-- ══════════════════ SCREEN: HOME ══════════════════════════ -->

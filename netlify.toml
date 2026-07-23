@@ -41,37 +41,15 @@
     Cache-Control = "public, max-age=3600"
 
 # ── Redirects: SPA fallback + API routing ──────────────────────
+# Consolidado a una sola fuente de verdad (día 29): el multiidioma
+# ahora vive dentro de index.html + emergency-data.js, seleccionado
+# vía ?lang= o el selector en el header — no vía carpetas separadas.
+# Las carpetas /en/, /fr/, /de/, /pt/ se eliminaron del repo.
 [[redirects]]
   from   = "/api/*"
   to     = "/.netlify/functions/:splat"
   status = 200
 
-# Cada idioma tiene su propia carpeta con su propio index.html —
-# estas reglas DEBEN ir antes del catch-all de abajo, o Netlify
-# siempre sirve el index.html de la raíz para /en/, /fr/, /de/, /pt/
-# (que es exactamente lo que estaba pasando).
-[[redirects]]
-  from   = "/en/*"
-  to     = "/en/index.html"
-  status = 200
-
-[[redirects]]
-  from   = "/fr/*"
-  to     = "/fr/index.html"
-  status = 200
-
-[[redirects]]
-  from   = "/de/*"
-  to     = "/de/index.html"
-  status = 200
-
-[[redirects]]
-  from   = "/pt/*"
-  to     = "/pt/index.html"
-  status = 200
-
-# Catch-all para la raíz (español, por defecto) — debe ir al final,
-# ya que solo aplica a lo que ninguna regla anterior haya capturado.
 [[redirects]]
   from   = "/*"
   to     = "/index.html"
