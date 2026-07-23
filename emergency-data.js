@@ -10,7 +10,7 @@
 const EMERGENCY_DATA = {
   generated_at: "2026-07-19T14:35:43.963290-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
-  days_elapsed: 27,
+  days_elapsed: 29,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
   status: {
     sismicity:                   "active_monitoring",
