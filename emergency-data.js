@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews",
+      date:    "2026-07-23",
+      badge:   "🔴 Casi un mes — balance actualizado",
+      title:   "5.398 fallecidos a un mes del terremoto — persisten dudas sobre desaparecidos",
+      summary: "El balance oficial subió a 5.398 fallecidos (52 más). Heridos se mantienen en 16.740. La cifra de personas sin vivienda tuvo un vaivén inusual esta semana —bajó a 17.265 el martes y volvió a subir a 17.907 el miércoles, sin explicación oficial del cambio. 23.122 personas permanecen en 107 campamentos. Las autoridades siguen sin publicar una cifra oficial de desaparecidos; la iniciativa ciudadana independiente \"Desaparecidos Terremoto Venezuela\" ya registra más de 29.000 casos reportados por particulares, cifra no verificada oficialmente. Delcy Rodríguez ratificó el compromiso de entregar 4.000 viviendas este año y 10.000 más durante 2027.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/23/a-casi-un-mes-del-doble-terremoto-en-venezuela-el-balance-oficial-ascendio-a-5398-muertos/",
+    },
+    {
       source:  "Jorge Rodríguez (AN) / Delcy Rodríguez — EFE/Infobae, 20 jul 2026",
       date:    "2026-07-20",
       badge:   "🏘️ Primeras viviendas entregadas",
