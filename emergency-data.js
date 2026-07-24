@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Ayuda Venezuela",
+      date:    "2026-07-24",
+      badge:   "🕊️ Mensaje especial — 30 días",
+      title:   "Hoy, Venezuela recuerda y se levanta — mensaje a un mes del terremoto",
+      summary: "Hoy, 24 de julio, se cumple un mes de los terremotos y 243 años del natalicio de Simón Bolívar. Publicamos un mensaje especial de memoria, fuerza y esperanza para quienes lo perdieron todo — disponible en español, inglés, francés, alemán y portugués. Puedes leerlo completo desde la tarjeta destacada en la pantalla de Inicio.",
+      type:    "civil",
+      source_url: "https://ayuda-venezuela-terremoto.netlify.app/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews",
       date:    "2026-07-23",
       badge:   "🔴 Casi un mes — balance actualizado",
