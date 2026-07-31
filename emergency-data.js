@@ -8,7 +8,7 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-07-24T14:55:39.762263-04:00",
+  generated_at: "2026-07-31T15:30:57.283626-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
   days_elapsed: 30,
   epicenter:    "Yaracuy (M 7.2 y M 7.5)",
@@ -22,19 +22,19 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              5398,
+    deaths:              5546,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
     countries_supporting: 31,
-    humanitarian_tons:   10063,
+    humanitarian_tons:   10977,
     k9_units:            86,
     rescue_personnel:    2278,
-    aftershocks_total:   1405,
+    aftershocks_total:   1500,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews/France24, 23 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/EFE/LaPatilla, 24 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
