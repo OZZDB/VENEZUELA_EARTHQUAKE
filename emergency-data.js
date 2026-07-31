@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "USGS — vía Contrapunto.com",
+      date:    "2026-07-29",
+      badge:   "📡 Aclaración técnica sobre el epicentro",
+      title:   "El epicentro del sismo más destructivo (M7,5) fue en La Guaira, no en Yaracuy",
+      summary: "El sismo de magnitud 7,2 (el primero de los dos) sí se originó cerca de San Felipe, estado Yaracuy. Pero el segundo y más destructivo, de magnitud 7,5 —responsable de la mayoría de las víctimas y del colapso del 80% de las edificaciones en La Guaira— tuvo su epicentro 17 kilómetros al oeste de Catia La Mar, en el estado La Guaira, según el USGS, y no en Yaracuy como se difundió ampliamente en los primeros reportes. Esta plataforma actualiza su ficha técnica para reflejar ambos epicentros con precisión.",
+      type:    "seismic",
+      source_url: "https://contrapunto.com",
+    },
+    {
       source:  "Ayuda Venezuela",
       date:    "2026-07-24",
       badge:   "🕊️ Mensaje especial — 30 días",
