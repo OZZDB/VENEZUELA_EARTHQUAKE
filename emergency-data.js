@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://ayuda-venezuela-terremoto.netlify.app/",
     },
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/EFE",
+      date:    "2026-07-24",
+      badge:   "🔴 Un mes — balance oficial",
+      title:   "5.546 fallecidos a un mes del terremoto — estiman reconstrucción en USD 12.000 millones",
+      summary: "A un mes exacto del doble terremoto, el balance oficial subió a 5.546 fallecidos (148 más). Heridos (16.740) y personas sin vivienda (17.907) se mantienen sin cambios. 23.811 personas permanecen en 107 campamentos y 128.324 familias han sido atendidas. Especialistas estiman que el costo de reconstrucción superará los USD 12.000 millones (10,9% del PIB) — la tercera estimación de daños que se conoce, distinta a la del PNUD (USD 6.700 millones) y la de UNDRR (USD 37.000 millones), cada una con metodología y fecha propias. Delcy Rodríguez ratificó el plan de 4.000 viviendas entregadas para diciembre de 2026 y más de 10.000 adicionales en 2027.",
+      type:    "critical",
+      source_url: "https://www.infobae.com/venezuela/2026/07/25/terremotos-en-venezuela-aumentaron-a-5546-la-cifra-de-muertos-a-un-mes-de-la-tragedia/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews",
       date:    "2026-07-23",
       badge:   "🔴 Casi un mes — balance actualizado",
