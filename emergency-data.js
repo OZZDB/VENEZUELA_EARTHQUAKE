@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "USGS — vía Contrapunto.com / Efecto Cocuyo",
+      date:    "2026-07-28",
+      badge:   "📡 USGS corrige el epicentro del sismo principal",
+      title:   "USGS reubica el epicentro del sismo de magnitud 7,5: fue en La Guaira, no en Yaracuy",
+      summary: "El Servicio Geológico de Estados Unidos (USGS) reubicó formalmente, el 28 de julio, el epicentro del sismo de magnitud 7,5 —el más destructivo de los dos, responsable de la mayoría de las víctimas—: pasó de la ubicación preliminar (28 km al sureste de Yumare, Yaracuy) a una nueva posición 17 km al oeste de Catia La Mar, estado La Guaira (10,622°N, 67,194°O), a 10 km de profundidad. El USGS explicó que las ondas del sismo principal quedaron parcialmente ocultas por el sismo previo de magnitud 7,2, ocurrido apenas 30 segundos antes, lo que dificultó la localización precisa en el reporte inicial. El sismo de 7,2 sí mantiene su epicentro original cerca de San Felipe, Yaracuy.",
+      type:    "seismic",
+      source_url: "https://contrapunto.com/nacional/nacional-nacional/epicentro-del-terremoto-de-magnitud-7-5-fue-a-17-kilometros-de-catia-la-mar-y-no-en-yaracuy/",
+    },
+    {
       source:  "Ayuda Venezuela",
       date:    "2026-07-24",
       badge:   "🕊️ Mensaje especial — 30 días",
