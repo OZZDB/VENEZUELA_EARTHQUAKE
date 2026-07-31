@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://contrapunto.com/nacional/nacional-nacional/epicentro-del-terremoto-de-magnitud-7-5-fue-a-17-kilometros-de-catia-la-mar-y-no-en-yaracuy/",
     },
     {
+      source:  "NPR / Agencia Meteorológica de Japón",
+      date:    "2026-07-28",
+      badge:   "🇯🇵 Solidaridad entre naciones sísmicas",
+      title:   "Terremoto en Kumamoto, Japón — un vistazo a otra emergencia sísmica en curso",
+      summary: "El 28 de julio, un terremoto de magnitud 6,8-7,1 sacudió la prefectura de Kumamoto, en el sur de Japón, dejando al menos 34 fallecidos y miles de evacuados; las Fuerzas de Autodefensa japonesas desplegaron cerca de 3.600 efectivos en la zona. Mientras Japón enfrenta su propia emergencia, Venezuela sigue reconstruyéndose de la suya — un recordatorio de que la actividad sísmica no distingue fronteras, y de que la solidaridad internacional que recibimos este último mes bien puede circular también en la otra dirección.",
+      type:    "international",
+      source_url: "https://www.npr.org/2026/07/31/g-s1-136503/japan-quake-death-toll",
+    },
+    {
       source:  "Ayuda Venezuela",
       date:    "2026-07-24",
       badge:   "🕊️ Mensaje especial — 30 días",
