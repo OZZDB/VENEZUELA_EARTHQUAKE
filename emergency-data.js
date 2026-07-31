@@ -8,10 +8,10 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-07-31T15:30:57.283626-04:00",
+  generated_at: "2026-07-24T14:55:39.762263-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
   days_elapsed: 30,
-  epicenter:    "Yaracuy (M 7.2 y M 7.5)",
+  epicenter:    "Yaracuy (M7.2) · 17km O de Catia La Mar, La Guaira (M7.5, reubicado por USGS 28 jul)",
   status: {
     sismicity:                   "active_monitoring",
     humanitarian_response:       "active_extended",
@@ -22,19 +22,19 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              5546,
+    deaths:              5398,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
     countries_supporting: 31,
-    humanitarian_tons:   10977,
+    humanitarian_tons:   10063,
     k9_units:            86,
     rescue_personnel:    2278,
-    aftershocks_total:   1500,
+    aftershocks_total:   1405,
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/EFE/LaPatilla, 24 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews/France24, 23 jul 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
@@ -65,24 +65,6 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
-      source:  "USGS — vía Contrapunto.com / Efecto Cocuyo",
-      date:    "2026-07-28",
-      badge:   "📡 USGS corrige el epicentro del sismo principal",
-      title:   "USGS reubica el epicentro del sismo de magnitud 7,5: fue en La Guaira, no en Yaracuy",
-      summary: "El Servicio Geológico de Estados Unidos (USGS) reubicó formalmente, el 28 de julio, el epicentro del sismo de magnitud 7,5 —el más destructivo de los dos, responsable de la mayoría de las víctimas—: pasó de la ubicación preliminar (28 km al sureste de Yumare, Yaracuy) a una nueva posición 17 km al oeste de Catia La Mar, estado La Guaira (10,622°N, 67,194°O), a 10 km de profundidad. El USGS explicó que las ondas del sismo principal quedaron parcialmente ocultas por el sismo previo de magnitud 7,2, ocurrido apenas 30 segundos antes, lo que dificultó la localización precisa en el reporte inicial. El sismo de 7,2 sí mantiene su epicentro original cerca de San Felipe, Yaracuy.",
-      type:    "seismic",
-      source_url: "https://contrapunto.com/nacional/nacional-nacional/epicentro-del-terremoto-de-magnitud-7-5-fue-a-17-kilometros-de-catia-la-mar-y-no-en-yaracuy/",
-    },
-    {
-      source:  "NPR / Agencia Meteorológica de Japón",
-      date:    "2026-07-28",
-      badge:   "🇯🇵 Solidaridad entre naciones sísmicas",
-      title:   "Terremoto en Kumamoto, Japón — un vistazo a otra emergencia sísmica en curso",
-      summary: "El 28 de julio, un terremoto de magnitud 6,8-7,1 sacudió la prefectura de Kumamoto, en el sur de Japón, dejando al menos 34 fallecidos y miles de evacuados; las Fuerzas de Autodefensa japonesas desplegaron cerca de 3.600 efectivos en la zona. Mientras Japón enfrenta su propia emergencia, Venezuela sigue reconstruyéndose de la suya — un recordatorio de que la actividad sísmica no distingue fronteras, y de que la solidaridad internacional que recibimos este último mes bien puede circular también en la otra dirección.",
-      type:    "international",
-      source_url: "https://www.npr.org/2026/07/31/g-s1-136503/japan-quake-death-toll",
-    },
-    {
       source:  "Ayuda Venezuela",
       date:    "2026-07-24",
       badge:   "🕊️ Mensaje especial — 30 días",
@@ -90,15 +72,6 @@ const EMERGENCY_DATA = {
       summary: "Hoy, 24 de julio, se cumple un mes de los terremotos y 243 años del natalicio de Simón Bolívar. Publicamos un mensaje especial de memoria, fuerza y esperanza para quienes lo perdieron todo — disponible en español, inglés, francés, alemán y portugués. Puedes leerlo completo desde la tarjeta destacada en la pantalla de Inicio.",
       type:    "civil",
       source_url: "https://ayuda-venezuela-terremoto.netlify.app/",
-    },
-    {
-      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/EFE",
-      date:    "2026-07-24",
-      badge:   "🔴 Un mes — balance oficial",
-      title:   "5.546 fallecidos a un mes del terremoto — estiman reconstrucción en USD 12.000 millones",
-      summary: "A un mes exacto del doble terremoto, el balance oficial subió a 5.546 fallecidos (148 más). Heridos (16.740) y personas sin vivienda (17.907) se mantienen sin cambios. 23.811 personas permanecen en 107 campamentos y 128.324 familias han sido atendidas. Especialistas estiman que el costo de reconstrucción superará los USD 12.000 millones (10,9% del PIB) — la tercera estimación de daños que se conoce, distinta a la del PNUD (USD 6.700 millones) y la de UNDRR (USD 37.000 millones), cada una con metodología y fecha propias. Delcy Rodríguez ratificó el plan de 4.000 viviendas entregadas para diciembre de 2026 y más de 10.000 adicionales en 2027.",
-      type:    "critical",
-      source_url: "https://www.infobae.com/venezuela/2026/07/25/terremotos-en-venezuela-aumentaron-a-5546-la-cifra-de-muertos-a-un-mes-de-la-tragedia/",
     },
     {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews",
