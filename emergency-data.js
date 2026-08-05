@@ -10,7 +10,7 @@
 const EMERGENCY_DATA = {
   generated_at: "2026-07-24T14:55:39.762263-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
-  days_elapsed: 30,
+  days_elapsed: 42,
   epicenter:    "Yaracuy (M7.2) · 17km O de Catia La Mar, La Guaira (M7.5, reubicado por USGS 28 jul)",
   status: {
     sismicity:                   "active_monitoring",
