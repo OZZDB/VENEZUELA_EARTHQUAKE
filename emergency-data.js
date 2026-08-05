@@ -8,7 +8,7 @@
 'use strict';
 
 const EMERGENCY_DATA = {
-  generated_at: "2026-07-24T14:55:39.762263-04:00",
+  generated_at: "2026-08-05T15:56:23.853892-04:00",
   event:        "Terremoto Venezuela — 24 junio 2026",
   days_elapsed: 42,
   epicenter:    "Yaracuy (M7.2) · 17km O de Catia La Mar, La Guaira (M7.5, reubicado por USGS 28 jul)",
@@ -22,7 +22,7 @@ const EMERGENCY_DATA = {
 
   // ── CIFRAS OFICIALES ─────────────────────────────────────────
   official_stats: {
-    deaths:              5398,
+    deaths:              6125,
     injured:             16740,
     rescued:             6462,
     volunteers:          31050,
@@ -34,7 +34,7 @@ const EMERGENCY_DATA = {
     us_personnel_inside: 900,
     us_personnel_hubs:   800,
     casualties_status:   "en actualización — rescates en curso",
-    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/Euronews/France24, 23 jul 2026",
+    source:   "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/El Pitazo/La Patilla, 3 ago 2026",
   },
 
   // ── RÉPLICAS RECIENTES (FUNVISIS) ────────────────────────────
