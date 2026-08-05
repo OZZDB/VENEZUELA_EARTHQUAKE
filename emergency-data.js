@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/El Pitazo",
+      date:    "2026-08-03",
+      badge:   "🔴 Balance actualizado — nuevo formato semanal",
+      title:   "6.125 fallecidos — el Gobierno anuncia balances semanales para la etapa de reconstrucción",
+      summary: "Tras 10 días sin ofrecer cifras oficiales, el Gobierno actualizó el balance: 6.125 fallecidos (579 más que el 24 de julio). Los rescatados se mantienen en 6.462. Los pacientes atendidos en hospitales subieron a 60.992 (13.050 más). En vivienda: de 41.624 unidades afectadas, 43.679 ya fueron evaluadas — 25.325 habitables, 9.866 restringidas y 6.433 en alto riesgo — y 287 viviendas ya fueron entregadas a familias damnificadas. Jorge Rodríguez anunció que, en adelante, los boletines de la \"etapa de reconstrucción\" se publicarán semanalmente en vez de a diario.",
+      type:    "critical",
+      source_url: "https://elpitazo.net/regiones/jorge-rodriguez-actualiza-cifras-de-los-terremotos-tras-10-dias-de-silencio-fallecidos-suben-a-6-125/",
+    },
+    {
       source:  "Ayuda Venezuela",
       date:    "2026-07-24",
       badge:   "🕊️ Mensaje especial — 30 días",
