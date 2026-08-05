@@ -65,6 +65,15 @@ const EMERGENCY_DATA = {
   // ── COMUNICADOS OFICIALES — actualizado 4 jul 2026 ──────────
   official_updates: [
     {
+      source:  "Banco Mundial — vía El Universal (Cartagena) / Infobae",
+      date:    "2026-08-04",
+      badge:   "💰 Banco Mundial: USD 19.600 millones en daños",
+      title:   "Banco Mundial estima los daños en USD 19.600 millones — avanza reparación de viviendas en La Guaira",
+      summary: "El Banco Mundial estimó en USD 19.600 millones los daños físicos directos causados por los terremotos, de los cuales un 47% (unos USD 9.300 millones) corresponde a viviendas residenciales, principalmente en La Guaira. Es la cuarta estimación de daños que se conoce hasta ahora, cada una con metodología y fecha distinta: PNUD (USD 6.700M, 12 jul), UNDRR (USD 37.000M, 3 jul) y un economista independiente (USD 12.000-15.000M, 24 jul). El organismo advirtió que una reconstrucción lenta podría frenar la recuperación económica del país durante la próxima década.",
+      type:    "international",
+      source_url: "https://www.eluniversal.com.co/mundo/2026/08/04/revelan-cuantas-viviendas-seran-reparadas-en-venezuela-tras-los-terremotos/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/El Pitazo",
       date:    "2026-08-03",
       badge:   "🔴 Balance actualizado — nuevo formato semanal",
