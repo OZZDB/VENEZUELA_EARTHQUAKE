@@ -74,6 +74,15 @@ const EMERGENCY_DATA = {
       source_url: "https://www.eluniversal.com.co/mundo/2026/08/04/revelan-cuantas-viviendas-seran-reparadas-en-venezuela-tras-los-terremotos/",
     },
     {
+      source:  "Provea / Gobernación de La Guaira — vía LaPatilla / El Comercio (Perú)",
+      date:    "2026-08-04",
+      badge:   "⚠️ Cifra oficial de desaparecidos sigue congelada",
+      title:   "Persisten tres cifras distintas de desaparecidos — la oficial nacional no se actualiza desde el 25 de junio",
+      summary: "La única cifra oficial de desaparecidos publicada por el Gobierno nacional sigue siendo 157, difundida una sola vez el 25 de junio y sin actualizar desde entonces. La organización de derechos humanos Provea exigió su actualización, señalando que la falta de un registro público vulnera al menos cinco derechos humanos fundamentales. En paralelo, el gobernador de La Guaira, José Alejandro Terán, reportó —a partir de información suministrada directamente por familiares— al menos 1.579 personas desaparecidas solo en ese estado, una cifra distinta a la nacional. La iniciativa ciudadana \"Desaparecidos Terremoto Venezuela\" registra, por su parte, 29.899 casos reportados por particulares, aunque aclara que una misma persona puede figurar más de una vez. Ninguna de estas tres cifras ha sido reconciliada oficialmente.",
+      type:    "civil",
+      source_url: "https://elcomercio.pe/mundo/venezuela/terremotos-en-venezuela-al-menos-1579-personas-estan-desaparecidas-tras-doble-sismo-segun-gobernador-jose-alejandro-teran-la-guaira-ultimas-noticia/",
+    },
+    {
       source:  "Jorge Rodríguez (Presidente AN) vía Telegram — Infobae/El Pitazo",
       date:    "2026-08-03",
       badge:   "🔴 Balance actualizado — nuevo formato semanal",
