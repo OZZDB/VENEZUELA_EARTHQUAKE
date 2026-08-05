@@ -730,7 +730,7 @@ const TRANSLATIONS = {
     'memorial.teaser': "Un mensaje especial a un mes del terremoto, en el natalicio de Bolívar.",
     'memorial.cta': 'Leer el mensaje completo',
     'memorial.screentitle': 'Un mes después',
-    'memorial.body': `<p>Hoy, 24 de julio, se cumplen 243 años del nacimiento de Simón Bolívar en Caracas. Ese mismo día, se cumple un mes exacto de los terremotos que cambiaron a Venezuela para siempre.</p>
+    'memorial.body': `<p>El 24 de julio de 2026 se cumplieron 243 años del nacimiento de Simón Bolívar en Caracas. Ese mismo día se cumplió un mes exacto de los terremotos que cambiaron a Venezuela para siempre.</p>
 <p>No elegimos esta coincidencia. Pero tal vez valga la pena detenernos en ella.</p>
 <h3>A quienes lo perdieron todo</h3>
 <p>A quienes hoy visitan un campamento transitorio en vez de su casa. A quienes todavía revisan su teléfono esperando una llamada que confirme dónde está un ser querido. A las más de 5.000 familias que enterraron a alguien este mes, y a las que aún no encuentran respuesta.</p>
@@ -744,7 +744,7 @@ const TRANSLATIONS = {
 <p>No hablaba de un terremoto. Hablaba de otro tipo de ruina, y de otro tipo de reconstrucción. Pero la promesa es la misma que sostiene hoy a quien remueve escombros a mano, a quien reparte agua en un camión prestado, a quien abre su casa a una familia que no conocía hace un mes: <strong>la certeza de que un pueblo que se sostiene a sí mismo no se derrumba del todo, aunque se le caigan las paredes.</strong></p>
 <h3>Lo que sigue</h3>
 <p>Treinta días no cierran un duelo. La reconstrucción de Venezuela —la material, y la del corazón de quienes perdieron a los suyos— no se mide en semanas, sino en años. Este sitio va a seguir aquí para acompañarla, con las mismas cifras verificadas y la misma honestidad con la que empezamos.</p>
-<p>Hoy, en el cumpleaños del Libertador, la libertad que más importa es más simple que cualquier gesta: la de saber que, pase lo que pase, alguien más va a estar ahí para ayudar a levantar lo que se cayó.</p>
+<p>Aquel 24 de julio, día del cumpleaños del Libertador, entendimos algo simple que sigue siendo cierto hoy: la libertad que más importa es más simple que cualquier gesta — la de saber que, pase lo que pase, alguien más va a estar ahí para ayudar a levantar lo que se cayó.</p>
 <p style="margin-top:18px;font-style:italic;">Con todo el respeto y toda la fuerza,<br><strong>Ayuda Venezuela</strong></p>`,
   },
 
@@ -789,7 +789,7 @@ const TRANSLATIONS = {
     'memorial.teaser': "A special message one month after the earthquake, on Bolívar's birthday.",
     'memorial.cta': 'Read the full message',
     'memorial.screentitle': 'One month later',
-    'memorial.body': `<p>Today, July 24, marks 243 years since Simón Bolívar was born in Caracas. That same day marks exactly one month since the earthquakes that changed Venezuela forever.</p>
+    'memorial.body': `<p>July 24, 2026 marked 243 years since Simón Bolívar was born in Caracas. That same day marked exactly one month since the earthquakes that changed Venezuela forever.</p>
 <p>We didn't choose this coincidence. But perhaps it's worth pausing on it.</p>
 <h3>To those who lost everything</h3>
 <p>To those who today visit a transitional shelter instead of their home. To those still checking their phone, waiting for a call that confirms where a loved one is. To the more than 5,000 families who buried someone this month, and to those still waiting for an answer.</p>
@@ -803,7 +803,7 @@ const TRANSLATIONS = {
 <p>He wasn't speaking of an earthquake. He was speaking of another kind of ruin, and another kind of rebuilding. But the promise is the same one that sustains, today, whoever clears rubble by hand, whoever hands out water from a borrowed truck, whoever opens their home to a family they didn't know a month ago: <strong>the certainty that a people who hold each other up don't fully collapse, even when the walls do.</strong></p>
 <h3>What comes next</h3>
 <p>Thirty days don't close a grief. Venezuela's reconstruction — the material one, and the one in the hearts of those who lost their people — isn't measured in weeks, but in years. This site will keep being here to accompany it, with the same verified figures and the same honesty we started with.</p>
-<p>Today, on the Liberator's birthday, the freedom that matters most is simpler than any feat of history: knowing that, whatever happens, someone else will be there to help rebuild what fell.</p>
+<p>That July 24, the Liberator's birthday, we understood something simple that still holds true today: the freedom that matters most is simpler than any feat of history — knowing that, whatever happens, someone else will be there to help rebuild what fell.</p>
 <p style="margin-top:18px;font-style:italic;">With all our respect and all our strength,<br><strong>Ayuda Venezuela</strong></p>`,
   },
 
@@ -848,7 +848,7 @@ const TRANSLATIONS = {
     'memorial.teaser': "Un message spécial un mois après le séisme, à l'anniversaire de Bolívar.",
     'memorial.cta': 'Lire le message complet',
     'memorial.screentitle': 'Un mois après',
-    'memorial.body': `<p>Aujourd'hui, 24 juillet, marque les 243 ans de la naissance de Simón Bolívar à Caracas. Ce même jour marque exactement un mois depuis les séismes qui ont changé le Venezuela pour toujours.</p>
+    'memorial.body': `<p>Le 24 juillet 2026 a marqué les 243 ans de la naissance de Simón Bolívar à Caracas. Ce même jour a marqué exactement un mois depuis les séismes qui ont changé le Venezuela pour toujours.</p>
 <p>Nous n'avons pas choisi cette coïncidence. Mais peut-être vaut-il la peine de s'y arrêter.</p>
 <h3>À ceux qui ont tout perdu</h3>
 <p>À ceux qui visitent aujourd'hui un abri transitoire au lieu de leur maison. À ceux qui vérifient encore leur téléphone, attendant un appel confirmant où se trouve un être cher. Aux plus de 5 000 familles qui ont enterré quelqu'un ce mois-ci, et à celles qui attendent encore une réponse.</p>
@@ -862,7 +862,7 @@ const TRANSLATIONS = {
 <p>Il ne parlait pas d'un séisme. Il parlait d'un autre type de ruine, et d'un autre type de reconstruction. Mais la promesse est la même qui soutient aujourd'hui celui qui déblaie des décombres à mains nues, celui qui distribue de l'eau depuis un camion emprunté, celui qui ouvre sa maison à une famille qu'il ne connaissait pas il y a un mois : <strong>la certitude qu'un peuple qui se soutient lui-même ne s'effondre jamais complètement, même quand les murs, eux, s'effondrent.</strong></p>
 <h3>Ce qui suit</h3>
 <p>Trente jours ne referment pas un deuil. La reconstruction du Venezuela — la matérielle, et celle du cœur de ceux qui ont perdu les leurs — ne se mesure pas en semaines, mais en années. Ce site continuera d'être là pour l'accompagner, avec les mêmes chiffres vérifiés et la même honnêteté qu'au premier jour.</p>
-<p>Aujourd'hui, à l'anniversaire du Libertador, la liberté qui compte le plus est plus simple que n'importe quel exploit historique : celle de savoir que, quoi qu'il arrive, quelqu'un d'autre sera là pour aider à relever ce qui est tombé.</p>
+<p>Ce 24 juillet, anniversaire du Libertador, nous avons compris quelque chose de simple qui reste vrai aujourd'hui : la liberté qui compte le plus est plus simple que n'importe quel exploit historique — celle de savoir que, quoi qu'il arrive, quelqu'un d'autre sera là pour aider à relever ce qui est tombé.</p>
 <p style="margin-top:18px;font-style:italic;">Avec tout notre respect et toute notre force,<br><strong>Ayuda Venezuela</strong></p>`,
   },
 
@@ -907,7 +907,7 @@ const TRANSLATIONS = {
     'memorial.teaser': "Eine besondere Botschaft einen Monat nach dem Erdbeben, an Bolívars Geburtstag.",
     'memorial.cta': 'Vollständige Botschaft lesen',
     'memorial.screentitle': 'Einen Monat später',
-    'memorial.body': `<p>Heute, am 24. Juli, jährt sich die Geburt Simón Bolívars in Caracas zum 243. Mal. Am selben Tag jährt sich auch genau ein Monat seit den Erdbeben, die Venezuela für immer verändert haben.</p>
+    'memorial.body': `<p>Am 24. Juli 2026 jährte sich die Geburt Simón Bolívars in Caracas zum 243. Mal. Am selben Tag jährte sich auch genau ein Monat seit den Erdbeben, die Venezuela für immer verändert haben.</p>
 <p>Wir haben uns diesen Zufall nicht ausgesucht. Aber vielleicht lohnt es sich, einen Moment innezuhalten.</p>
 <h3>An alle, die alles verloren haben</h3>
 <p>An alle, die heute eine Notunterkunft statt ihr Zuhause besuchen. An alle, die noch immer auf ihr Telefon schauen und auf einen Anruf warten, der bestätigt, wo ein geliebter Mensch ist. An die mehr als 5.000 Familien, die diesen Monat jemanden begraben haben, und an jene, die noch immer auf eine Antwort warten.</p>
@@ -921,7 +921,7 @@ const TRANSLATIONS = {
 <p>Er sprach nicht von einem Erdbeben. Er sprach von einer anderen Art des Zusammenbruchs und einer anderen Art des Wiederaufbaus. Doch das Versprechen ist dasselbe, das heute jenen trägt, der von Hand Trümmer wegräumt, der Wasser von einem geliehenen Lastwagen verteilt, der einer Familie, die er vor einem Monat noch nicht kannte, sein Zuhause öffnet: <strong>die Gewissheit, dass ein Volk, das sich gegenseitig stützt, nicht ganz zusammenbricht, selbst wenn die Mauern es tun.</strong></p>
 <h3>Was als Nächstes kommt</h3>
 <p>Dreißig Tage schließen keine Trauer ab. Der Wiederaufbau Venezuelas — der materielle, und jener im Herzen derer, die ihre Liebsten verloren haben — bemisst sich nicht in Wochen, sondern in Jahren. Diese Seite wird weiterhin hier sein, um ihn zu begleiten, mit denselben verifizierten Zahlen und derselben Ehrlichkeit, mit der wir begonnen haben.</p>
-<p>Heute, am Geburtstag des Befreiers, ist die Freiheit, die am meisten zählt, einfacher als jede historische Heldentat: die Gewissheit, dass, was auch immer geschieht, jemand anderes da sein wird, um mit aufzubauen, was eingestürzt ist.</p>
+<p>An jenem 24. Juli, dem Geburtstag des Befreiers, verstanden wir etwas Einfaches, das bis heute gilt: Die Freiheit, die am meisten zählt, ist einfacher als jede historische Heldentat — die Gewissheit, dass, was auch immer geschieht, jemand anderes da sein wird, um mit aufzubauen, was eingestürzt ist.</p>
 <p style="margin-top:18px;font-style:italic;">Mit allem Respekt und aller Kraft,<br><strong>Ayuda Venezuela</strong></p>`,
   },
 
@@ -966,7 +966,7 @@ const TRANSLATIONS = {
     'memorial.teaser': "Uma mensagem especial um mês após o terremoto, no aniversário de Bolívar.",
     'memorial.cta': 'Ler a mensagem completa',
     'memorial.screentitle': 'Um mês depois',
-    'memorial.body': `<p>Hoje, 24 de julho, marca 243 anos do nascimento de Simón Bolívar em Caracas. Nesse mesmo dia, completa-se exatamente um mês dos terremotos que mudaram a Venezuela para sempre.</p>
+    'memorial.body': `<p>Em 24 de julho de 2026 completaram-se 243 anos do nascimento de Simón Bolívar em Caracas. Nesse mesmo dia completou-se exatamente um mês dos terremotos que mudaram a Venezuela para sempre.</p>
 <p>Não escolhemos essa coincidência. Mas talvez valha a pena parar para pensar nela.</p>
 <h3>A quem perdeu tudo</h3>
 <p>A quem hoje visita um abrigo temporário em vez da própria casa. A quem ainda verifica o telefone esperando uma ligação que confirme onde está um ente querido. Às mais de 5.000 famílias que enterraram alguém neste mês, e às que ainda esperam uma resposta.</p>
@@ -980,7 +980,7 @@ const TRANSLATIONS = {
 <p>Ele não falava de um terremoto. Falava de outro tipo de ruína, e de outro tipo de reconstrução. Mas a promessa é a mesma que sustenta hoje quem remove escombros com as mãos, quem distribui água de um caminhão emprestado, quem abre sua casa a uma família que não conhecia há um mês: <strong>a certeza de que um povo que se sustenta a si mesmo não desaba por completo, mesmo quando as paredes desabam.</strong></p>
 <h3>O que vem a seguir</h3>
 <p>Trinta dias não encerram um luto. A reconstrução da Venezuela — a material, e a do coração de quem perdeu os seus — não se mede em semanas, mas em anos. Este site continuará aqui para acompanhá-la, com os mesmos números verificados e a mesma honestidade com que começamos.</p>
-<p>Hoje, no aniversário do Libertador, a liberdade que mais importa é mais simples do que qualquer feito histórico: a de saber que, aconteça o que acontecer, alguém mais estará ali para ajudar a reerguer o que caiu.</p>
+<p>Naquele 24 de julho, aniversário do Libertador, entendemos algo simples que continua verdadeiro hoje: a liberdade que mais importa é mais simples do que qualquer feito histórico — a de saber que, aconteça o que acontecer, alguém mais estará ali para ajudar a reerguer o que caiu.</p>
 <p style="margin-top:18px;font-style:italic;">Com todo o respeito e toda a força,<br><strong>Ayuda Venezuela</strong></p>`,
   },
 };

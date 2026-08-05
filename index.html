@@ -310,26 +310,12 @@
       appearance: none; -webkit-appearance: none; text-align: center; text-align-last: center;
     }
     .lang-select:active { transform: scale(0.95); }
-    /* ── PIEZA CONMEMORATIVA — 30 días / natalicio de Bolívar ─── */
-    .memorial-card {
-      position: relative; margin: 14px 16px 0; padding: 18px 16px;
-      border-radius: var(--radius); overflow: hidden; cursor: pointer;
-      touch-action: manipulation; text-align: left; border: 1px solid rgba(255,200,87,0.4);
-      background:
-        linear-gradient(135deg, rgba(255,200,87,0.16) 0%, rgba(180,30,40,0.10) 60%, rgba(76,201,240,0.08) 100%);
-    }
-    .memorial-card::before {
-      content: ''; position: absolute; inset: 0; opacity: 0.5; pointer-events: none;
-      background: radial-gradient(circle at 85% -10%, rgba(255,200,87,0.35), transparent 60%);
-    }
+    /* ── PIEZA CONMEMORATIVA — mensaje a un mes del terremoto ─── */
     .memorial-badge {
       display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.6px;
       color: #ffc857; background: rgba(255,200,87,0.14); border: 1px solid rgba(255,200,87,0.35);
       padding: 3px 9px; border-radius: 20px; margin-bottom: 8px;
     }
-    .memorial-title { font-size: 16px; font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
-    .memorial-teaser { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
-    .memorial-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #ffc857; }
     .memorial-body h3 { font-size: 14px; font-weight: 800; color: #ffc857; margin: 20px 0 8px; }
     .memorial-body p { font-size: 13px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
   </style>
@@ -484,17 +470,6 @@
       </div>
     </div>
 
-    <!-- ═══════ PIEZA CONMEMORATIVA — 30 días / natalicio de Bolívar ═══════ -->
-    <div class="memorial-card" onclick="App.navigate('screenMemorial');renderMemorial()">
-      <span class="memorial-badge" data-i18n="memorial.badge">30 DÍAS · 24 DE JULIO DE 2026</span>
-      <div class="memorial-title" data-i18n="memorial.title">Hoy, Venezuela recuerda y se levanta</div>
-      <div class="memorial-teaser" data-i18n="memorial.teaser">Un mensaje especial a un mes del terremoto, en el natalicio de Bolívar.</div>
-      <span class="memorial-cta">
-        <span data-i18n="memorial.cta">Leer el mensaje completo</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffc857" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-      </span>
-    </div>
-
     <div class="day7-banner">
       <div class="day7-label">⚠ Día 42 — Emergencia activa · 24 junio 2026</div>
       <div class="day7-title">Terremoto Venezuela<br>M 7.2 y M 7.5 — Yaracuy<br><span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);">1.500+ réplicas · búsqueda activa</span></div>
@@ -532,6 +507,20 @@
           <div style="font-size:11px;color:var(--text-muted);margin-top:1px;">Rescates verificados · Vida y resiliencia</div>
         </div>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Mensaje a un mes del terremoto — acceso permanente -->
+    <div style="padding:10px 16px 0;">
+      <button onclick="App.navigate('screenMemorial');renderMemorial()" style="width:100%;display:flex;align-items:center;gap:12px;padding:15px;background:linear-gradient(135deg, rgba(255,200,87,0.14) 0%, rgba(180,30,40,0.06) 100%);border:1px solid rgba(255,200,87,0.35);border-radius:var(--radius);cursor:pointer;touch-action:manipulation;text-align:left;">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,200,87,0.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffc857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:800;color:var(--text);" data-i18n="memorial.title">Hoy, Venezuela recuerda y se levanta</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:1px;" data-i18n="memorial.teaser">Un mensaje especial a un mes del terremoto, en el natalicio de Bolívar.</div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffc857" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
 
